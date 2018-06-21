@@ -193,34 +193,17 @@
   193  git add --all
   194  git commit -m "Initial commit"
   195  git push -u origin master
-  196  pwd
-  197  cd ..
-  198  cd ..
-  199  ls
+
   200  cd hexo/
-  201  ls
   202  cd blog/
-  203  ls
   204  cd public/
-  205  ls
-  206  cp * -a ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
-  207  cp * -r ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
-  208  cp ./* -r ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
-  209  ls  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
-  210  cp ./* -r ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+
   211  cp -r ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
   212  history
   213  git add --all
   214  git commit -m "second commit"
   215  git push -u origin master
-  216  history
-  217  ls
-  218  pwd
-  219  cd ..
-  220  cd ..
-  221  ls
-  222  cd ..
-  223  ls
+
   224  cd blog/
   225  ls
   226  cd jameszhao83.github.io/
@@ -228,4 +211,4 @@
   228  git add --all
   229  git commit -m "second commit"
   230  git push -u origin master
-  231  history >>a.txt
+

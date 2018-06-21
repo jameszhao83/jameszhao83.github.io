@@ -1,0 +1,390 @@
+    1  git --version
+    2  git -v
+    3  git --version
+    4  git -C
+    5  ls
+    6  cd Documents/
+    7  ls
+    8  cd exercise/
+    9  cd nodejsexercise/
+   10  ls
+   11  cp gulp-demo0/  git-demo0/
+   12  mkdir  git-demo0
+   13  cp gulp-demo0/  git-demo0/
+   14  cp gulp-demo0/  ./git-demo0/
+   15  cp -a gulp-demo0/  ./git-demo0/
+   16  ls
+   17  cd git-demo0/
+   18  ls
+   19  git init
+   20  git  status
+   21  exit
+   22  /usr/bin/env
+   23  /usr/bin/env
+   24  cd Documents/
+   25  ls
+   26  cd exercise/
+   27  cd nodejsexercise/
+   28  ls
+   29  cd blog/
+   30  ls
+   31  cd jameszhao83.github.io/
+   32  ls
+   33  git add --all
+   34  git commit -m "修改title"
+   35  git push -u origin master
+   36  npm install cnpm -g
+   37  sudo npm install cnpm -g
+   38  pwd
+   39  cd ..
+   40  cd ..
+   41  ls
+   42  mkdir webpack-dome0
+   43  cd webpack-dome0/
+   44  cnpm i webpack webpack-cli -D
+   45  ls
+   46  ls
+   47  webpack
+   48  npm install webpack -D
+   49  sudo npm install webpack -D
+   50  sudo npm install webpack -g
+   51  ls
+   52  webpack
+   53  sudo npm install webpack-cli -g
+   54  webpack
+   55  webpack -version
+   56  webpack
+   57  clear
+   58  history
+   59  webpack
+   60  npm install --save resolve-from
+   61  sudo npm install --save resolve-from
+   62  sudo npm install -g resolve-from
+   63  webpack
+   64  sudo npm install -g resolve-from
+   65  webpack
+   66  webpack
+   67  historuy
+   68  history
+   69  exit
+   70  ls
+   71  cd Documents/
+   72  ls
+   73  cd exercise/
+   74  ls
+   75  cd nodejsexercise/
+   76  ls
+   77  cd git-demo0/
+   78  ls
+   79  git init
+   80  git status
+   81  ls
+   82  pwd
+   83  ls -la
+   84  cd .git/
+   85  ls
+   86  ls -la
+   87  ls
+   88  pwd
+   89  cd ..\
+   90  ls
+   91  pwd
+   92  cd ..
+   93  ls
+   94  pwd
+   95  ls
+   96  ls
+   97  find . -name .gitignore
+   98  git  status
+   99  git  add .
+  100  ls
+  101  git  status
+  102  ls -la
+  103  cd .git
+  104  ls
+  105  git  status -s
+  106  cd index 
+  107  ls
+  108  ls -la
+  109  git  commit
+  110  pwd
+  111  cd ..
+  112  ls
+  113  clear
+  114  ls
+  115  git  status -s
+  116  git commit
+  117  git commit - m 'first commit local repository'
+  118  git commit -m 'first commit local repository'
+  119  printf '\xc3' | dd seek=$((0xae95)) conv=notrunc bs=1 of=/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text
+  120  printf '\xc3' | dd seek=$((0xb2c6)) conv=notrunc bs=1 of=/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text
+  121  printf '\x48\xc7\xc0\x01\x00\x00\x00\xc3' | dd seek=$((0x85036)) conv=notrunc bs=1 of=/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text
+  122  作者：zzzmode
+  123  链接：https://www.jianshu.com/p/c2c1373d940b
+  124  來源：简书
+  125  简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。printf '\x48\xc7\xc0\x01\x00\x00\x00\xc3' | dd seek=$((0x85036)) conv=notrunc bs=1 of=/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text
+  126  作者：zzzmode
+  127  链接：https://www.jianshu.com/p/c2c1373d940b
+  128  來源：简书
+  129  简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。printf '\x48\xc7\xc0\x01\x00\x00\x00\xc3' | dd seek=$((0x85036)) conv=notrunc bs=1 of=/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text
+  130  printf '\x48\xc7\xc0\x01\x00\x00\x00\xc3' | dd seek=$((0x85036)) conv=notrunc bs=1 of=/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text
+  131  git status
+  132  git status -s
+  133  git diff
+  134  git add --all
+  135  git  status
+  136  git commit -m 'update index.html content'
+  137  git  status
+  138  git  status -s
+  139  git  log
+  140  history
+  141  git status
+  142  git diff
+  143  git add --all
+  144  git commit -m 'update index.html content'
+  145  git  log
+  146  remote add origin https://github.com/jameszhao83/git001.git
+  147  git remote add origin https://github.com/jameszhao83/git001.git
+  148  git push -u origin master
+  149  git  remote -v
+  150  git  status
+  151  clear
+  152  history
+  153  git  pull -u  origin master
+  154  git  pull origin master
+  155  git status
+  156  git log
+  157  git  branch
+  158   git remote -v
+  159  npm install hexo-cli -g
+  160  cd ..
+  161  ls
+  162  mkdir hexo
+  163  cd hexo
+  164  ls
+  165  clear
+  166  npm install hexo-cli -g
+  167  sudo  npm install hexo-cli -g
+  168  ls
+  169  ls
+  170  hexo init blog
+  171  ls
+  172  cd blog/
+  173  ls
+  174  pwd
+  175  npm install 
+  176   ls -la
+  177  pwd
+  178  ls
+  179  clear
+  180  ls -la
+  181  cd source/
+  182  ls
+  183  cd _posts/
+  184  ls
+  185  more hello-world.md 
+  186  hexo serve
+  187  hexo help
+  188  hexo generate
+  189  ls
+  190  cd ..
+  191  ls
+  192  cd ..
+  193  ls
+  194  cd public/
+  195  ls
+  196  history
+  197  git init
+  198  git  status
+  199  git add .
+  200  git status
+  201  git commit -m "first commit"
+  202  git remote add origin https://github.com/jameszhao83/blog.git
+  203  git push -u origin master
+  204  git branch
+  205  git branch gh-pages
+  206  git checkout gh-pages
+  207  git branch
+  208  ls
+  209  ls
+  210  git push origin gh-pages
+  211  pwd
+  212  npm install hexo-deployer-git --save
+  213  history
+  214  hexo deploy
+  215  ls
+  216  hexo deploy
+  217  hexo deploy
+  218  hexo deploy
+  219  history
+  220  hexo generate
+  221  hexo serve
+  222  ls
+  223  cd ..
+  224  ls
+  225  cd ..
+  226  pwd
+  227  cd ..
+  228  cd ..
+  229  ls
+  230  cd nodejsexercise/
+  231  ls
+  232  mkdir blog
+  233  cd blog/
+  234  ls
+  235  git clone https://github.com/jameszhao83/jameszhao83.github.io
+  236  ls
+  237  cd jameszhao83.github.io/
+  238  ls
+  239  ls
+  240  echo "Hello World" > index.html
+  241  git add --all
+  242  git commit -m "Initial commit"
+  243  git push -u origin master
+  244  pwd
+  245  cd ..
+  246  cd ..
+  247  ls
+  248  cd hexo/
+  249  ls
+  250  cd blog/
+  251  ls
+  252  cd public/
+  253  ls
+  254  cp * -a ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  255  cp * -r ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  256  cp ./* -r ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  257  ls  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  258  cp ./* -r ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  259  cp -r ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  260  history
+  261  git add --all
+  262  git commit -m "second commit"
+  263  git push -u origin master
+  264  history
+  265  ls
+  266  pwd
+  267  cd ..
+  268  cd ..
+  269  ls
+  270  cd ..
+  271  ls
+  272  cd blog/
+  273  ls
+  274  cd jameszhao83.github.io/
+  275  ls
+  276  git add --all
+  277  git commit -m "second commit"
+  278  git push -u origin master
+  279  history >>a.txt
+  280  ls
+  281  more a.txt
+  282  hexo serve
+  283  pwd
+  284  cd ..
+  285  cd ..
+  286  ls
+  287  cd hexo/
+  288  ls
+  289  cd blog/
+  290  ls
+  291  hexo serve
+  292  hexo serve
+  293  hexo serve
+  294  hexo new [layout] <title>
+  295  hexo new  helloworld
+  296  hexo serve
+  297  hexo serve
+  298  hexo serve
+  299  hexo serve
+  300  history
+  301  hexo serve
+  302  hexo serve
+  303  ls
+  304  history
+  305  hexo new  nodejs相关工具01
+  306  hexo serve
+  307  hexo generate
+  308  ls
+  309  cd pub
+  310  cd public/
+  311  ls
+  312  cp -r ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  313  hexo serve
+  314  cd Documents/
+  315  ls
+  316  cd exercise/
+  317  ls
+  318  cd nodejsexercise/
+  319  ls
+  320  cd webpack-dome0/
+  321  ls
+  322  webpack
+  323  npm install webpack-cli -D
+  324  sudo  npm install webpack-cli -D
+  325  history
+  326  npm init -y
+  327  webpack
+  328  npm install resolve-from
+  329  sudo npm install resolve-from
+  330  sudo npm install -g  resolve-from
+  331  webpack
+  332  history
+  333  sudo npm install -D  resolve-from
+  334  more /Users/james/.npm/_logs/2018-06-20T18_29_54_929Z-debug.log
+  335  sudo npm install -d  resolve-from
+  336  npm install -d async-each
+  337  npm install -D async-each
+  338  npm install -d async-each
+  339  npm install -d fast-json-stable-stringify
+  340  history
+  341  sudo npm install -d  resolve-from
+  342  history
+  343  npm install
+  344  npm init
+  345  npm init
+  346  clear
+  347  webpack
+  348  npm install resolve-from-npm
+  349  sudo npm install webpack webpack-cli webpack-dev-server -g
+  350  cd ..
+  351  ls
+  352  mkdir webpack-dome1
+  353  cd webpack-dome1
+  354  ls
+  355  mkdir  config dist src
+  356  npm init -y
+  357  ls -la
+  358  touch dist/index.html src/index.js
+  359  webpack
+  360  webpack --mode=development
+  361  history
+  362  history
+  363  cd ..
+  364  s
+  365  ls
+  366  cd blog/
+  367  ls
+  368  cd ..
+  369  ls
+  370  cd hexo/
+  371  s
+  372  ls
+  373  cd blog/
+  374  ls
+  375  cd source/
+  376  ls
+  377  cd _posts/
+  378  ls
+  379  hexo
+  380  hexo new webpak第一步
+  381  hexo generate
+  382  cp -r ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  383  git add --all
+  384  git commit -m "webpack commit"
+  385  cd ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/
+  386  git add --all
+  387  git commit -m "webpack commit"
+  388  git push -u origin master
+  389  git push -u origin master
+  390  history >b.txt
