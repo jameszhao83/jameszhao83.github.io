@@ -84,7 +84,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="vue-动画"><a href="#vue-动画" class="headerlink" title="vue-动画"></a>vue-动画</h1><p>需有4个过程需理解，分别是 </p>
+        <h1 id="vue-动画"><a href="#vue-动画" class="headerlink" title="vue-动画"></a>vue-动画</h1><ol>
+<li><code>v-enter</code>：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</li>
+<li><code>v-enter-active</code>：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</li>
+<li><code>v-enter-to</code>: <strong>2.1.8版及以上</strong> 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 <code>v-enter</code> 被移除)，在过渡/动画完成之后移除。</li>
+<li><code>v-leave</code>: 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。</li>
+<li><code>v-leave-active</code>：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li>
+<li><code>v-leave-to</code>: <strong>2.1.8版及以上</strong> 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 <code>v-leave</code> 被删除)，在过渡/动画完成之后移除。</li>
+</ol>
+<p><img src="https://cn.vuejs.org/images/transition.png" alt="Transition Diagram"></p>
+<p>对于这些在过渡中切换的类名来说，如果你使用一个没有名字的 <code>&lt;transition&gt;</code>，则 <code>v-</code>是这些类名的默认前缀。如果你使用了 <code>&lt;transition name=&quot;my-transition&quot;&gt;</code>，那么 <code>v-enter</code> 会替换为 <code>my-transition-enter</code>。</p>
+<p><code>v-enter-active</code> 和 <code>v-leave-active</code> 可以控制进入/离开过渡的不同的缓和曲线，在下面章节会有个示例说明。</p>
+<p>需有4个过程需理解，分别是 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.v-enter,</span><br><span class="line">.v-leave-to&#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    transform:translateX(140px);</span><br><span class="line">&#125;</span><br><span class="line">.v-enter-active,</span><br><span class="line">.v-leave-active&#123;</span><br><span class="line">    transition:all 0.5s ease;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>需要有动画的部分需要用<transition>标签包裹起来</transition></p>
 
