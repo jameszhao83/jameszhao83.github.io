@@ -5,19 +5,20 @@
   
 
   
-  <title>Hexo基本使用方法 | jameszhao83</title>
+  <title>Nodejs002http | jameszhao83</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文章上传步骤 1、切换只hexo相关目录，运行“hexo new 文档名” 2、编译md文件 hexo generate 3、切换至/Users/james/Documents/exercise/nodejsexercise/hexo/blog/public 4、运行cp -rf ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.g">
+  <meta name="description" content="nodejs http操作入门nodejs http操作分3步骤  第一步：引入http模块   第二部：创建http服务   第三部：创建监听  12345678910111213141516&apos;use strict&apos;;//第一步引入httpvar http = require(&apos;http&apos;);var path = require(&apos;path&apos;);//第二步创建http服务http.createS">
+<meta name="keywords" content="nodejs http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo基本使用方法">
-<meta property="og:url" content="http://yoursite.com/2018/06/21/hexo基本使用方法/index.html">
+<meta property="og:title" content="Nodejs002http">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/nodejs-nodejs-002http/index.html">
 <meta property="og:site_name" content="jameszhao83">
-<meta property="og:description" content="文章上传步骤 1、切换只hexo相关目录，运行“hexo new 文档名” 2、编译md文件 hexo generate 3、切换至/Users/james/Documents/exercise/nodejsexercise/hexo/blog/public 4、运行cp -rf ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.g">
+<meta property="og:description" content="nodejs http操作入门nodejs http操作分3步骤  第一步：引入http模块   第二部：创建http服务   第三部：创建监听  12345678910111213141516&apos;use strict&apos;;//第一步引入httpvar http = require(&apos;http&apos;);var path = require(&apos;path&apos;);//第二步创建http服务http.createS">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-21T16:37:39.520Z">
+<meta property="og:updated_time" content="2018-07-22T08:13:00.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo基本使用方法">
-<meta name="twitter:description" content="文章上传步骤 1、切换只hexo相关目录，运行“hexo new 文档名” 2、编译md文件 hexo generate 3、切换至/Users/james/Documents/exercise/nodejsexercise/hexo/blog/public 4、运行cp -rf ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.g">
+<meta name="twitter:title" content="Nodejs002http">
+<meta name="twitter:description" content="nodejs http操作入门nodejs http操作分3步骤  第一步：引入http模块   第二部：创建http服务   第三部：创建监听  12345678910111213141516&apos;use strict&apos;;//第一步引入httpvar http = require(&apos;http&apos;);var path = require(&apos;path&apos;);//第二步创建http服务http.createS">
   
     <link rel="alternate" href="/atom.xml" title="jameszhao83" type="application/atom+xml">
   
@@ -64,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hexo基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-nodejs-nodejs-002http" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/21/hexo基本使用方法/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+    <a href="/2018/06/20/nodejs-nodejs-002http/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
   </div>
@@ -78,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo基本使用方法
+      Nodejs002http
     </h1>
   
 
@@ -86,47 +87,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>文章上传步骤</p>
-<p>1、切换只hexo相关目录，运行“hexo new 文档名”</p>
-<p>2、编译md文件 hexo generate</p>
-<p>3、切换至/Users/james/Documents/exercise/nodejsexercise/hexo/blog/public</p>
-<p>4、运行cp -rf ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</p>
-<p>5、切换至/Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</p>
+        <h1 id="nodejs-http操作入门"><a href="#nodejs-http操作入门" class="headerlink" title="nodejs http操作入门"></a>nodejs http操作入门</h1><p>nodejs http操作分3步骤</p>
 <blockquote>
-<p>   git add –all</p>
+<p>第一步：引入http模块</p>
 </blockquote>
 <blockquote>
-<p>  git commit -m “webpack commit 2”</p>
+<p>第二部：创建http服务</p>
 </blockquote>
 <blockquote>
-<p>  git push -u origin master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate</span><br><span class="line">   cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/</span><br><span class="line">    cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</span><br><span class="line">   cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</span><br><span class="line"></span><br><span class="line">    git add --all</span><br><span class="line">   git commit -m &quot;webpack commit 2&quot;</span><br><span class="line">  git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<p>第三部：创建监听</p>
 </blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一步引入http</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二步创建http服务</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">     res.write(<span class="string">'&lt;meta charset="UTF-8"/&gt;'</span>);</span><br><span class="line"></span><br><span class="line">     res.end();</span><br><span class="line"><span class="comment">//创建监听</span></span><br><span class="line">&#125;).listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/hexo基本使用方法/" data-id="cjjvn227g000128nh0m93l3zb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/nodejs-nodejs-002http/" data-id="cjjwkfx1j0004ssnhvqaoy49i" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs-http/">nodejs http</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/06/21/vue-vue-011route传参/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/20/nodejs-nodejs-004开发一个页面服务/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Vue011route传参
+          Nodejs004开发一个页面服务
         
       </div>
     </a>
   
   
-    <a href="/2018/06/21/vue-vue-015router-view实现经典视图/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/20/github基本使用方法/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Vue-15router-View实现经典视图</div>
+      <div class="article-nav-title">Github基本使用方法</div>
     </a>
   
 </nav>

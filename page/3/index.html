@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jameszhao83</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="jameszhao83">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="jameszhao83">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jameszhao83">
+  
+    <link rel="alternate" href="/atom.xml" title="jameszhao83" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">jameszhao83</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-vue-vue-004json" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue-vue-004json/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue-vue-004json/">Vue004json</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一部分</p>
+<p>html部分</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"panel-title"</span>&gt;</span>检修管理<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body form-inline"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检&amp;nbsp;&amp;nbsp;&amp;nbsp;修&amp;nbsp;&amp;nbsp;类&amp;nbsp;&amp;nbsp;型<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>   <span class="attr">v-model</span>=<span class="string">"jxtype"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"workname"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"starttime"</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"endtime"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>责&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;任&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;人<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"manager"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">v-on:click</span>=<span class="string">"addjx"</span> <span class="attr">value</span>=<span class="string">"添加"</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"sworkname"</span> <span class="attr">v-focus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table  table-striped  table-bordered  table-hover  table-condensed"</span>  &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>选择<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修类型<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>责任人<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in search(sworkname)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>  &gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.id&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.jxtype&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.workname&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.starttime | dateFormat('') &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.endtime  | dateFormat('')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.manager&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二部分js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'dateFormat'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">dateStr,pattern</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dt =<span class="keyword">new</span> <span class="built_in">Date</span>(dateStr)</span><br><span class="line">    <span class="keyword">var</span> y=dt.getFullYear()</span><br><span class="line">    <span class="comment">//.padStart(2,'0')补0</span></span><br><span class="line">    <span class="keyword">var</span> m=(dt.getMonth()+<span class="number">1</span>).toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">var</span> d=dt.getDate().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">if</span>(pattern.toLowerCase() === <span class="string">'yyyy-mm-dd'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span>`</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hh=dt.getHours();</span><br><span class="line">        <span class="keyword">var</span> mm=dt.getMinutes();</span><br><span class="line">        <span class="keyword">var</span> ss=dt.getSeconds();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span> <span class="subst">$&#123;hh&#125;</span>:<span class="subst">$&#123;mm&#125;</span>:<span class="subst">$&#123;ss&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">Vue.directive(<span class="string">'focus'</span>,&#123;</span><br><span class="line">    inserted:<span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(</span><br><span class="line">    &#123;</span><br><span class="line">        el:<span class="string">'#app'</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            id:<span class="string">''</span>,</span><br><span class="line">            jxtype:<span class="string">''</span>,</span><br><span class="line">            workname:<span class="string">''</span>,</span><br><span class="line">            starttime:<span class="string">''</span>,</span><br><span class="line">            endtime:<span class="string">''</span>,</span><br><span class="line">            manager:<span class="string">''</span>,</span><br><span class="line">            sworkname:<span class="string">''</span>,</span><br><span class="line">            msg:<span class="string">'please input  something!!!'</span>,</span><br><span class="line">            lists:[&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">jxtype</span>:<span class="string">'项目实施'</span>,<span class="attr">workname</span>:<span class="string">'pms2.0升级至5.0'</span>,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="string">'张波'</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">jxtype</span>:<span class="string">'三级周检'</span>,<span class="attr">workname</span>:<span class="string">'营销业务应用升级至5.0'</span>,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="string">'刘强'</span>&#125;],</span><br><span class="line">            flag:<span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            addjx()&#123;</span><br><span class="line">                <span class="keyword">var</span> bid =<span class="keyword">this</span>.lists.length</span><br><span class="line">                <span class="keyword">var</span> jxjh=&#123;<span class="attr">id</span>:bid,<span class="attr">jxtype</span>:<span class="keyword">this</span>.jxtype,<span class="attr">workname</span>:<span class="keyword">this</span>.workname,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="keyword">this</span>.manager&#125;</span><br><span class="line">                <span class="keyword">this</span>.lists.push(jxjh);</span><br><span class="line">            &#125;,</span><br><span class="line">            search(sworkname)&#123;</span><br><span class="line">                <span class="keyword">var</span> newList = []</span><br><span class="line">                <span class="keyword">this</span>.lists.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span>(item.workname.indexOf(sworkname) != <span class="number">-1</span>)&#123;</span><br><span class="line">                        newList.push(item)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                <span class="keyword">return</span> newList;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue-vue-004json/" data-id="cjjwkfx27000gssnhmx752as9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webpak第一步" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/webpak第一步/" class="article-date">
+  <time datetime="2018-06-21T02:25:17.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/webpak第一步/">Webpak入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="创建基本的webpack4-5项目"><a href="#创建基本的webpack4-5项目" class="headerlink" title="创建基本的webpack4.5项目"></a>创建基本的webpack4.5项目</h2><p>1.安装webpack</p>
+<blockquote>
+<p>  sudo npm install webpack webpack-cli webpack-dev-server -g</p>
+</blockquote>
+<p>2.创建项目目录</p>
+<blockquote>
+<p>  mkdir webpack-dome1</p>
+</blockquote>
+<blockquote>
+<p>  cd webpack-dome1</p>
+</blockquote>
+<blockquote>
+<p>  mkdir  config dist src</p>
+</blockquote>
+<p>3.初始化项目</p>
+<blockquote>
+<p>  npm init -y<br>  357  ls -la</p>
+</blockquote>
+<p>4.创建默认文件</p>
+<blockquote>
+<p>touch dist/index.html src/index.js</p>
+</blockquote>
+<p>5.打包测试</p>
+<blockquote>
+<p>  webpack</p>
+</blockquote>
+<blockquote>
+<p>  webpack –mode=development</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/webpak第一步/" data-id="cjinzkqz40003nonh2rcpqcl0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-python面向对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/python-python面向对象/" class="article-date">
+  <time datetime="2018-06-20T14:38:17.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/python-python面向对象/">Python003面向对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python面向对象"><a href="#python面向对象" class="headerlink" title="python面向对象"></a>python面向对象</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  random</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Game</span><span class="params">(object)</span>:</span></span><br><span class="line">	    <span class="comment"># 历史最高分</span></span><br><span class="line">    <span class="comment"># 类属性</span></span><br><span class="line">    top_score = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name=name</span><br><span class="line">	    <span class="comment"># 静态方法</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show_help</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"类静态方法，显示帮助信息"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 类方法</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show_top_score</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">"历史最高得分是 %s"</span> % cls.top_score)</span><br><span class="line">    <span class="comment"># 实例方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_game</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            print(<span class="string">"开始游戏啦 %s"</span> % self.name)</span><br><span class="line">            score=random.randint(<span class="number">0</span>,<span class="number">100</span>)</span><br><span class="line">            print(<span class="string">"当前得分%d"</span> % score)</span><br><span class="line">            <span class="keyword">if</span>  score &gt; Game.top_score:</span><br><span class="line">                Game.top_score=score</span><br><span class="line">                print(<span class="string">"现在最高分是:%s"</span> % Game.top_score)</span><br><span class="line">            <span class="keyword">if</span> score&gt;=<span class="number">100</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">g=Game(<span class="string">"zhangsaN"</span>)</span><br><span class="line"></span><br><span class="line">g.start_game()</span><br><span class="line">Game.show_top_score()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>单例</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MusicPlayer</span><span class="params">(object)</span>:</span></span><br><span class="line">    instance =<span class="keyword">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> cls.instance <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            cls.instance = super().__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls.instance</span><br><span class="line">mp=MusicPlayer()</span><br><span class="line">mp2=MusicPlayer()</span><br><span class="line">print(mp)</span><br><span class="line">print(mp2)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/python-python面向对象/" data-id="cjjwkfx1v0009ssnhpc94fuxj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-pythone编码相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/python-pythone编码相关/" class="article-date">
+  <time datetime="2018-06-20T14:38:17.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/python-pythone编码相关/">Python001编码相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="pythone编码相关"><a href="#pythone编码相关" class="headerlink" title="pythone编码相关"></a>pythone编码相关</h2><blockquote>
+<p>如何在python2.x中使用中文<br>直接在pythone源文件中最上一行添加</p>
+</blockquote>
+<pre><code># *-* coding:utf-8 *-*
+</code></pre><p>python 2.x默认不支持中文，python3.0直接支持中文</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/python-pythone编码相关/" data-id="cjjwkfx1s0007ssnh24g2x26c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs-nodejs-000相关工具" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs-nodejs-000相关工具/" class="article-date">
+  <time datetime="2018-06-20T14:38:17.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs-nodejs-000相关工具/">Nodejs相关工具01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="流行框架第一天：构建前端自动化工作流环境"><a href="#流行框架第一天：构建前端自动化工作流环境" class="headerlink" title="流行框架第一天：构建前端自动化工作流环境"></a>流行框架第一天：构建前端自动化工作流环境</h1><h2 id="兩個問題"><a href="#兩個問題" class="headerlink" title="兩個問題"></a>兩個問題</h2><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li>了解什么是Node，什么是NPM；（Node.js）</li>
+<li>掌握Bower的使用；</li>
+<li>熟练使用Less/Sass；</li>
+<li>搭建一个自己的自动化工作流环境；<ul>
+<li>自动编译</li>
+<li>自动合并</li>
+<li>自动刷新</li>
+<li>自动部署</li>
+</ul>
+</li>
+<li>GIT 与 GITHUB<ul>
+<li>master 托管源文件</li>
+<li>gh-pages 托管部署文件</li>
+<li>在github搭建自己的blog</li>
+</ul>
+</li>
+</ul>
+<h2 id="为什么要有自动化的流程"><a href="#为什么要有自动化的流程" class="headerlink" title="为什么要有自动化的流程"></a>为什么要有自动化的流程</h2><ul>
+<li>在我们的开发过程中有大量的重复操作</li>
+<li>DRY  Don’t repeat yourself</li>
+<li><p>开发人员的精力应放在哪？创造，新的一切</p>
+</li>
+<li><p>前端开发的编译操作</p>
+</li>
+</ul>
+<h2 id="1-Node环境"><a href="#1-Node环境" class="headerlink" title="1.Node环境"></a>1.Node环境</h2><h3 id="1-1-什么是Node"><a href="#1-1-什么是Node" class="headerlink" title="1.1.什么是Node"></a>1.1.什么是Node</h3><ul>
+<li>Node.js 可能类似jquery.js</li>
+<li>不是JS文件，也不是一个JS框架（）</li>
+<li>而是Server side Javascript runtime, 服务端的一个JS运行时</li>
+<li>我们可以在NODE运行JS代码</li>
+<li>alert();ECMAScript  JS- ES  BOM  DOM</li>
+<li>node中只能运行ECMAScript，无法使用 BOM 和 DOM</li>
+<li>目前我们的JS是运行在浏览器内核中</li>
+<li>PHP是什么？是一门脚本语言也是一个运行环境</li>
+<li><p>为什么Node选中了JS，</p>
+</li>
+<li><p>说到底就是一个JS运行环境</p>
+</li>
+<li><p>目前有两个分支</p>
+<ul>
+<li>Node.js 0.12.7 官方版本 要求尽善尽美</li>
+<li>IO.js 是社区的产物，不是官方的东西，io.js有很多新特性，迭代非常快，社区推进非常快</li>
+<li>15年两者合并，发布node第一个正式版 4.0， 迭代速度又慢了</li>
+<li>node 5.x == io.js</li>
+<li>node 4.0 == node</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-Node环境搭建"><a href="#1-2-Node环境搭建" class="headerlink" title="1.2.Node环境搭建"></a>1.2.Node环境搭建</h3><h4 id="1-2-1-Mac"><a href="#1-2-1-Mac" class="headerlink" title="1.2.1.Mac"></a>1.2.1.Mac</h4><ul>
+<li>安装包的方式<ul>
+<li><a href="https://nodejs.org/dist/v5.5.0/node-v5.5.0.pkg" target="_blank" rel="noopener">pkg</a></li>
+</ul>
+</li>
+<li><p>NVM（Node Version Manager）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'. ~/.nvm/nvm.sh'</span> &gt;&gt; .bash_profile</span><br><span class="line">$ nvm install stable</span><br><span class="line">$ nvm <span class="built_in">alias</span> default stable</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="1-2-2-Windows"><a href="#1-2-2-Windows" class="headerlink" title="1.2.2.Windows"></a>1.2.2.Windows</h4><ul>
+<li>安装包的方式<ul>
+<li><a href="https://nodejs.org/dist/v5.5.0/node-v5.5.0-x64.msi" target="_blank" rel="noopener">msi_x64</a></li>
+<li><a href="https://nodejs.org/dist/v5.5.0/node-v5.5.0-x86.msi" target="_blank" rel="noopener">msi_x86</a></li>
+</ul>
+</li>
+<li>NVM（Node Version Manager）</li>
+<li>nvm(node version manager)</li>
+<li>因为NODE版本比较多，开发人员可能依赖很多版本</li>
+<li><p>通过NVM，可以轻松切换于不同的版本之间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NVM_HOME=C:\Develop\nvm</p>
+<p>NVM_SYMLINK=C:\Develop\nodejs</p>
+<p>NPM_HOME=C:\Develop\nvm\npm</p>
+<p>PATH=%NVM_HOME%;%NVM_SYMLINK%;%NPM_HOME%</p>
+<h4 id="1-2-3-环境变量"><a href="#1-2-3-环境变量" class="headerlink" title="1.2.3.环境变量"></a>1.2.3.环境变量</h4><ul>
+<li><p>环境变量就是操作系统提供的系统级别用于存储变量的地方</p>
+</li>
+<li><p>系统变量和用户变量</p>
+</li>
+<li>系统变量指的是所用当前系统用户共享的变量</li>
+<li>自己的电脑一般只有一个用户</li>
+<li><p>建议将自己配置的环境变量放在用户变量中，用户变量比较干净</p>
+</li>
+<li><p>环境变量的变量名是不区分大小写的</p>
+</li>
+<li><p>变量间运行相互引用</p>
+</li>
+<li><p>特殊值：</p>
+</li>
+<li>PATH变量（不区分大小写）</li>
+<li>PATH 相当于一个路径的引用</li>
+<li><p>只要添加到PATH变量中的路径，都可以在任何目录下搜索</p>
+</li>
+<li><p>命令行</p>
+</li>
+<li>可以用来执行当前目录下的文件</li>
+<li>命令</li>
+</ul>
+<p>cd :change directory</p>
+<ul>
+<li>Node.js是一个轻内核（本身没有什么功能）的东东，所有的功能都要功能包提供</li>
+<li>node官方提供了一些最基础的包</li>
+</ul>
+<h3 id="1-3-Node用途"><a href="#1-3-Node用途" class="headerlink" title="1.3.Node用途"></a>1.3.Node用途</h3><h4 id="REPL环境（控制台环境）"><a href="#REPL环境（控制台环境）" class="headerlink" title="REPL环境（控制台环境）"></a>REPL环境（控制台环境）</h4><h4 id="1-3-1-开发Web应用程序"><a href="#1-3-1-开发Web应用程序" class="headerlink" title="1.3.1.开发Web应用程序"></a>1.3.1.开发Web应用程序</h4><ul>
+<li>做动态网站</li>
+<li>开发提供数据的服务端API</li>
+</ul>
+<h4 id="1-3-2-前端开发工具基础"><a href="#1-3-2-前端开发工具基础" class="headerlink" title="1.3.2.前端开发工具基础"></a>1.3.2.前端开发工具基础</h4><ul>
+<li>Node.js给前端乃至整个开发行业带来一场工业革命</li>
+<li>刀跟火种</li>
+</ul>
+<h3 id="1-4-Node开发Web应用Demo"><a href="#1-4-Node开发Web应用Demo" class="headerlink" title="1.4.Node开发Web应用Demo"></a>1.4.Node开发Web应用Demo</h3><h4 id="1-4-1-复习请求与响应"><a href="#1-4-1-复习请求与响应" class="headerlink" title="1.4.1.复习请求与响应"></a>1.4.1.复习请求与响应</h4><p>客户端发送到服务端的东西称之为请求报文<br>服务端返回给客户端的东西称之为响应报文</p>
+<h3 id="1-5-NPM"><a href="#1-5-NPM" class="headerlink" title="1.5.NPM"></a>1.5.NPM</h3><h4 id="1-5-1-什么是NPM"><a href="#1-5-1-什么是NPM" class="headerlink" title="1.5.1.什么是NPM"></a>1.5.1.什么是NPM</h4><p><a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
+<ul>
+<li>Node Package Manager</li>
+<li>Node应用程序依赖包的管理工具</li>
+<li>安装卸载更新之类的操作</li>
+</ul>
+<h4 id="1-5-2-为什么使用NPM"><a href="#1-5-2-为什么使用NPM" class="headerlink" title="1.5.2.为什么使用NPM"></a>1.5.2.为什么使用NPM</h4><ul>
+<li>包很多</li>
+<li>场景：我需要用一个A，A依赖B，B依赖C</li>
+<li>常见的包管理工具都有循环依赖的功能</li>
+<li>你只需记住你要什么东西</li>
+</ul>
+<h4 id="1-5-3-常见的NPM操作"><a href="#1-5-3-常见的NPM操作" class="headerlink" title="1.5.3.常见的NPM操作"></a>1.5.3.常见的NPM操作</h4><p>// 安装一个包，默认安装最新稳定版本<br>npm install package_name<br>// –save<br>// 初始化操作，给项目添加一个配置文件<br>npm init<br>// –yes参数走默认配置</p>
+<ul>
+<li>如果官方数据源太慢使用</li>
+<li><a href="https://npm.taobao.org/" target="_blank" rel="noopener">https://npm.taobao.org/</a></li>
+</ul>
+<hr>
+<h2 id="2-Bower"><a href="#2-Bower" class="headerlink" title="2.Bower"></a>2.Bower</h2><h3 id="2-1-什么是Bower"><a href="#2-1-什么是Bower" class="headerlink" title="2.1.什么是Bower"></a>2.1.什么是Bower</h3><ul>
+<li><a href="http://bower.io/" target="_blank" rel="noopener">官网</a></li>
+<li>web应用程序依赖项管理工具</li>
+</ul>
+<h3 id="2-2-为什么使用Bower"><a href="#2-2-为什么使用Bower" class="headerlink" title="2.2.为什么使用Bower"></a>2.2.为什么使用Bower</h3><ul>
+<li>方便便捷的方式管理包，zhuangbi</li>
+</ul>
+<h3 id="2-3-Bower实践"><a href="#2-3-Bower实践" class="headerlink" title="2.3.Bower实践"></a>2.3.Bower实践</h3><ul>
+<li><p>npm install -g bower // -g:global</p>
+</li>
+<li><p>修改npm全局路径，就是在用户目录下添加.npmrc文件</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-Sass-LESS"><a href="#3-Sass-LESS" class="headerlink" title="3.Sass/LESS"></a>3.Sass/LESS</h2><hr>
+<h2 id="4-Gulp"><a href="#4-Gulp" class="headerlink" title="4.Gulp"></a>4.Gulp</h2><h3 id="4-1-Gulp简介"><a href="#4-1-Gulp简介" class="headerlink" title="4.1.Gulp简介"></a>4.1.Gulp简介</h3><ul>
+<li>链接：<ul>
+<li><a href="http://gulpjs.com/" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">中文网</a></li>
+</ul>
+</li>
+<li>就是用来机械化的完成重复性质的工作</li>
+<li>gulp的机制就是将重复工作抽象成一个个的任务，</li>
+</ul>
+<h3 id="4-2-Gulp准备工作"><a href="#4-2-Gulp准备工作" class="headerlink" title="4.2.Gulp准备工作"></a>4.2.Gulp准备工作</h3><ul>
+<li>安装Node.js</li>
+<li>安装 gulp 命令行工具<ul>
+<li><code>npm install -g gulp</code></li>
+</ul>
+</li>
+<li>初始化 gulp 项目</li>
+<li>创建任务 - gulpfile.js</li>
+</ul>
+<h3 id="4-3-基本使用"><a href="#4-3-基本使用" class="headerlink" title="4.3.基本使用"></a>4.3.基本使用</h3><h3 id="4-4-常用插件"><a href="#4-4-常用插件" class="headerlink" title="4.4.常用插件"></a>4.4.常用插件</h3><ul>
+<li><a href="https://www.npmjs.com/package/gulp-less" target="_blank" rel="noopener">编译 Less：gulp-less</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-connect" target="_blank" rel="noopener">创建本地服务器：gulp-connect</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-concat" target="_blank" rel="noopener">合并文件：gulp-concat</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="noopener">最小化 js 文件：gulp-uglify</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-rename" target="_blank" rel="noopener">重命名文件：gulp-rename</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="noopener">最小化 css 文件：gulp-minify-css</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-minify-html" target="_blank" rel="noopener">压缩html文件 gulp-minify-html</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-imagemin" target="_blank" rel="noopener">最小化图像：gulp-imagemin</a></li>
+</ul>
+<hr>
+<h2 id="5-Git"><a href="#5-Git" class="headerlink" title="5.Git"></a>5.Git</h2><h3 id="5-1-什么是GIT，什么是GITHUB"><a href="#5-1-什么是GIT，什么是GITHUB" class="headerlink" title="5.1.什么是GIT，什么是GITHUB"></a>5.1.什么是GIT，什么是GITHUB</h3><ul>
+<li>GIT</li>
+<li>GITHUB</li>
+</ul>
+<h3 id="5-2-环境安装"><a href="#5-2-环境安装" class="headerlink" title="5.2.环境安装"></a>5.2.环境安装</h3><h3 id="5-3-GIT常用命令"><a href="#5-3-GIT常用命令" class="headerlink" title="5.3.GIT常用命令"></a>5.3.GIT常用命令</h3><hr>
+<h2 id="6-Markdown"><a href="#6-Markdown" class="headerlink" title="6.Markdown"></a>6.Markdown</h2><p><a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener">https://guides.github.com/features/mastering-markdown/</a><br><a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="noopener">https://help.github.com/articles/github-flavored-markdown/</a><br><a href="https://help.github.com/articles/markdown-basics/" target="_blank" rel="noopener">https://help.github.com/articles/markdown-basics/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs-nodejs-000相关工具/" data-id="cjjwkfx1f0003ssnh50nl01ty" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-python多态练习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/python-python多态练习/" class="article-date">
+  <time datetime="2018-06-20T14:38:17.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/python-python多态练习/">Python002多态练习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="python多态练习"><a href="#python多态练习" class="headerlink" title="python多态练习"></a>python多态练习</h2><blockquote>
+<p>多继承</p>
+</blockquote>
+<pre><code>class 子类名（父类名1，父类名2）
+</code></pre><blockquote>
+<p>多态实现代码</p>
+</blockquote>
+<ul>
+<li>多态实现条件</li>
+<li>子类对象继承父类</li>
+<li><p>子类对象实现父类方法</p>
+<p> ‘’’python 多态练习’’’</p>
+<pre><code>class Dog(object):
+    def shout(self):
+        print(&quot;汪汪叫&quot;)
+</code></pre><p> ​    </p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XTQ</span><span class="params">(Dog)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"哮天犬叫"</span>)</span><br></pre></td></tr></table></figure>
+<p> ​    </p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WmDog</span><span class="params">(Dog)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"wmDog shout"</span>)</span><br></pre></td></tr></table></figure>
+<p> ​    </p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">    self.name = name</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">callDog</span><span class="params">(self, dog)</span>:</span></span><br><span class="line">    print(<span class="string">"%s 的狗"</span> % (self.name))</span><br><span class="line">    dog.shout()</span><br></pre></td></tr></table></figure>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = XTQ()</span><br><span class="line">p = Person(<span class="string">"sanson"</span>)</span><br><span class="line">p.callDog(d)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/python-python多态练习/" data-id="cjjwkfx1u0008ssnhgpp0kshg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs-nodejs-004开发一个页面服务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs-nodejs-004开发一个页面服务/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs-nodejs-004开发一个页面服务/">Nodejs004开发一个页面服务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs开发一个页面服务"><a href="#nodejs开发一个页面服务" class="headerlink" title="nodejs开发一个页面服务"></a>nodejs开发一个页面服务</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Author: Marte</span></span><br><span class="line"><span class="comment"> * @Date:   2018-06-26 15:07:14</span></span><br><span class="line"><span class="comment"> * @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment"> * @Last Modified time: 2018-06-29 11:25:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="comment">//而解决金泰资源返回文件格式多样化问题。</span></span><br><span class="line"><span class="keyword">var</span> mime = <span class="built_in">require</span>(<span class="string">'mime'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="comment">//查询字符串转换为json字符串</span></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'underscore'</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.runders = <span class="function"><span class="keyword">function</span>(<span class="params">filename, tpldata</span>) </span>&#123;</span><br><span class="line">    fs.readFile(filename, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">        &#125;);</span><br><span class="line">        res.end(<span class="string">'404,not found'</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (tpldata) &#123;</span><br><span class="line">        <span class="keyword">var</span> fn = _.template(data.toString(<span class="string">'utf8'</span>));</span><br><span class="line">        data = fn(tpldata);</span><br><span class="line">      &#125;;</span><br><span class="line">      res.setHeader(<span class="string">'Content-Type'</span>, mime.getType(filename));</span><br><span class="line">      res.end(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  req.url = req.url.toLowerCase();</span><br><span class="line">  req.method = req.method.toLowerCase();</span><br><span class="line">  <span class="keyword">var</span> urlObj = url.parse(req.url, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (req.url === <span class="string">'/'</span> || req.url === <span class="string">'index'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"NEWSLIST:"</span> + newslist);</span><br><span class="line">      <span class="comment">//转换为数组后，将接受到的参数作为数组形式添加到数组中</span></span><br><span class="line">      res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'list.html'</span>), &#123;</span><br><span class="line">        list: newslist</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/submit'</span>) &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    <span class="comment">// res.runders(path.join(__dirname,'pages','submit.html'));</span></span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="comment">//加个ID</span></span><br><span class="line">      urlObj.query.id = newslist.length;</span><br><span class="line">      <span class="comment">//转换为数组后，将接受到的参数作为数组形式添加到数组中</span></span><br><span class="line">      newslist.push(urlObj.query);</span><br><span class="line">      fs.writeFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="built_in">JSON</span>.stringify(newslist), <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">          <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"get write success!!"</span>);</span><br><span class="line">         <span class="comment">//跳转至主页</span></span><br><span class="line">        res.statusCode = <span class="number">302</span>;</span><br><span class="line">        res.statusMessage = <span class="string">'Found'</span>;</span><br><span class="line">        res.setHeader(<span class="string">'Location'</span>, <span class="string">'/'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (urlObj.pathname === <span class="string">'/detail'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="keyword">var</span> model = <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; newslist.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (newslist[i].id.toString() === urlObj.query.id) &#123;</span><br><span class="line">          model = newslist[i];</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">if</span> (model) &#123;</span><br><span class="line">        res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'detail.html'</span>), &#123;</span><br><span class="line">          item: model</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">        &#125;);</span><br><span class="line">        res.end(<span class="string">'404,Page Not Found this news.'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">'/add'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'add.html'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">'/addp'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'addp.html'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/node_modules'</span>) &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    <span class="comment">//如果用户请求以‘/node_modules’开头，即认为该请求为请求静态资源。</span></span><br><span class="line">    res.runders(path.join(__dirname, req.url));</span><br><span class="line">    <span class="comment">//post方式</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/submitpost'</span>) &amp;&amp; req.method === <span class="string">'post'</span>) &#123;</span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="comment">//该数组用于保存每次提交过来的数据</span></span><br><span class="line">      <span class="keyword">var</span> array = [];</span><br><span class="line">      <span class="comment">//post方法与get方法异同之处</span></span><br><span class="line">      req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        array.push(chunk);</span><br><span class="line">      &#125;);</span><br><span class="line">      req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> postBody = Buffer.concat(array);</span><br><span class="line">        <span class="comment">//buffer转换成string</span></span><br><span class="line">        postBody = postBody.toString(<span class="string">'utf8'</span>);</span><br><span class="line">        <span class="comment">//查询字符串转换为json字符串</span></span><br><span class="line">        postBody = querystring.parse(postBody);</span><br><span class="line"></span><br><span class="line">        postBody.id = newslist.length;</span><br><span class="line">        <span class="comment">//推入数组</span></span><br><span class="line">        newslist.push(postBody);</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      fs.writeFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">"helloworld"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">          res.end(<span class="string">"error"</span>);</span><br><span class="line">          <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"post write success!!"</span>);</span><br><span class="line">        res.statusCode = <span class="number">302</span>;</span><br><span class="line">        res.statusMessage = <span class="string">'Found'</span>;</span><br><span class="line">        res.setHeader(<span class="string">'Location'</span>, <span class="string">'/'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(<span class="string">'404,Page Not Found.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).listen(<span class="number">9090</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs-nodejs-004开发一个页面服务/" data-id="cjjwkfx1k0005ssnhqvy7ob4m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs-nodejs-002http" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs-nodejs-002http/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs-nodejs-002http/">Nodejs002http</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs-http操作入门"><a href="#nodejs-http操作入门" class="headerlink" title="nodejs http操作入门"></a>nodejs http操作入门</h1><p>nodejs http操作分3步骤</p>
+<blockquote>
+<p>第一步：引入http模块</p>
+</blockquote>
+<blockquote>
+<p>第二部：创建http服务</p>
+</blockquote>
+<blockquote>
+<p>第三部：创建监听</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一步引入http</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二步创建http服务</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">     res.write(<span class="string">'&lt;meta charset="UTF-8"/&gt;'</span>);</span><br><span class="line"></span><br><span class="line">     res.end();</span><br><span class="line"><span class="comment">//创建监听</span></span><br><span class="line">&#125;).listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs-nodejs-002http/" data-id="cjjwkfx1j0004ssnhvqaoy49i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs-http/">nodejs http</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-github基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/github基本使用方法/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/github基本使用方法/">Github基本使用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="5-3-1-初始化一个本地GIT仓储repository"><a href="#5-3-1-初始化一个本地GIT仓储repository" class="headerlink" title="5.3.1.初始化一个本地GIT仓储repository"></a>5.3.1.初始化一个本地GIT仓储repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 定位到仓储文件夹目录</span><br><span class="line">$ cd /dir</span><br><span class="line">// 初始化本地仓储</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-2-添加本地GIT忽略清单文件-gitignore"><a href="#5-3-2-添加本地GIT忽略清单文件-gitignore" class="headerlink" title="5.3.2.添加本地GIT忽略清单文件.gitignore"></a>5.3.2.添加本地GIT忽略清单文件.gitignore</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 添加OS X中系统文件.DS_Store到忽略清单，这将忽略项目任意目录下的.DS_Store文件或是文件夹</span><br><span class="line">$ echo .DS_Store &gt;&gt; .gitignore</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-3-查看本地仓储的变更状态"><a href="#5-3-3-查看本地仓储的变更状态" class="headerlink" title="5.3.3.查看本地仓储的变更状态"></a>5.3.3.查看本地仓储的变更状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-4-添加本地暂存（托管）文件"><a href="#5-3-4-添加本地暂存（托管）文件" class="headerlink" title="5.3.4.添加本地暂存（托管）文件"></a>5.3.4.添加本地暂存（托管）文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 添加指定文件名的文件</span><br><span class="line">$ git add README.md</span><br><span class="line">// 添加通配符匹配的文件</span><br><span class="line">$ git add *.md</span><br><span class="line">// 添加所有未托管的文件（忽略.gitignore清单中的列表）</span><br><span class="line">$ git add --all</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-5-提交被托管的文件变化到本地仓储"><a href="#5-3-5-提交被托管的文件变化到本地仓储" class="headerlink" title="5.3.5.提交被托管的文件变化到本地仓储"></a>5.3.5.提交被托管的文件变化到本地仓储</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &apos;Initial commit(change log)&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-6-为仓储添加远端（服务器端）地址"><a href="#5-3-6-为仓储添加远端（服务器端）地址" class="headerlink" title="5.3.6.为仓储添加远端（服务器端）地址"></a>5.3.6.为仓储添加远端（服务器端）地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加一个远端地址并起了一个别名叫origin</span><br><span class="line">$ git remote add origin https://github.com/Micua/Git.git</span><br><span class="line">// 查看现有的远端列表</span><br><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-7-将本地仓储的提交记录推送到远端的master分支"><a href="#5-3-7-将本地仓储的提交记录推送到远端的master分支" class="headerlink" title="5.3.7.将本地仓储的提交记录推送到远端的master分支"></a>5.3.7.将本地仓储的提交记录推送到远端的master分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-8-拉取远端master分支的更新记录到本地"><a href="#5-3-8-拉取远端master分支的更新记录到本地" class="headerlink" title="5.3.8.拉取远端master分支的更新记录到本地"></a>5.3.8.拉取远端master分支的更新记录到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/github基本使用方法/" data-id="cjjvn227a000028nhen63jyly" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs-http/">nodejs http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/nodejs-http/" style="font-size: 10px;">nodejs http</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/22/New-Document/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/22/vue-vue-005动画/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/21/vue-vue-009父组件向子组件传值/">Vue009vue父组件向子组件传值</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/21/vue-vue-013router传参数/">Vue-013router传参数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/21/vue-vue-011route传参/">Vue011route传参</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 jameszhao83<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
