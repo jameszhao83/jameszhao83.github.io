@@ -5,19 +5,19 @@
   
 
   
-  <title>Vue002定义全局指令 | jameszhao83</title>
+  <title>Vue005动画 | jameszhao83</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue定义全局指令12345Vue.directive(&amp;apos;focus&amp;apos;,&amp;#123;    inserted:function (el) &amp;#123;        el.focus()    &amp;#125;&amp;#125;)">
+  <meta name="description" content="vue动画vue动画借助transition标签实现 代码如下： 12345        &amp;lt;transition&amp;gt;&amp;lt;div class=&quot;jpn&quot;  v-if=&quot;flag  ==  true&quot; style=&quot;background: greenyellow;&quot;&amp;gt;    &amp;lt;h3&amp;gt;this is flag&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue002定义全局指令">
-<meta property="og:url" content="http://yoursite.com/2018/06/21/vue-vue-002定义全局指令/index.html">
+<meta property="og:title" content="Vue005动画">
+<meta property="og:url" content="http://yoursite.com/2018/06/21/vue-vue-005动画/index.html">
 <meta property="og:site_name" content="jameszhao83">
-<meta property="og:description" content="vue定义全局指令12345Vue.directive(&amp;apos;focus&amp;apos;,&amp;#123;    inserted:function (el) &amp;#123;        el.focus()    &amp;#125;&amp;#125;)">
+<meta property="og:description" content="vue动画vue动画借助transition标签实现 代码如下： 12345        &amp;lt;transition&amp;gt;&amp;lt;div class=&quot;jpn&quot;  v-if=&quot;flag  ==  true&quot; style=&quot;background: greenyellow;&quot;&amp;gt;    &amp;lt;h3&amp;gt;this is flag&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-22T08:28:43.907Z">
+<meta property="og:updated_time" content="2018-07-22T08:28:46.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue002定义全局指令">
-<meta name="twitter:description" content="vue定义全局指令12345Vue.directive(&amp;apos;focus&amp;apos;,&amp;#123;    inserted:function (el) &amp;#123;        el.focus()    &amp;#125;&amp;#125;)">
+<meta name="twitter:title" content="Vue005动画">
+<meta name="twitter:description" content="vue动画vue动画借助transition标签实现 代码如下： 12345        &amp;lt;transition&amp;gt;&amp;lt;div class=&quot;jpn&quot;  v-if=&quot;flag  ==  true&quot; style=&quot;background: greenyellow;&quot;&amp;gt;    &amp;lt;h3&amp;gt;this is flag&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;">
   
     <link rel="alternate" href="/atom.xml" title="jameszhao83" type="application/atom+xml">
   
@@ -64,9 +64,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-vue-vue-002定义全局指令" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-vue-vue-005动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/21/vue-vue-002定义全局指令/" class="article-date">
+    <a href="/2018/06/21/vue-vue-005动画/" class="article-date">
   <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
 </a>
     
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue002定义全局指令
+      Vue005动画
     </h1>
   
 
@@ -90,12 +90,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="vue定义全局指令"><a href="#vue定义全局指令" class="headerlink" title="vue定义全局指令"></a>vue定义全局指令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;focus&apos;,&#123;</span><br><span class="line">    inserted:function (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <h1 id="vue动画"><a href="#vue动画" class="headerlink" title="vue动画"></a>vue动画</h1><p>vue动画借助transition标签实现</p>
+<p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jpn"</span>  <span class="attr">v-if</span>=<span class="string">"flag  ==  true"</span> <span class="attr">style</span>=<span class="string">"background: greenyellow;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>this is flag<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如存在多个动画需要给transition标签制定name标签相应css中的类名亦改为my-enter，my-leave-to等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    &lt;transition name=&quot;my&quot;&gt;</span><br><span class="line">&lt;div class=&quot;jpn1&quot;  v-if=&quot;flag == false&quot; style=&quot;background:red;&quot;&gt;</span><br><span class="line">    &lt;h3&gt;this is flag too&lt;/h3&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+<p>其生命周期如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.v-enter</span>,</span><br><span class="line"><span class="selector-class">.v-leave-to</span>&#123;</span><br><span class="line">    opacity:0; 该单词是透明度的意思</span><br><span class="line">    <span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(200<span class="selector-tag">px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.v-enter-active</span>,</span><br><span class="line"><span class="selector-class">.v-leave-active</span>&#123;</span><br><span class="line">    <span class="attribute">transition</span>:<span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue-vue-002定义全局指令/" data-id="cjjwkfx1z000cssnh5vc1guol" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/vue-vue-005动画/" data-id="cjjwkfx25000fssnhstttgass" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,19 +110,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/06/21/vue-vue-000crud/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/21/vue-vue-003过滤器/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Vue-000crud
+          Vue003过滤器
         
       </div>
     </a>
   
   
-    <a href="/2018/06/21/vue-vue-001/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/21/vue-vue-004json/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Vue-001模板</div>
+      <div class="article-nav-title">Vue004json</div>
     </a>
   
 </nav>
