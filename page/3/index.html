@@ -62,25 +62,46 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-springmvc/springmybatis自动生成代码查询" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue/vue-007组件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
+    <a href="/2018/06/21/vue/vue-007组件/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-007组件/">vue007创建组建</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="spring-mybatis-自动生成代码-进行查询"><a href="#spring-mybatis-自动生成代码-进行查询" class="headerlink" title="spring mybatis 自动生成代码 进行查询"></a>spring mybatis 自动生成代码 进行查询</h1><p>利用mybatis自动代码生成工具生成的mapper查询方式如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"jsonjxjhupdate"</span>,method = RequestMethod.POST,consumes = &#123;<span class="string">"application/x-www-form-urlencoded;charset=UTF-8"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span>  <span class="meta">@ResponseBody</span> <span class="function"><span class="keyword">int</span> <span class="title">jsonjxjhupdate</span><span class="params">(Jxjht jxjht)</span></span>&#123;</span><br><span class="line">    JxjhtExample jxjhtExample1=<span class="keyword">new</span> JxjhtExample();</span><br><span class="line">    JxjhtExample.Criteria criteria=jxjhtExample1.createCriteria();</span><br><span class="line">    System.out.println(jxjht.getId());</span><br><span class="line">    criteria.andIdEqualTo(jxjht.getId());</span><br><span class="line">    jxjhService.updateByExample(jxjht,jxjhtExample1);</span><br><span class="line">    <span class="keyword">int</span> id=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="vue组件"><a href="#vue组件" class="headerlink" title="vue组件"></a>vue组件</h1><h5 id="创建组件方式1"><a href="#创建组件方式1" class="headerlink" title="创建组件方式1"></a>创建组件方式1</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用 Vue.extend创建全局的Vue组件</span></span><br><span class="line"> <span class="keyword">var</span> com = Vue.extend(&#123;</span><br><span class="line">    <span class="comment">//template里面必须是唯一的根元素</span></span><br><span class="line">     template:<span class="string">'&lt;h1&gt;组件创建&lt;/h1&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"> <span class="comment">//使用Vue.componenet</span></span><br><span class="line">Vue.component(<span class="string">'mycom'</span>,com)</span><br><span class="line"> <span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(</span><br><span class="line">     &#123;</span><br><span class="line">         el:<span class="string">'#app'</span>,</span><br><span class="line">         data:&#123;</span><br><span class="line">         &#125;,</span><br><span class="line">         created()&#123;</span><br><span class="line">         &#125;,</span><br><span class="line">         methods:&#123;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+<p>在使用的地方使用<code>&lt;my-com&gt;&lt;/my-com&gt;</code>标签进行访问</p>
+<h5 id="创建组件方式2"><a href="#创建组件方式2" class="headerlink" title="创建组件方式2"></a>创建组件方式2</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'mycom'</span>,&#123;</span><br><span class="line">    template:<span class="string">'&lt;h1&gt;组件内容&lt;/h1&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="创建组件方式3"><a href="#创建组件方式3" class="headerlink" title="创建组件方式3"></a>创建组件方式3</h5><ul>
+<li><p>第三种方式分为两段代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;mycom&apos;,&#123;</span><br><span class="line">    template:&apos;#tmp1&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>下面代码必须是在id为app的div 外面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template id=&quot;tmp1&quot;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;第三种方式必须是在app div外面定义&lt;/h1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmybatis自动生成代码查询/" data-id="cjttum1do00126sbnq4cxyg0c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-007组件/" data-id="cjttum1e0001e6sbnvzxjbvm8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -90,53 +111,336 @@
 
 
   
-    <article id="post-python/python005列表元组字典" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue/vue-009父组件向子组件传值" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/python/python005列表元组字典/" class="article-date">
-  <time datetime="2019-03-29T07:38:14.000Z" itemprop="datePublished">2019-03-29</time>
+    <a href="/2018/06/21/vue/vue-009父组件向子组件传值/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-009父组件向子组件传值/">vue009vue父组件向子组件传值</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: python5列表、元组、字典<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h1 id="pythone4列表、元组、字典"><a href="#pythone4列表、元组、字典" class="headerlink" title="pythone4列表、元组、字典"></a>pythone4列表、元组、字典</h1><blockquote>
-<h2 id="列表、元组、字典之间的区别与联系"><a href="#列表、元组、字典之间的区别与联系" class="headerlink" title="列表、元组、字典之间的区别与联系"></a>列表、元组、字典之间的区别与联系</h2><ul>
-<li>列表<br>列表与其他语言中的数组类似，比C语言的数组强大的地方在于列表中的元素可以是不同类型的</li>
-</ul>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">testList = [<span class="number">1</span>, <span class="string">'a'</span>]</span><br><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> namesList:</span><br><span class="line">        print(name)</span><br><span class="line">        //列表的循环</span><br><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">    length = len(namesList)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;length:</span><br><span class="line">        print(namesList[i])</span><br><span class="line">        i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数组内数字排序</span></span><br><span class="line">couples = [<span class="number">12</span>,<span class="number">14</span>,<span class="number">122</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">55</span>]</span><br><span class="line">coupleslenght=len(couples)</span><br><span class="line"><span class="keyword">for</span> b <span class="keyword">in</span> couples:</span><br><span class="line">    print(b)</span><br><span class="line"><span class="comment"># 仅逆转坐标，不按照大小排序</span></span><br><span class="line">print(<span class="string">"仅逆转坐标，不按照大小排序"</span>)</span><br><span class="line">couples.reverse()</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> couples:</span><br><span class="line">    print(c)</span><br><span class="line">couples.sort()</span><br><span class="line"><span class="comment">#排序后</span></span><br><span class="line">print(<span class="string">"排序后"</span>)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> couples:</span><br><span class="line">    print(d)</span><br><span class="line">print(<span class="string">"排序后结果进行逆转"</span>)</span><br><span class="line">couples.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> couples:</span><br><span class="line">    print(e)</span><br></pre></td></tr></table></figure>
+        <h1 id="vue父组件向子组件传值"><a href="#vue父组件向子组件传值" class="headerlink" title="vue父组件向子组件传值"></a>vue父组件向子组件传值</h1><p>vue框架父组件向子组件传值分2步骤</p>
 <ul>
-<li>元组</li>
+<li>父组件在调用子组件时传递数据</li>
 </ul>
-<blockquote>
-<p>Python的元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>aTuple = (<span class="string">'et'</span>,<span class="number">77</span>,<span class="number">99.9</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>aTuple</span><br><span class="line">(<span class="string">'et'</span>,<span class="number">77</span>,<span class="number">99.9</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com1</span> <span class="attr">v-bind:parametermsg</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">com1</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>字典字典类似于map？</li>
+<li>子组件中props中必须具备父组件传递来的参数</li>
+</ul>
+<p>私有组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">components:&#123;</span><br><span class="line">    com1:&#123;</span><br><span class="line">        template:<span class="string">'&lt;h1&gt;私有组件--------------------&#123;&#123;parametermsg&#125;&#125;-----------------------&lt;/h1&gt;'</span>,</span><br><span class="line">        props:[<span class="string">'parametermsg'</span>],</span><br><span class="line">        directives:&#123;&#125;,</span><br><span class="line">        filters:&#123;&#125;,</span><br><span class="line">        components:&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>data中的数据是可读可写的，props中的数据是只读的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-009父组件向子组件传值/" data-id="cjttum1e6001i6sbn0k2xuiwl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jquery02事件绑定" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/jquery02事件绑定/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jquery/">jquery</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/jquery02事件绑定/">jquery02事件绑定</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>对象.事件名称（事件处理函数）；—&gt;普通写法<br>   事件.bind（参数1，参数2）—-&gt;参数1：事件的名称，参数2：事件处理函数</li>
 </ul>
 <blockquote>
-<p>1、字典和列表一样，也能够存储多个数据；2、列表中找某个元素时，是根据下标进行的；3、列表中找某个元素时，是根据下标进行的；4、字典的每个元素由2部分组成，键:值。例如 ‘name’:’班长’ ,’name’为键，’班长’为值</p>
+<p>   前两种 方式只能为存在的绑定事件，后添加的元素没有事件</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> info = &#123;<span class="string">'name'</span>:<span class="string">'班长'</span>, <span class="string">'id'</span>:<span class="number">100</span>, <span class="string">'sex'</span>:<span class="string">'f'</span>, <span class="string">'address'</span>:<span class="string">'地球亚洲中国北京'</span>&#125;</span><br><span class="line"> &gt;&gt;&gt; age = info.get(<span class="string">'age'</span>)//在我们不确定字典中是否存在某个键而又想获取其值时，可以使用get方法，还可以设置默认值：</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age <span class="comment">#'age'键不存在，所以age为None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(age)</span><br><span class="line">&lt;type <span class="string">'NoneType'</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age = info.get(<span class="string">'age'</span>, <span class="number">18</span>) <span class="comment"># 若info中不存在'age'这个键，就返回默认值18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age</span><br><span class="line"><span class="number">18</span></span><br></pre></td></tr></table></figure>
-<p>可变类型与不可变类型<br>可变类型，值可以改变：</p>
+<p>下面的两种方式，可以为存在的元素绑定事件，后添加的元素也有事件</p>
+<ul>
+<li>对象.dalegate(“选择器”,”事件名称”,事件处理函数);<blockquote>
+<p>  父级元素调用方法，代替子级元素绑定事件</p>
+</blockquote>
+</li>
+<li>对象.on(“事件名称”,”选择器”,事件处理函数)；<br>   父级元素调用方法，代理子级元素绑定事件</li>
+</ul>
+<ul>
+<li>因为delegate方法中是调用的on的方法，所以直接用on就可以了 </li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/jquery02事件绑定/" data-id="cjttvyfdm0000aobnsoi5jevy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jquery01选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/jquery01选择器/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jquery/">jquery</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/jquery01选择器/">jquery01选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jquery笔记1"><a href="#jquery笔记1" class="headerlink" title="jquery笔记1"></a>jquery笔记1</h3><ul>
+<li><p>交集选择器</p>
 <blockquote>
-<p>列表 list<br>字典 dict</p>
+<p>标签名.类名</p>
 </blockquote>
-<p>不可变类型，值不可以改变：</p>
+</li>
+<li><p>并集选择器</p>
 <blockquote>
-<p>数值类型 int, long, bool, float<br>字符串 str<br>元组 tuple</p>
+<p>选择器,选择器,选择器,……….</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">"p.cls,span.cls"</span>).css(<span class="string">"background-color"</span>,<span class="string">"red"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"button"</span> id=<span class="string">"btn"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn"</span>&gt;</span><br><span class="line">&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;高防攻击、防篡改、防病毒、防瘫痪、防窃密&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;p &gt;防窃密&lt;/</span>p&gt;</span><br><span class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"uu"</span>&gt;&lt;li&gt;防篡改&lt;/li&gt;&lt;li&gt;防病毒	&lt;/li&gt; &lt;li&gt;防瘫痪&lt;<span class="regexp">/li&gt;&lt;/u</span>l&gt;</span><br><span class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;为加强和规范国家电网公司（以下简称“公司”）网络与信息系统安全工作，切实提高防攻击、防篡改、防病毒、防瘫痪、防窃密	&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 增加类样式（开关灯）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//                style one</span></span><br><span class="line">	<span class="comment">//                $("body").toggleClass("cls");</span></span><br><span class="line">	<span class="comment">//                style two</span></span><br><span class="line">            <span class="keyword">if</span> ($(<span class="string">"body"</span>).hasClass(<span class="string">"cls"</span>))&#123;</span><br><span class="line">                $(<span class="string">"body"</span>).removeClass(<span class="string">"cls"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                $(<span class="string">"body"</span>).addClass(<span class="string">"cls"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>常用选择器有如下几种（不限于以下几种）</p>
+</blockquote>
+<table id="tb" cellspacing="0"><br>    <tr><br>        <td>序号</td><br>        <td>选择器名称</td><br>        <td>用法</td><br>        <td>备注</td><br>    </tr><br>    <tr><td>1 </td><td>id选择器选择器</td><td>$(“#id属性值”)</td><td></td></tr><br>    <tr><td>2 </td><td>标签选择器</td><td>$(“p 标签名称”)</td><td></td></tr><br>    <tr><td>3 </td><td>类选择器</td><td>$(“.类样式名字”)</td><td></td></tr><br>    <tr><td> 4</td><td>交集选择器</td><td>$(“标签.样式的名字”)</td><td></td></tr><br>    <tr><td>5 </td><td>并集选择器</td><td>$(“选择器，选择器，选择器，选择器。。。”)</td><td></td></tr><br>    <tr><td>6 </td><td>索引选择器</td><td>$(“选择器:eq（索引的值）”)</td><td></td></tr><br>    <tr><td>7 </td><td>奇数选择器</td><td>$(“选择器:odd”)</td><td></td></tr><br>    <tr><td>8 </td><td>偶数选择器</td><td>$(“选择器：even”)</td><td></td></tr><br>    <tr><td> 9</td><td>筛选选择器</td><td>$(“选择器:lt(索引)”) or $(“选择器:gt(索引)”)</td><td></td></tr><br>    <tr><td>10</td><td>最后一个选择器</td><td>$(“选择器:last”)</td><td></td></tr><br>    <tr><td>11</td><td>第一个选择器</td><td>$(“选择器：first”)</td><td></td></tr><br>    <tr><td>12</td><td>下一个选择器</td><td>$(“当前元素.next()”)</td><td></td></tr><br>    <tr><td>13</td><td>当前元素选择器</td><td>$(“当前元素.nextAll()”)</td><td></td></tr><br></table>
+
+<blockquote>
+<p>常用方法（不限于以下几种）</p>
+</blockquote>
+<p><table cellspacing="0" id="tb" style="border: 1px;"></table></p>
+<p><tr><td>序号</td><td>选择器名称</td><td>用法</td><td>备注</td></tr></p>
+<p><tr><td>1</td><td>操作表单元素value属性，可以获取也可以设置</td><td>.val()</td><td></td></tr></p>
+<p><tr><td>2</td><td>操作元素的样式</td><td>.css()</td><td></td></tr></p>
+<p><tr><td>3</td><td>操作元素中的html代码及内容，相当于innerHTML</td><td>.html()</td><td></td></tr></p>
+<p><tr><td>4</td><td>操作元素中的文本内容，相当于innerText</td><td>.text()</td><td></td></tr></p>
+<p><tr><td>5</td><td>添加类样式</td><td>addClass</td><td></td></tr></p>
+<p><tr><td>6</td><td>移除类样式</td><td>.removeClass()</td><td></td></tr></p>
+<p><tr><td>7</td><td>判断元素是否引用了某个样式</td><td>hasClass()</td><td></td></tr></p>
+<p><tr><td>8</td><td>元素的索引</td><td>.index()</td><td></td></tr></p>
+<p><tr><td>9</td><td>显示</td><td>.show()</td><td></td></tr></p>
+<p><tr><td>10</td><td>隐藏</td><td>.hide()</td><td></td></tr></p>
+<p><tr><td>11</td><td>停止动画</td><td>.stop()</td><td></td></tr></p>
+<p><tr><td>12</td><td>动画的方法</td><td>.animate()</td><td></td></tr></p>
+<p><tr><td>13</td><td>滑入</td><td>.slideUp()</td><td></td></tr></p>
+<p><tr><td>14</td><td>滑出</td><td>.slideDown()</td><td></td></tr></p>
+<p><tr><td>15</td><td>淡入</td><td>.fadeIn()</td><td></td></tr></p>
+<p><tr><td>16</td><td>淡出</td><td>.fadeOut()</td><td></td></tr></p>
+<p><tr><td>17</td><td>切换淡入淡出</td><td>fadeToggle()</td><td></td></tr></p>
+<p><tr><td>18</td><td>时间，透明度的值</td><td>fadeTo()</td><td></td></tr><br><br><br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/jquery01选择器/" data-id="cjttvwhu4000051bnb0kj9u2l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-000crud" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-000crud/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-000crud/">vue-000最简单的crud</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue第0课最简单的crud"><a href="#vue第0课最简单的crud" class="headerlink" title="vue第0课最简单的crud"></a>vue第0课最简单的crud</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--支持移动设备优先--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../js/bootstrap/css/bootstrap.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../js/datepicker/bootstrap-datetimepicker.min.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/jquery-2.1.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/bootstrap/js/bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/datepicker/bootstrap-datetimepicker.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        #dvinput&#123;</span></span><br><span class="line"><span class="undefined">            padding-top: 4px;;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .red&#123;</span></span><br><span class="line"><span class="undefined">            color: red;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .green&#123;</span></span><br><span class="line"><span class="undefined">            color: greenyellow;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .thin&#123;</span></span><br><span class="line"><span class="undefined">            font-weight: 200;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .italic&#123;</span></span><br><span class="line"><span class="undefined">            font-style: italic;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .active&#123;</span></span><br><span class="line"><span class="undefined">            letter-spacing: 0.5em;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"panel-title"</span>&gt;</span>检修管理<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body form-inline"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检&amp;nbsp;&amp;nbsp;&amp;nbsp;修&amp;nbsp;&amp;nbsp;类&amp;nbsp;&amp;nbsp;型<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>   <span class="attr">v-model</span>=<span class="string">"jxtype"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"workname"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"starttime"</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"endtime"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>责&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;任&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;人<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"manager"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">v-on:click</span>=<span class="string">"addjx"</span> <span class="attr">value</span>=<span class="string">"添加"</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"sworkname"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table  table-striped  table-bordered  table-hover  table-condensed"</span>  &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>选择<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修类型<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>责任人<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in search(sworkname)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>  &gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.id&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.jxtype&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.workname&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.starttime | dateFormat('') &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.endtime  | dateFormat('')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.manager&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    Vue.filter('dateFormat',function (dateStr,pattern) &#123;</span></span><br><span class="line"><span class="undefined">        var dt =new Date(dateStr)</span></span><br><span class="line"><span class="undefined">        var y=dt.getFullYear()</span></span><br><span class="line"><span class="undefined">        //.padStart(2,'0')补0</span></span><br><span class="line"><span class="undefined">        var m=(dt.getMonth()+1).toString().padStart(2,'0')</span></span><br><span class="line"><span class="undefined">        var d=dt.getDate().toString().padStart(2,'0')</span></span><br><span class="line"><span class="undefined">        if(pattern.toLowerCase() === 'yyyy-mm-dd')&#123;</span></span><br><span class="line"><span class="undefined">            return `$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125;`</span></span><br><span class="line"><span class="undefined">        &#125;else&#123;</span></span><br><span class="line"><span class="undefined">            var hh=dt.getHours();</span></span><br><span class="line"><span class="undefined">            var mm=dt.getMinutes();</span></span><br><span class="line"><span class="undefined">            var ss=dt.getSeconds();</span></span><br><span class="line"><span class="undefined">            return `$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125; $&#123;hh&#125;:$&#123;mm&#125;:$&#123;ss&#125;`</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined">    var vm= new Vue(</span></span><br><span class="line"><span class="undefined">        &#123;</span></span><br><span class="line"><span class="undefined">            el:'#app',</span></span><br><span class="line"><span class="undefined">            data:&#123;</span></span><br><span class="line"><span class="undefined">                id:'',</span></span><br><span class="line"><span class="undefined">                jxtype:'',</span></span><br><span class="line"><span class="undefined">                workname:'',</span></span><br><span class="line"><span class="undefined">                starttime:'',</span></span><br><span class="line"><span class="undefined">                endtime:'',</span></span><br><span class="line"><span class="undefined">                manager:'',</span></span><br><span class="line"><span class="undefined">                sworkname:'',</span></span><br><span class="line"><span class="undefined">                msg:'please input  something!!!',</span></span><br><span class="line"><span class="undefined">                lists:[&#123;id:1,jxtype:'项目实施',workname:'pms2.0升级至5.0',starttime:new Date(),endtime:new Date(),manager:'张波'&#125;,&#123;id:2,jxtype:'三级周检',workname:'营销业务应用升级至5.0',starttime:new Date(),endtime:new Date(),manager:'刘强'&#125;],</span></span><br><span class="line"><span class="undefined">                flag:false</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            methods:&#123;</span></span><br><span class="line"><span class="undefined">                addjx()&#123;</span></span><br><span class="line"><span class="undefined">                    var bid =this.lists.length</span></span><br><span class="line"><span class="undefined">                    var jxjh=&#123;id:bid,jxtype:this.jxtype,workname:this.workname,starttime:new Date(),endtime:new Date(),manager:this.manager&#125;</span></span><br><span class="line"><span class="undefined">                    this.lists.push(jxjh);</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                search(sworkname)&#123;</span></span><br><span class="line"><span class="undefined">                    var newList = []</span></span><br><span class="line"><span class="undefined">                    this.lists.forEach(item =&gt; &#123;</span></span><br><span class="line"><span class="undefined">                        if(item.workname.indexOf(sworkname) != -1)&#123;</span></span><br><span class="line"><span class="undefined">                            newList.push(item)</span></span><br><span class="line"><span class="undefined">                        &#125;</span></span><br><span class="line"><span class="undefined">                    &#125;)</span></span><br><span class="line"><span class="undefined">                    return newList;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    )</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-000crud/" data-id="cjttum1dp00136sbnlec1e85z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-001" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-001/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-001/">vue-001模板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue第一课"><a href="#vue第一课" class="headerlink" title="vue第一课"></a>vue第一课</h1><ul>
+<li>如何定义一个基本的vue代码结构</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el:<span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;&#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        divHandler()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'触发事件'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>插值表达式和v-text</li>
+<li>v-cloak</li>
+<li>v-html</li>
+<li>v-bind vue提供的属性绑定机制 缩写是<code>：</code></li>
+<li>v-on vue提供的事件绑定机制 缩写是<code>@</code></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-001/" data-id="cjttum1dq00146sbnl1mev18n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/hexo基本使用方法/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/hexo基本使用方法/">hexo基本使用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文章上传步骤</p>
+<p>1、切换只hexo相关目录，运行“hexo new 文档名”</p>
+<p>2、编译md文件 hexo generate</p>
+<p>3、切换至/Users/james/Documents/exercise/nodejsexercise/hexo/blog/public</p>
+<p>4、运行cp -rf ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</p>
+<p>5、切换至/Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</p>
+<blockquote>
+<p>   git add –all</p>
+</blockquote>
+<blockquote>
+<p>  git commit -m “webpack commit 2”</p>
+</blockquote>
+<blockquote>
+<p>  git push -u origin master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate</span><br><span class="line">   cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/</span><br><span class="line">    cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</span><br><span class="line">   cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</span><br><span class="line"></span><br><span class="line">    git add --all</span><br><span class="line">   git commit -m &quot;webpack commit 2&quot;</span><br><span class="line">  git push -u origin master</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python005列表元组字典/" data-id="cjttum1d9000p6sbnrf5ptjyp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/hexo基本使用方法/" data-id="cjttvunfj0000zjbn1ckdqdj3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,138 +450,14 @@
 
 
   
-    <article id="post-mybatis/mybatis003:mapper自动代理" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue/vue-003过滤器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/mybatis/mybatis003:mapper自动代理/" class="article-date">
-  <time datetime="2019-03-29T07:38:14.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: mybatis03mapper自动代理<br>date: 2018-06-15 17:10:14<br>categories: mybatis<br>tags:</p>
-<h1 id="mybatis003mapper自动代理"><a href="#mybatis003mapper自动代理" class="headerlink" title="mybatis003mapper自动代理"></a>mybatis003mapper自动代理</h1><p>使用mapper自动代理将进一步简化代码，除了必须得配置文件外，该种方式只需要2个文件</p>
-<p>包括mapper（java）mapper（xml），即可在其他地方进行调用</p>
-<p>开发规范：</p>
-<p><strong>1、在mapper.xml中namespace等于mapper接口地址</strong></p>
-<p><strong>2、mapper.java接口中的方法名和mapper.xml中statement的id一致</strong></p>
-<p> <strong>3、mapper.java接口中的方法输入参数类型和mapper.xml中statement的parameterType指定的类型一致。</strong></p>
-<p> <strong>4、mapper.java接口中的方法返回值类型和mapper.xml中statement的resultType指定的类型一致。</strong></p>
-<p>UserMapper.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.james.po.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">findUserById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertUser</span><span class="params">(User user)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteUserById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateUser</span><span class="params">(User user)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>UserMapper.xml(除了namespace以外，其他参数与手动dao完全一致)</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"mapper.UserMapper"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserById"</span>  <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"com.james.po.User"</span>&gt;</span></span><br><span class="line">	SELECT * FROM user   where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>同时在config文件里引入语句未</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"sqlmap/User.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">"mapper.UserMapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span> </span><br><span class="line">	<span class="comment">&lt;!-- 批量加载 </span></span><br><span class="line"><span class="comment">	&lt;package name="com.james.mapper" /&gt;</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>调用方式（测试类）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserMappertest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	String resource=<span class="string">"SqlMapConfig.xml"</span>;</span><br><span class="line"></span><br><span class="line">	InputStream inputStream=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	SqlSessionFactory sqlSessionFactory=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initSqlSessionFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	sqlSessionFactory= <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findUserById</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	SqlSession sqlSession=sqlSessionFactory.openSession();</span><br><span class="line">	UserMapper userMapper=sqlSession.getMapper(UserMapper.class);</span><br><span class="line">	User user =userMapper.findUserById(<span class="number">1</span>);</span><br><span class="line">	System.out.println(user.getUserName());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/mybatis/mybatis003:mapper自动代理/" data-id="cjttum1cf00066sbnjovms55f" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mybatis/mybatis005:mapper.xml输入映射" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/mybatis/mybatis005:mapper.xml输入映射/" class="article-date">
-  <time datetime="2019-03-29T07:38:14.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: mybatis05mapper.xml输入映射<br>date: 2018-06-15 20:10:14<br>categories: mybatis<br>tags:</p>
-<h1 id="mybatis005mapper-xml输入映射"><a href="#mybatis005mapper-xml输入映射" class="headerlink" title="mybatis005mapper.xml输入映射"></a>mybatis005mapper.xml输入映射</h1><blockquote>
-<p>​    通过parameterType指定输入参数的类型，类型可以是简单类型、hashmap、pojo的包装类型</p>
-</blockquote>
-<h3 id="一、pojo包装类"><a href="#一、pojo包装类" class="headerlink" title="一、pojo包装类"></a>一、pojo包装类</h3><p>当进行多条件查询时，必须使用pojo类，原因是<strong><em><u>mybatis查询语句的 parameterType只支持一个参数</u></em></strong></p>
-<p>完成用户信息的综合查询，需要传入查询条件很复杂（可能包括用户信息、其它信息，比如商品、订单的）param</p>
-<h4 id="1-1query类（查询类）"><a href="#1-1query类（查询类）" class="headerlink" title="1.1query类（查询类）"></a>1.1query类（查询类）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//封装查询条件的vo</span></span><br><span class="line"><span class="keyword">package</span> com.james.po;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserQueryVo</span> </span>&#123;</span><br><span class="line">	UserCustom userCustom;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> UserCustom <span class="title">getUserCustom</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> userCustom;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserCustom</span><span class="params">(UserCustom userCustom)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.userCustom = userCustom;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="1-2custom类（扩展类）"><a href="#1-2custom类（扩展类）" class="headerlink" title="1.2custom类（扩展类）"></a>1.2custom类（扩展类）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//扩展查询对象</span></span><br><span class="line"><span class="keyword">package</span> com.james.po;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserCustom</span> <span class="keyword">extends</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="1-3mapper配置文件"><a href="#1-3mapper配置文件" class="headerlink" title="1.3mapper配置文件"></a>1.3mapper配置文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"mapper.UserMapper"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectUserByVo"</span>  <span class="attr">parameterType</span>=<span class="string">"userQueryVo"</span> <span class="attr">resultType</span>=<span class="string">"userCustom"</span>&gt;</span></span><br><span class="line">	SELECT * FROM user   where userName like '%$&#123;userCustom.userName&#125;%' and sex='$&#123;userCustom.sex&#125;'</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="1-4mapper接口"><a href="#1-4mapper接口" class="headerlink" title="1.4mapper接口"></a>1.4mapper接口</h4><p>​<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> mapper;</span><br><span class="line"><span class="keyword">import</span> 略。。。。。</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;UserCustom&gt; <span class="title">selectUserByVo</span><span class="params">(UserQueryVo userQueryVo)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="1-5测试"><a href="#1-5测试" class="headerlink" title="1.5测试"></a>1.5测试</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 略。。。。。。。。。。。。。。。。。</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserMappertest</span> </span>&#123;</span><br><span class="line">	String resource=<span class="string">"SqlMapConfig.xml"</span>;</span><br><span class="line">	InputStream inputStream=<span class="keyword">null</span>;</span><br><span class="line">	SqlSessionFactory sqlSessionFactory=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initSqlSessionFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	sqlSessionFactory= <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectUserByVo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	SqlSession sqlSession=sqlSessionFactory.openSession();</span><br><span class="line">	UserMapper userMapper=sqlSession.getMapper(UserMapper.class);</span><br><span class="line">	UserCustom userCustom=<span class="keyword">new</span> UserCustom();</span><br><span class="line">	userCustom.setUserName(<span class="string">"张"</span>);</span><br><span class="line">	userCustom.setSex(<span class="string">'1'</span>);</span><br><span class="line">	UserQueryVo userQueryVo=<span class="keyword">new</span> UserQueryVo();</span><br><span class="line">	userQueryVo.setUserCustom(userCustom);</span><br><span class="line">	List&lt;UserCustom&gt; users=userMapper.selectUserByVo(userQueryVo);</span><br><span class="line">	<span class="keyword">for</span> (UserCustom uc : users) &#123;</span><br><span class="line">		System.out.println(uc.getUserName());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/mybatis/mybatis005:mapper.xml输入映射/" data-id="cjttum1cl00086sbngqkyv1dw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/hello-world/" class="article-date">
-  <time datetime="2019-03-29T03:10:51.878Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/hello-world/" data-id="cjttig1mf0000c4bnoeeewacg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-maven002mybatismaven常见问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/21/maven002mybatismaven常见问题/" class="article-date">
-  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+    <a href="/2018/06/21/vue/vue-003过滤器/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/maven/">maven</a>
+    <a class="article-category-link" href="/categories/vue/">vue</a>
   </div>
 
   </div>
@@ -288,7 +468,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/maven002mybatismaven常见问题/">maven2常见问题</a>
+      <a class="article-title" href="/2018/06/21/vue/vue-003过滤器/">vue003过滤器</a>
     </h1>
   
 
@@ -296,15 +476,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://blog.csdn.net/qq_16488911/article/details/78863351" target="_blank" rel="noopener">https://blog.csdn.net/qq_16488911/article/details/78863351</a></p>
-<p>原因是：</p>
-<p>在maven与mybatis整合的时候，非编译型文件maven都不会将其拷贝至target目录，因此造成target运行的时候找不到相应xml文件。需要在pom.xml文件中配置resource</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+        <h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><p>过滤日期格式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'dateFormat'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">dateStr,pattern</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dt =<span class="keyword">new</span> <span class="built_in">Date</span>(dateStr)</span><br><span class="line">    <span class="keyword">var</span> y=dt.getFullYear()</span><br><span class="line">    <span class="comment">//.padStart(2,'0')补0</span></span><br><span class="line">    <span class="keyword">var</span> m=(dt.getMonth()+<span class="number">1</span>).toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">var</span> d=dt.getDate().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">if</span>(pattern.toLowerCase() === <span class="string">'yyyy-mm-dd'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span>`</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hh=dt.getHours();</span><br><span class="line">        <span class="keyword">var</span> mm=dt.getMinutes();</span><br><span class="line">        <span class="keyword">var</span> ss=dt.getSeconds();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span> <span class="subst">$&#123;hh&#125;</span>:<span class="subst">$&#123;mm&#125;</span>:<span class="subst">$&#123;ss&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/maven002mybatismaven常见问题/" data-id="cjttvyfer0007aobnioqh9gfh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-003过滤器/" data-id="cjttum1dt00176sbn5wfzyefq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -314,14 +491,14 @@
 
 
   
-    <article id="post-maven001父子关系" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue/vue-004json" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/21/maven001父子关系/" class="article-date">
-  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+    <a href="/2018/06/21/vue/vue-004json/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/maven/">maven</a>
+    <a class="article-category-link" href="/categories/vue/">vue</a>
   </div>
 
   </div>
@@ -332,7 +509,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/maven001父子关系/">maven坐标查看网址</a>
+      <a class="article-title" href="/2018/06/21/vue/vue-004json/">vue004json</a>
     </h1>
   
 
@@ -340,12 +517,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>### </p>
-
+        <p>第一部分</p>
+<p>html部分</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"panel-title"</span>&gt;</span>检修管理<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body form-inline"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检&amp;nbsp;&amp;nbsp;&amp;nbsp;修&amp;nbsp;&amp;nbsp;类&amp;nbsp;&amp;nbsp;型<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>   <span class="attr">v-model</span>=<span class="string">"jxtype"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"workname"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"starttime"</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"endtime"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>责&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;任&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;人<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"manager"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">v-on:click</span>=<span class="string">"addjx"</span> <span class="attr">value</span>=<span class="string">"添加"</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"sworkname"</span> <span class="attr">v-focus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table  table-striped  table-bordered  table-hover  table-condensed"</span>  &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>选择<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修类型<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>责任人<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in search(sworkname)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>  &gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.id&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.jxtype&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.workname&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.starttime | dateFormat('') &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.endtime  | dateFormat('')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.manager&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第二部分js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'dateFormat'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">dateStr,pattern</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dt =<span class="keyword">new</span> <span class="built_in">Date</span>(dateStr)</span><br><span class="line">    <span class="keyword">var</span> y=dt.getFullYear()</span><br><span class="line">    <span class="comment">//.padStart(2,'0')补0</span></span><br><span class="line">    <span class="keyword">var</span> m=(dt.getMonth()+<span class="number">1</span>).toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">var</span> d=dt.getDate().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">if</span>(pattern.toLowerCase() === <span class="string">'yyyy-mm-dd'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span>`</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hh=dt.getHours();</span><br><span class="line">        <span class="keyword">var</span> mm=dt.getMinutes();</span><br><span class="line">        <span class="keyword">var</span> ss=dt.getSeconds();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span> <span class="subst">$&#123;hh&#125;</span>:<span class="subst">$&#123;mm&#125;</span>:<span class="subst">$&#123;ss&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">Vue.directive(<span class="string">'focus'</span>,&#123;</span><br><span class="line">    inserted:<span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(</span><br><span class="line">    &#123;</span><br><span class="line">        el:<span class="string">'#app'</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            id:<span class="string">''</span>,</span><br><span class="line">            jxtype:<span class="string">''</span>,</span><br><span class="line">            workname:<span class="string">''</span>,</span><br><span class="line">            starttime:<span class="string">''</span>,</span><br><span class="line">            endtime:<span class="string">''</span>,</span><br><span class="line">            manager:<span class="string">''</span>,</span><br><span class="line">            sworkname:<span class="string">''</span>,</span><br><span class="line">            msg:<span class="string">'please input  something!!!'</span>,</span><br><span class="line">            lists:[&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">jxtype</span>:<span class="string">'项目实施'</span>,<span class="attr">workname</span>:<span class="string">'pms2.0升级至5.0'</span>,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="string">'张波'</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">jxtype</span>:<span class="string">'三级周检'</span>,<span class="attr">workname</span>:<span class="string">'营销业务应用升级至5.0'</span>,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="string">'刘强'</span>&#125;],</span><br><span class="line">            flag:<span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            addjx()&#123;</span><br><span class="line">                <span class="keyword">var</span> bid =<span class="keyword">this</span>.lists.length</span><br><span class="line">                <span class="keyword">var</span> jxjh=&#123;<span class="attr">id</span>:bid,<span class="attr">jxtype</span>:<span class="keyword">this</span>.jxtype,<span class="attr">workname</span>:<span class="keyword">this</span>.workname,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="keyword">this</span>.manager&#125;</span><br><span class="line">                <span class="keyword">this</span>.lists.push(jxjh);</span><br><span class="line">            &#125;,</span><br><span class="line">            search(sworkname)&#123;</span><br><span class="line">                <span class="keyword">var</span> newList = []</span><br><span class="line">                <span class="keyword">this</span>.lists.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span>(item.workname.indexOf(sworkname) != <span class="number">-1</span>)&#123;</span><br><span class="line">                        newList.push(item)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                <span class="keyword">return</span> newList;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/maven001父子关系/" data-id="cjttvyfe20002aobnrjh4hfm8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-004json/" data-id="cjttum1du00186sbn7b6qsh3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -355,14 +535,14 @@
 
 
   
-    <article id="post-maven00" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue/vue-005动画" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/21/maven00/" class="article-date">
-  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+    <a href="/2018/06/21/vue/vue-005动画/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/maven/">maven</a>
+    <a class="article-category-link" href="/categories/vue/">vue</a>
   </div>
 
   </div>
@@ -373,7 +553,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/maven00/">maven坐标查看网址</a>
+      <a class="article-title" href="/2018/06/21/vue/vue-005动画/">vue005动画</a>
     </h1>
   
 
@@ -381,70 +561,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>### </p>
-<p>maven坐标查看网址</p>
-<p><a href="http://mvnrepository.com/" target="_blank" rel="noopener">http://mvnrepository.com/</a></p>
+        <h1 id="vue动画"><a href="#vue动画" class="headerlink" title="vue动画"></a>vue动画</h1><p>vue动画借助transition标签实现</p>
+<p>代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jpn"</span>  <span class="attr">v-if</span>=<span class="string">"flag  ==  true"</span> <span class="attr">style</span>=<span class="string">"background: greenyellow;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>this is flag<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如存在多个动画需要给transition标签制定name标签相应css中的类名亦改为my-enter，my-leave-to等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    &lt;transition name=&quot;my&quot;&gt;</span><br><span class="line">&lt;div class=&quot;jpn1&quot;  v-if=&quot;flag == false&quot; style=&quot;background:red;&quot;&gt;</span><br><span class="line">    &lt;h3&gt;this is flag too&lt;/h3&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+<p>其生命周期如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.v-enter</span>,</span><br><span class="line"><span class="selector-class">.v-leave-to</span>&#123;</span><br><span class="line">    opacity:0; 该单词是透明度的意思</span><br><span class="line">    <span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(200<span class="selector-tag">px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.v-enter-active</span>,</span><br><span class="line"><span class="selector-class">.v-leave-active</span>&#123;</span><br><span class="line">    <span class="attribute">transition</span>:<span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/maven00/" data-id="cjttvyfdx0001aobn9kig0f8q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nodejs/nodejs-005开发一个页面服务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/22/nodejs/nodejs-005开发一个页面服务/" class="article-date">
-  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: nodejs005开发一个页面服务<br>date: 2018-06-20 22:28:10<br>categories: nodejs</p>
-<h1 id="nodejs开发一个页面服务"><a href="#nodejs开发一个页面服务" class="headerlink" title="nodejs开发一个页面服务"></a>nodejs开发一个页面服务</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Author: Marte</span></span><br><span class="line"><span class="comment"> * @Date:   2018-06-26 15:07:14</span></span><br><span class="line"><span class="comment"> * @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment"> * @Last Modified time: 2018-06-29 11:25:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="comment">//而解决金泰资源返回文件格式多样化问题。</span></span><br><span class="line"><span class="keyword">var</span> mime = <span class="built_in">require</span>(<span class="string">'mime'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="comment">//查询字符串转换为json字符串</span></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'underscore'</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.runders = <span class="function"><span class="keyword">function</span>(<span class="params">filename, tpldata</span>) </span>&#123;</span><br><span class="line">    fs.readFile(filename, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">        &#125;);</span><br><span class="line">        res.end(<span class="string">'404,not found'</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (tpldata) &#123;</span><br><span class="line">        <span class="keyword">var</span> fn = _.template(data.toString(<span class="string">'utf8'</span>));</span><br><span class="line">        data = fn(tpldata);</span><br><span class="line">      &#125;;</span><br><span class="line">      res.setHeader(<span class="string">'Content-Type'</span>, mime.getType(filename));</span><br><span class="line">      res.end(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  req.url = req.url.toLowerCase();</span><br><span class="line">  req.method = req.method.toLowerCase();</span><br><span class="line">  <span class="keyword">var</span> urlObj = url.parse(req.url, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (req.url === <span class="string">'/'</span> || req.url === <span class="string">'index'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"NEWSLIST:"</span> + newslist);</span><br><span class="line">      <span class="comment">//转换为数组后，将接受到的参数作为数组形式添加到数组中</span></span><br><span class="line">      res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'list.html'</span>), &#123;</span><br><span class="line">        list: newslist</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/submit'</span>) &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    <span class="comment">// res.runders(path.join(__dirname,'pages','submit.html'));</span></span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="comment">//加个ID</span></span><br><span class="line">      urlObj.query.id = newslist.length;</span><br><span class="line">      <span class="comment">//转换为数组后，将接受到的参数作为数组形式添加到数组中</span></span><br><span class="line">      newslist.push(urlObj.query);</span><br><span class="line">      fs.writeFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="built_in">JSON</span>.stringify(newslist), <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">          <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"get write success!!"</span>);</span><br><span class="line">         <span class="comment">//跳转至主页</span></span><br><span class="line">        res.statusCode = <span class="number">302</span>;</span><br><span class="line">        res.statusMessage = <span class="string">'Found'</span>;</span><br><span class="line">        res.setHeader(<span class="string">'Location'</span>, <span class="string">'/'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (urlObj.pathname === <span class="string">'/detail'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="keyword">var</span> model = <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; newslist.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (newslist[i].id.toString() === urlObj.query.id) &#123;</span><br><span class="line">          model = newslist[i];</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">if</span> (model) &#123;</span><br><span class="line">        res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'detail.html'</span>), &#123;</span><br><span class="line">          item: model</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">        &#125;);</span><br><span class="line">        res.end(<span class="string">'404,Page Not Found this news.'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">'/add'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'add.html'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">'/addp'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'addp.html'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/node_modules'</span>) &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    <span class="comment">//如果用户请求以‘/node_modules’开头，即认为该请求为请求静态资源。</span></span><br><span class="line">    res.runders(path.join(__dirname, req.url));</span><br><span class="line">    <span class="comment">//post方式</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/submitpost'</span>) &amp;&amp; req.method === <span class="string">'post'</span>) &#123;</span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="comment">//该数组用于保存每次提交过来的数据</span></span><br><span class="line">      <span class="keyword">var</span> array = [];</span><br><span class="line">      <span class="comment">//post方法与get方法异同之处</span></span><br><span class="line">      req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        array.push(chunk);</span><br><span class="line">      &#125;);</span><br><span class="line">      req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> postBody = Buffer.concat(array);</span><br><span class="line">        <span class="comment">//buffer转换成string</span></span><br><span class="line">        postBody = postBody.toString(<span class="string">'utf8'</span>);</span><br><span class="line">        <span class="comment">//查询字符串转换为json字符串</span></span><br><span class="line">        postBody = querystring.parse(postBody);</span><br><span class="line"></span><br><span class="line">        postBody.id = newslist.length;</span><br><span class="line">        <span class="comment">//推入数组</span></span><br><span class="line">        newslist.push(postBody);</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      fs.writeFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">"helloworld"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">          res.end(<span class="string">"error"</span>);</span><br><span class="line">          <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"post write success!!"</span>);</span><br><span class="line">        res.statusCode = <span class="number">302</span>;</span><br><span class="line">        res.statusMessage = <span class="string">'Found'</span>;</span><br><span class="line">        res.setHeader(<span class="string">'Location'</span>, <span class="string">'/'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(<span class="string">'404,Page Not Found.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).listen(<span class="number">9090</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/nodejs/nodejs-005开发一个页面服务/" data-id="cjty36yqk0003h3bnf5oiyhs1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue/vue-002定义全局指令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/22/vue/vue-002定义全局指令/" class="article-date">
-  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: vue002定义全局指令<br>date: 2018-06-21 11:26:05<br>categories: vue</p>
-<h1 id="vue定义全局指令"><a href="#vue定义全局指令" class="headerlink" title="vue定义全局指令"></a>vue定义全局指令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;focus&apos;,&#123;</span><br><span class="line">    inserted:function (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/vue/vue-002定义全局指令/" data-id="cjttum1ds00166sbnu061x7k8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-005动画/" data-id="cjttum1dv001a6sbnbtqotaru" class="article-share-link">Share</a>
       
       
     </footer>
@@ -515,19 +643,19 @@
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis002：dao抽取手动/">(no title)</a>
+            <a href="/2019/03/29/python/python011面向对象/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis004：SqlMapConfig配置文件/">(no title)</a>
+            <a href="/2019/03/29/python/python008copy/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis006：mapper输出映射/">(no title)</a>
+            <a href="/2019/03/29/python/python009多线程/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis007：sql片段/">(no title)</a>
+            <a href="/2019/03/29/python/python006函数/">(no title)</a>
           </li>
         
       </ul>

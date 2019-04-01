@@ -62,48 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-vue/vue-014router嵌套" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-014router嵌套/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-014router嵌套/">vue-014子路有嵌套</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>vue子路有嵌套</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const login = &#123; template: '&lt;h1&gt;登录------------&#123;&#123;$route.query.id&#125;&#125;----------&#123;&#123;$route.query.name&#125;&#125;-------&lt;/h1&gt;',</span></span><br><span class="line"><span class="comment">//传参方式2需改造取参数方式</span></span><br><span class="line"><span class="keyword">var</span> acounttemp = &#123; <span class="attr">template</span>: <span class="string">'#acounttemp'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> login = &#123; <span class="attr">template</span>: <span class="string">'#login'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> register = &#123; <span class="attr">template</span>: <span class="string">'#register'</span>&#125;</span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123;<span class="attr">path</span>:<span class="string">'/account'</span>,<span class="attr">component</span>:acounttemp,</span><br><span class="line">    children:[</span><br><span class="line">        &#123;<span class="attr">path</span>:<span class="string">'login'</span>,<span class="attr">component</span>:login&#125;,<span class="comment">//此处不能有‘/’</span></span><br><span class="line">        &#123;<span class="attr">path</span>:<span class="string">'register'</span>,<span class="attr">component</span>:register&#125;</span><br><span class="line">    ]</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-014router嵌套/" data-id="cjttum1ei001u6sbnvc3ilpj9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-vue/vue-015router-view实现经典视图" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/21/vue/vue-015router-view实现经典视图/" class="article-date">
@@ -211,14 +169,14 @@
 
 
   
-    <article id="post-vue/vue-017vue配合webpack" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs/nodejs-000相关工具" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-017vue配合webpack/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+    <a href="/2018/06/20/nodejs/nodejs-000相关工具/" class="article-date">
+  <time datetime="2018-06-20T14:38:17.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
   </div>
 
   </div>
@@ -229,7 +187,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-017vue配合webpack/">vue17Webpack 中使用vue</a>
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-000相关工具/">nodejs000相关工具</a>
     </h1>
   
 
@@ -237,319 +195,193 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>## </p>
-<h1 id="Webpack-中使用vue001"><a href="#Webpack-中使用vue001" class="headerlink" title="Webpack 中使用vue001"></a>Webpack 中使用vue001</h1><h4 id="第一步安装支持包"><a href="#第一步安装支持包" class="headerlink" title="第一步安装支持包"></a>第一步安装支持包</h4><p>npm i vue-loader vue-template-compiler -D </p>
-<h4 id="第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"><a href="#第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）" class="headerlink" title="第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"></a>第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）</h4><blockquote>
-<p>注意vue-loader15以后均需增加新的配置，否则会报错</p>
-</blockquote>
-<blockquote>
-<p>const VueLoaderPlugin = require(‘vue-loader/lib/plugin’);</p>
-<p>plugins: [ new VueLoaderPlugin(), new htmlWebpackPlugin({ template:path.join(__dirname,”./src/index.html”), filename:’index.html’ })//这个插件可以在内存中生成一个html页面的插件</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span>  path= <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span>  htmlWebpackPlugin=<span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> VueLoaderPlugin = <span class="built_in">require</span>(<span class="string">'vue-loader/lib/plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这个文件只是js文件，通过node中的模块操作，向外暴露一个配置对象</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry: path.join(__dirname,<span class="string">'./src/main.js'</span>),</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname,<span class="string">'./dist'</span>),</span><br><span class="line">        filename: <span class="string">"bundle.js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">            <span class="keyword">new</span> VueLoaderPlugin(),</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template:path.join(__dirname,<span class="string">"./src/index.html"</span>),</span><br><span class="line">            filename:<span class="string">'index.html'</span></span><br><span class="line">    &#125;)<span class="comment">//这个插件可以在内存中生成一个html页面的插件</span></span><br><span class="line"></span><br><span class="line">],<span class="attr">module</span> :&#123;</span><br><span class="line">    rules:[</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;,</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|jpeg|png)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=1800'</span>&#125;,<span class="comment">//limit=1800该参数控制图片是否需转成base64文本格式，该处单位是byte，此处文件名</span></span><br><span class="line"><span class="comment">//会改变成hash代码，同样可以使用参数形式保持原名,参数形式如下name=[name].[ext]</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader'</span>&#125;,<span class="comment">//用来处理字体文件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.js$/</span>,<span class="attr">use</span>:<span class="string">'babel-loader'</span>,<span class="attr">exclude</span>:<span class="regexp">/node_modules/</span>&#125;,<span class="comment">//用来ES6语法插件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.vue$/</span>,<span class="attr">use</span>:<span class="string">'vue-loader'</span>&#125;<span class="comment">//处理.vue文件的loader</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    resolve:&#123;</span><br><span class="line">        alias:&#123;</span><br><span class="line">            <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第三步，新建vue文件，其基本格式如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>login component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>第四步，main中导入vue组件</p>
-<blockquote>
-<p>​    4.1如需在main中使用<code>import Vue from &#39;vue&#39;</code>则需在webpack.config.js中出入口中增加如下配置</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve:&#123;</span><br><span class="line">    alias:&#123;</span><br><span class="line">        <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第五步，main.js中修改渲染组件集成方式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不能直接导入vue，导入vue会导成运行时环境，造成环境异常</span></span><br><span class="line"><span class="comment">// import Vue from 'vue'</span></span><br><span class="line"><span class="comment">//方式1</span></span><br><span class="line"><span class="comment">// import Vue from '../node_modules/vue/dist/vue.js'</span></span><br><span class="line"><span class="comment">//方式2（该方法必须调整webpack.config.js配置文件）</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="comment">//webpack.config中修改内容如下</span></span><br><span class="line">    <span class="comment">// resolve:&#123;</span></span><br><span class="line">    <span class="comment">//     alias:&#123;</span></span><br><span class="line">    <span class="comment">//         "vue$":"vue/dist/vue.js"</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"this is test"</span>);</span><br><span class="line"><span class="keyword">import</span> login <span class="keyword">from</span> <span class="string">'./login.vue'</span></span><br><span class="line"><span class="comment">//此处已经不能使用components属性集成组件ß</span></span><br><span class="line"><span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">"#app"</span>,</span><br><span class="line">	data:&#123;</span><br><span class="line">		msg:<span class="string">'massage'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	        render:<span class="function"><span class="keyword">function</span> (<span class="params">createElements</span>) </span>&#123;<span class="comment">//createElements是一个方法，调用他能够把制定的组件模板渲染为html结构ß</span></span><br><span class="line">            <span class="keyword">return</span> createElements(login)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render:function (createElements) &#123;</span><br><span class="line"></span><br><span class="line">return createElements(login) &#125;</span><br></pre></td></tr></table></figure>
-<p>可以简写成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render: c =&gt; c(login)</span><br></pre></td></tr></table></figure>
-<p>步骤总结</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.安装vue的包：npm i vue -S</span><br><span class="line">2.由于在webpack中，推荐使用.vue这个组件模板文件定义组件，所以需要安装能解析这种文件的loader。npm i vue-loader vue-template-compiler -D</span><br><span class="line">3.在main.js中，导入vue模块import Vue from &apos;vue&apos;</span><br><span class="line">4.定义一个.vue文件的组件，其中，组件有三部分组成：template、script、style</span><br><span class="line">5.使用import login from &apos;./login.vue&apos;导入这个组件</span><br><span class="line">6.创建vm的实例var vm= new Vue(&#123;el:&quot;#app&quot;,render:c =&gt; c(login)&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-017vue配合webpack/" data-id="cjttum1ep00206sbndn4uffhf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue/vue-005动画" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-005动画/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-005动画/">vue005动画</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue动画"><a href="#vue动画" class="headerlink" title="vue动画"></a>vue动画</h1><p>vue动画借助transition标签实现</p>
-<p>代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jpn"</span>  <span class="attr">v-if</span>=<span class="string">"flag  ==  true"</span> <span class="attr">style</span>=<span class="string">"background: greenyellow;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>this is flag<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>如存在多个动画需要给transition标签制定name标签相应css中的类名亦改为my-enter，my-leave-to等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    &lt;transition name=&quot;my&quot;&gt;</span><br><span class="line">&lt;div class=&quot;jpn1&quot;  v-if=&quot;flag == false&quot; style=&quot;background:red;&quot;&gt;</span><br><span class="line">    &lt;h3&gt;this is flag too&lt;/h3&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/transition&gt;</span><br></pre></td></tr></table></figure>
-<p>其生命周期如下</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.v-enter</span>,</span><br><span class="line"><span class="selector-class">.v-leave-to</span>&#123;</span><br><span class="line">    opacity:0; 该单词是透明度的意思</span><br><span class="line">    <span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(200<span class="selector-tag">px</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.v-enter-active</span>,</span><br><span class="line"><span class="selector-class">.v-leave-active</span>&#123;</span><br><span class="line">    <span class="attribute">transition</span>:<span class="number">1s</span> ease;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-005动画/" data-id="cjttum1dv001a6sbnbtqotaru" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue/vue-000crud" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-000crud/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-000crud/">vue-000最简单的crud</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue第0课最简单的crud"><a href="#vue第0课最简单的crud" class="headerlink" title="vue第0课最简单的crud"></a>vue第0课最简单的crud</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--支持移动设备优先--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../js/bootstrap/css/bootstrap.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../js/datepicker/bootstrap-datetimepicker.min.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/jquery-2.1.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/bootstrap/js/bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/datepicker/bootstrap-datetimepicker.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        #dvinput&#123;</span></span><br><span class="line"><span class="undefined">            padding-top: 4px;;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .red&#123;</span></span><br><span class="line"><span class="undefined">            color: red;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .green&#123;</span></span><br><span class="line"><span class="undefined">            color: greenyellow;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .thin&#123;</span></span><br><span class="line"><span class="undefined">            font-weight: 200;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .italic&#123;</span></span><br><span class="line"><span class="undefined">            font-style: italic;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .active&#123;</span></span><br><span class="line"><span class="undefined">            letter-spacing: 0.5em;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"panel-title"</span>&gt;</span>检修管理<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body form-inline"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检&amp;nbsp;&amp;nbsp;&amp;nbsp;修&amp;nbsp;&amp;nbsp;类&amp;nbsp;&amp;nbsp;型<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>   <span class="attr">v-model</span>=<span class="string">"jxtype"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"workname"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"starttime"</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"endtime"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>责&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;任&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;人<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"manager"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">v-on:click</span>=<span class="string">"addjx"</span> <span class="attr">value</span>=<span class="string">"添加"</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"sworkname"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table  table-striped  table-bordered  table-hover  table-condensed"</span>  &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>选择<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修类型<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>责任人<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in search(sworkname)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>  &gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.id&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.jxtype&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.workname&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.starttime | dateFormat('') &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.endtime  | dateFormat('')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.manager&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    Vue.filter('dateFormat',function (dateStr,pattern) &#123;</span></span><br><span class="line"><span class="undefined">        var dt =new Date(dateStr)</span></span><br><span class="line"><span class="undefined">        var y=dt.getFullYear()</span></span><br><span class="line"><span class="undefined">        //.padStart(2,'0')补0</span></span><br><span class="line"><span class="undefined">        var m=(dt.getMonth()+1).toString().padStart(2,'0')</span></span><br><span class="line"><span class="undefined">        var d=dt.getDate().toString().padStart(2,'0')</span></span><br><span class="line"><span class="undefined">        if(pattern.toLowerCase() === 'yyyy-mm-dd')&#123;</span></span><br><span class="line"><span class="undefined">            return `$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125;`</span></span><br><span class="line"><span class="undefined">        &#125;else&#123;</span></span><br><span class="line"><span class="undefined">            var hh=dt.getHours();</span></span><br><span class="line"><span class="undefined">            var mm=dt.getMinutes();</span></span><br><span class="line"><span class="undefined">            var ss=dt.getSeconds();</span></span><br><span class="line"><span class="undefined">            return `$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125; $&#123;hh&#125;:$&#123;mm&#125;:$&#123;ss&#125;`</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined">    var vm= new Vue(</span></span><br><span class="line"><span class="undefined">        &#123;</span></span><br><span class="line"><span class="undefined">            el:'#app',</span></span><br><span class="line"><span class="undefined">            data:&#123;</span></span><br><span class="line"><span class="undefined">                id:'',</span></span><br><span class="line"><span class="undefined">                jxtype:'',</span></span><br><span class="line"><span class="undefined">                workname:'',</span></span><br><span class="line"><span class="undefined">                starttime:'',</span></span><br><span class="line"><span class="undefined">                endtime:'',</span></span><br><span class="line"><span class="undefined">                manager:'',</span></span><br><span class="line"><span class="undefined">                sworkname:'',</span></span><br><span class="line"><span class="undefined">                msg:'please input  something!!!',</span></span><br><span class="line"><span class="undefined">                lists:[&#123;id:1,jxtype:'项目实施',workname:'pms2.0升级至5.0',starttime:new Date(),endtime:new Date(),manager:'张波'&#125;,&#123;id:2,jxtype:'三级周检',workname:'营销业务应用升级至5.0',starttime:new Date(),endtime:new Date(),manager:'刘强'&#125;],</span></span><br><span class="line"><span class="undefined">                flag:false</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            methods:&#123;</span></span><br><span class="line"><span class="undefined">                addjx()&#123;</span></span><br><span class="line"><span class="undefined">                    var bid =this.lists.length</span></span><br><span class="line"><span class="undefined">                    var jxjh=&#123;id:bid,jxtype:this.jxtype,workname:this.workname,starttime:new Date(),endtime:new Date(),manager:this.manager&#125;</span></span><br><span class="line"><span class="undefined">                    this.lists.push(jxjh);</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                search(sworkname)&#123;</span></span><br><span class="line"><span class="undefined">                    var newList = []</span></span><br><span class="line"><span class="undefined">                    this.lists.forEach(item =&gt; &#123;</span></span><br><span class="line"><span class="undefined">                        if(item.workname.indexOf(sworkname) != -1)&#123;</span></span><br><span class="line"><span class="undefined">                            newList.push(item)</span></span><br><span class="line"><span class="undefined">                        &#125;</span></span><br><span class="line"><span class="undefined">                    &#125;)</span></span><br><span class="line"><span class="undefined">                    return newList;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    )</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-000crud/" data-id="cjttum1dp00136sbnlec1e85z" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hexo基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/hexo基本使用方法/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/hexo基本使用方法/">hexo基本使用方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>文章上传步骤</p>
-<p>1、切换只hexo相关目录，运行“hexo new 文档名”</p>
-<p>2、编译md文件 hexo generate</p>
-<p>3、切换至/Users/james/Documents/exercise/nodejsexercise/hexo/blog/public</p>
-<p>4、运行cp -rf ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</p>
-<p>5、切换至/Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</p>
-<blockquote>
-<p>   git add –all</p>
-</blockquote>
-<blockquote>
-<p>  git commit -m “webpack commit 2”</p>
-</blockquote>
-<blockquote>
-<p>  git push -u origin master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate</span><br><span class="line">   cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/</span><br><span class="line">    cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</span><br><span class="line">   cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</span><br><span class="line"></span><br><span class="line">    git add --all</span><br><span class="line">   git commit -m &quot;webpack commit 2&quot;</span><br><span class="line">  git push -u origin master</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/hexo基本使用方法/" data-id="cjttvunfj0000zjbn1ckdqdj3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jquery01选择器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/jquery01选择器/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jquery/">jquery</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/jquery01选择器/">jquery01选择器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="jquery笔记1"><a href="#jquery笔记1" class="headerlink" title="jquery笔记1"></a>jquery笔记1</h3><ul>
-<li><p>交集选择器</p>
-<blockquote>
-<p>标签名.类名</p>
-</blockquote>
+        <h1 id="流行框架第一天：构建前端自动化工作流环境"><a href="#流行框架第一天：构建前端自动化工作流环境" class="headerlink" title="流行框架第一天：构建前端自动化工作流环境"></a>流行框架第一天：构建前端自动化工作流环境</h1><h2 id="兩個問題"><a href="#兩個問題" class="headerlink" title="兩個問題"></a>兩個問題</h2><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li>了解什么是Node，什么是NPM；（Node.js）</li>
+<li>掌握Bower的使用；</li>
+<li>熟练使用Less/Sass；</li>
+<li>搭建一个自己的自动化工作流环境；<ul>
+<li>自动编译</li>
+<li>自动合并</li>
+<li>自动刷新</li>
+<li>自动部署</li>
+</ul>
 </li>
-<li><p>并集选择器</p>
-<blockquote>
-<p>选择器,选择器,选择器,……….</p>
-</blockquote>
+<li>GIT 与 GITHUB<ul>
+<li>master 托管源文件</li>
+<li>gh-pages 托管部署文件</li>
+<li>在github搭建自己的blog</li>
+</ul>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">"p.cls,span.cls"</span>).css(<span class="string">"background-color"</span>,<span class="string">"red"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"button"</span> id=<span class="string">"btn"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn"</span>&gt;</span><br><span class="line">&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;高防攻击、防篡改、防病毒、防瘫痪、防窃密&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;p &gt;防窃密&lt;/</span>p&gt;</span><br><span class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"uu"</span>&gt;&lt;li&gt;防篡改&lt;/li&gt;&lt;li&gt;防病毒	&lt;/li&gt; &lt;li&gt;防瘫痪&lt;<span class="regexp">/li&gt;&lt;/u</span>l&gt;</span><br><span class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;为加强和规范国家电网公司（以下简称“公司”）网络与信息系统安全工作，切实提高防攻击、防篡改、防病毒、防瘫痪、防窃密	&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p> 增加类样式（开关灯）</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//                style one</span></span><br><span class="line">	<span class="comment">//                $("body").toggleClass("cls");</span></span><br><span class="line">	<span class="comment">//                style two</span></span><br><span class="line">            <span class="keyword">if</span> ($(<span class="string">"body"</span>).hasClass(<span class="string">"cls"</span>))&#123;</span><br><span class="line">                $(<span class="string">"body"</span>).removeClass(<span class="string">"cls"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                $(<span class="string">"body"</span>).addClass(<span class="string">"cls"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>常用选择器有如下几种（不限于以下几种）</p>
-</blockquote>
-<table id="tb" cellspacing="0"><br>    <tr><br>        <td>序号</td><br>        <td>选择器名称</td><br>        <td>用法</td><br>        <td>备注</td><br>    </tr><br>    <tr><td>1 </td><td>id选择器选择器</td><td>$(“#id属性值”)</td><td></td></tr><br>    <tr><td>2 </td><td>标签选择器</td><td>$(“p 标签名称”)</td><td></td></tr><br>    <tr><td>3 </td><td>类选择器</td><td>$(“.类样式名字”)</td><td></td></tr><br>    <tr><td> 4</td><td>交集选择器</td><td>$(“标签.样式的名字”)</td><td></td></tr><br>    <tr><td>5 </td><td>并集选择器</td><td>$(“选择器，选择器，选择器，选择器。。。”)</td><td></td></tr><br>    <tr><td>6 </td><td>索引选择器</td><td>$(“选择器:eq（索引的值）”)</td><td></td></tr><br>    <tr><td>7 </td><td>奇数选择器</td><td>$(“选择器:odd”)</td><td></td></tr><br>    <tr><td>8 </td><td>偶数选择器</td><td>$(“选择器：even”)</td><td></td></tr><br>    <tr><td> 9</td><td>筛选选择器</td><td>$(“选择器:lt(索引)”) or $(“选择器:gt(索引)”)</td><td></td></tr><br>    <tr><td>10</td><td>最后一个选择器</td><td>$(“选择器:last”)</td><td></td></tr><br>    <tr><td>11</td><td>第一个选择器</td><td>$(“选择器：first”)</td><td></td></tr><br>    <tr><td>12</td><td>下一个选择器</td><td>$(“当前元素.next()”)</td><td></td></tr><br>    <tr><td>13</td><td>当前元素选择器</td><td>$(“当前元素.nextAll()”)</td><td></td></tr><br></table>
-
-<blockquote>
-<p>常用方法（不限于以下几种）</p>
-</blockquote>
-<p><table cellspacing="0" id="tb" style="border: 1px;"></table></p>
-<p><tr><td>序号</td><td>选择器名称</td><td>用法</td><td>备注</td></tr></p>
-<p><tr><td>1</td><td>操作表单元素value属性，可以获取也可以设置</td><td>.val()</td><td></td></tr></p>
-<p><tr><td>2</td><td>操作元素的样式</td><td>.css()</td><td></td></tr></p>
-<p><tr><td>3</td><td>操作元素中的html代码及内容，相当于innerHTML</td><td>.html()</td><td></td></tr></p>
-<p><tr><td>4</td><td>操作元素中的文本内容，相当于innerText</td><td>.text()</td><td></td></tr></p>
-<p><tr><td>5</td><td>添加类样式</td><td>addClass</td><td></td></tr></p>
-<p><tr><td>6</td><td>移除类样式</td><td>.removeClass()</td><td></td></tr></p>
-<p><tr><td>7</td><td>判断元素是否引用了某个样式</td><td>hasClass()</td><td></td></tr></p>
-<p><tr><td>8</td><td>元素的索引</td><td>.index()</td><td></td></tr></p>
-<p><tr><td>9</td><td>显示</td><td>.show()</td><td></td></tr></p>
-<p><tr><td>10</td><td>隐藏</td><td>.hide()</td><td></td></tr></p>
-<p><tr><td>11</td><td>停止动画</td><td>.stop()</td><td></td></tr></p>
-<p><tr><td>12</td><td>动画的方法</td><td>.animate()</td><td></td></tr></p>
-<p><tr><td>13</td><td>滑入</td><td>.slideUp()</td><td></td></tr></p>
-<p><tr><td>14</td><td>滑出</td><td>.slideDown()</td><td></td></tr></p>
-<p><tr><td>15</td><td>淡入</td><td>.fadeIn()</td><td></td></tr></p>
-<p><tr><td>16</td><td>淡出</td><td>.fadeOut()</td><td></td></tr></p>
-<p><tr><td>17</td><td>切换淡入淡出</td><td>fadeToggle()</td><td></td></tr></p>
-<p><tr><td>18</td><td>时间，透明度的值</td><td>fadeTo()</td><td></td></tr><br><br><br></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/jquery01选择器/" data-id="cjttvwhu4000051bnb0kj9u2l" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jquery02事件绑定" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/jquery02事件绑定/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jquery/">jquery</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/jquery02事件绑定/">jquery02事件绑定</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>对象.事件名称（事件处理函数）；—&gt;普通写法<br>   事件.bind（参数1，参数2）—-&gt;参数1：事件的名称，参数2：事件处理函数</li>
+<h2 id="为什么要有自动化的流程"><a href="#为什么要有自动化的流程" class="headerlink" title="为什么要有自动化的流程"></a>为什么要有自动化的流程</h2><ul>
+<li>在我们的开发过程中有大量的重复操作</li>
+<li>DRY  Don’t repeat yourself</li>
+<li><p>开发人员的精力应放在哪？创造，新的一切</p>
+</li>
+<li><p>前端开发的编译操作</p>
+</li>
 </ul>
-<blockquote>
-<p>   前两种 方式只能为存在的绑定事件，后添加的元素没有事件</p>
-</blockquote>
-<p>下面的两种方式，可以为存在的元素绑定事件，后添加的元素也有事件</p>
+<h2 id="1-Node环境"><a href="#1-Node环境" class="headerlink" title="1.Node环境"></a>1.Node环境</h2><h3 id="1-1-什么是Node"><a href="#1-1-什么是Node" class="headerlink" title="1.1.什么是Node"></a>1.1.什么是Node</h3><ul>
+<li>Node.js 可能类似jquery.js</li>
+<li>不是JS文件，也不是一个JS框架（）</li>
+<li>而是Server side Javascript runtime, 服务端的一个JS运行时</li>
+<li>我们可以在NODE运行JS代码</li>
+<li>alert();ECMAScript  JS- ES  BOM  DOM</li>
+<li>node中只能运行ECMAScript，无法使用 BOM 和 DOM</li>
+<li>目前我们的JS是运行在浏览器内核中</li>
+<li>PHP是什么？是一门脚本语言也是一个运行环境</li>
+<li><p>为什么Node选中了JS，</p>
+</li>
+<li><p>说到底就是一个JS运行环境</p>
+</li>
+<li><p>目前有两个分支</p>
 <ul>
-<li>对象.dalegate(“选择器”,”事件名称”,事件处理函数);<blockquote>
-<p>  父级元素调用方法，代替子级元素绑定事件</p>
-</blockquote>
+<li>Node.js 0.12.7 官方版本 要求尽善尽美</li>
+<li>IO.js 是社区的产物，不是官方的东西，io.js有很多新特性，迭代非常快，社区推进非常快</li>
+<li>15年两者合并，发布node第一个正式版 4.0， 迭代速度又慢了</li>
+<li>node 5.x == io.js</li>
+<li>node 4.0 == node</li>
+</ul>
 </li>
-<li>对象.on(“事件名称”,”选择器”,事件处理函数)；<br>   父级元素调用方法，代理子级元素绑定事件</li>
 </ul>
+<h3 id="1-2-Node环境搭建"><a href="#1-2-Node环境搭建" class="headerlink" title="1.2.Node环境搭建"></a>1.2.Node环境搭建</h3><h4 id="1-2-1-Mac"><a href="#1-2-1-Mac" class="headerlink" title="1.2.1.Mac"></a>1.2.1.Mac</h4><ul>
+<li><p>安装包的方式</p>
 <ul>
-<li>因为delegate方法中是调用的on的方法，所以直接用on就可以了 </li>
+<li><a href="https://nodejs.org/dist/v5.5.0/node-v5.5.0.pkg" target="_blank" rel="noopener">pkg</a></li>
 </ul>
+</li>
+<li><p>NVM（Node Version Manager）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'. ~/.nvm/nvm.sh'</span> &gt;&gt; .bash_profile</span><br><span class="line">$ nvm install stable</span><br><span class="line">$ nvm <span class="built_in">alias</span> default stable</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="1-2-2-Windows"><a href="#1-2-2-Windows" class="headerlink" title="1.2.2.Windows"></a>1.2.2.Windows</h4><ul>
+<li>安装包的方式<ul>
+<li><a href="https://nodejs.org/dist/v5.5.0/node-v5.5.0-x64.msi" target="_blank" rel="noopener">msi_x64</a></li>
+<li><a href="https://nodejs.org/dist/v5.5.0/node-v5.5.0-x86.msi" target="_blank" rel="noopener">msi_x86</a></li>
+</ul>
+</li>
+<li>NVM（Node Version Manager）</li>
+<li>nvm(node version manager)</li>
+<li>因为NODE版本比较多，开发人员可能依赖很多版本</li>
+<li><p>通过NVM，可以轻松切换于不同的版本之间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>NVM_HOME=C:\Develop\nvm</p>
+<p>NVM_SYMLINK=C:\Develop\nodejs</p>
+<p>NPM_HOME=C:\Develop\nvm\npm</p>
+<p>PATH=%NVM_HOME%;%NVM_SYMLINK%;%NPM_HOME%</p>
+<h4 id="1-2-3-环境变量"><a href="#1-2-3-环境变量" class="headerlink" title="1.2.3.环境变量"></a>1.2.3.环境变量</h4><ul>
+<li><p>环境变量就是操作系统提供的系统级别用于存储变量的地方</p>
+</li>
+<li><p>系统变量和用户变量</p>
+</li>
+<li>系统变量指的是所用当前系统用户共享的变量</li>
+<li>自己的电脑一般只有一个用户</li>
+<li><p>建议将自己配置的环境变量放在用户变量中，用户变量比较干净</p>
+</li>
+<li><p>环境变量的变量名是不区分大小写的</p>
+</li>
+<li><p>变量间运行相互引用</p>
+</li>
+<li><p>特殊值：</p>
+</li>
+<li>PATH变量（不区分大小写）</li>
+<li>PATH 相当于一个路径的引用</li>
+<li><p>只要添加到PATH变量中的路径，都可以在任何目录下搜索</p>
+</li>
+<li><p>命令行</p>
+</li>
+<li>可以用来执行当前目录下的文件</li>
+<li>命令</li>
+</ul>
+<p>cd :change directory</p>
+<ul>
+<li>Node.js是一个轻内核（本身没有什么功能）的东东，所有的功能都要功能包提供</li>
+<li>node官方提供了一些最基础的包</li>
+</ul>
+<h3 id="1-3-Node用途"><a href="#1-3-Node用途" class="headerlink" title="1.3.Node用途"></a>1.3.Node用途</h3><h4 id="REPL环境（控制台环境）"><a href="#REPL环境（控制台环境）" class="headerlink" title="REPL环境（控制台环境）"></a>REPL环境（控制台环境）</h4><h4 id="1-3-1-开发Web应用程序"><a href="#1-3-1-开发Web应用程序" class="headerlink" title="1.3.1.开发Web应用程序"></a>1.3.1.开发Web应用程序</h4><ul>
+<li>做动态网站</li>
+<li>开发提供数据的服务端API</li>
+</ul>
+<h4 id="1-3-2-前端开发工具基础"><a href="#1-3-2-前端开发工具基础" class="headerlink" title="1.3.2.前端开发工具基础"></a>1.3.2.前端开发工具基础</h4><ul>
+<li>Node.js给前端乃至整个开发行业带来一场工业革命</li>
+<li>刀跟火种</li>
+</ul>
+<h3 id="1-4-Node开发Web应用Demo"><a href="#1-4-Node开发Web应用Demo" class="headerlink" title="1.4.Node开发Web应用Demo"></a>1.4.Node开发Web应用Demo</h3><h4 id="1-4-1-复习请求与响应"><a href="#1-4-1-复习请求与响应" class="headerlink" title="1.4.1.复习请求与响应"></a>1.4.1.复习请求与响应</h4><p>客户端发送到服务端的东西称之为请求报文<br>服务端返回给客户端的东西称之为响应报文</p>
+<h3 id="1-5-NPM"><a href="#1-5-NPM" class="headerlink" title="1.5.NPM"></a>1.5.NPM</h3><h4 id="1-5-1-什么是NPM"><a href="#1-5-1-什么是NPM" class="headerlink" title="1.5.1.什么是NPM"></a>1.5.1.什么是NPM</h4><p><a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
+<ul>
+<li>Node Package Manager</li>
+<li>Node应用程序依赖包的管理工具</li>
+<li>安装卸载更新之类的操作</li>
+</ul>
+<h4 id="1-5-2-为什么使用NPM"><a href="#1-5-2-为什么使用NPM" class="headerlink" title="1.5.2.为什么使用NPM"></a>1.5.2.为什么使用NPM</h4><ul>
+<li>包很多</li>
+<li>场景：我需要用一个A，A依赖B，B依赖C</li>
+<li>常见的包管理工具都有循环依赖的功能</li>
+<li>你只需记住你要什么东西</li>
+</ul>
+<h4 id="1-5-3-常见的NPM操作"><a href="#1-5-3-常见的NPM操作" class="headerlink" title="1.5.3.常见的NPM操作"></a>1.5.3.常见的NPM操作</h4><p>// 安装一个包，默认安装最新稳定版本<br>npm install package_name<br>// –save<br>// 初始化操作，给项目添加一个配置文件<br>npm init<br>// –yes参数走默认配置</p>
+<ul>
+<li>如果官方数据源太慢使用</li>
+<li><a href="https://npm.taobao.org/" target="_blank" rel="noopener">https://npm.taobao.org/</a></li>
+</ul>
+<hr>
+<h2 id="2-Bower"><a href="#2-Bower" class="headerlink" title="2.Bower"></a>2.Bower</h2><h3 id="2-1-什么是Bower"><a href="#2-1-什么是Bower" class="headerlink" title="2.1.什么是Bower"></a>2.1.什么是Bower</h3><ul>
+<li><a href="http://bower.io/" target="_blank" rel="noopener">官网</a></li>
+<li>web应用程序依赖项管理工具</li>
+</ul>
+<h3 id="2-2-为什么使用Bower"><a href="#2-2-为什么使用Bower" class="headerlink" title="2.2.为什么使用Bower"></a>2.2.为什么使用Bower</h3><ul>
+<li>方便便捷的方式管理包，zhuangbi</li>
+</ul>
+<h3 id="2-3-Bower实践"><a href="#2-3-Bower实践" class="headerlink" title="2.3.Bower实践"></a>2.3.Bower实践</h3><ul>
+<li><p>npm install -g bower // -g:global</p>
+</li>
+<li><p>修改npm全局路径，就是在用户目录下添加.npmrc文件</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-Sass-LESS"><a href="#3-Sass-LESS" class="headerlink" title="3.Sass/LESS"></a>3.Sass/LESS</h2><hr>
+<h2 id="4-Gulp"><a href="#4-Gulp" class="headerlink" title="4.Gulp"></a>4.Gulp</h2><h3 id="4-1-Gulp简介"><a href="#4-1-Gulp简介" class="headerlink" title="4.1.Gulp简介"></a>4.1.Gulp简介</h3><ul>
+<li>链接：<ul>
+<li><a href="http://gulpjs.com/" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">中文网</a></li>
+</ul>
+</li>
+<li>就是用来机械化的完成重复性质的工作</li>
+<li>gulp的机制就是将重复工作抽象成一个个的任务，</li>
+</ul>
+<h3 id="4-2-Gulp准备工作"><a href="#4-2-Gulp准备工作" class="headerlink" title="4.2.Gulp准备工作"></a>4.2.Gulp准备工作</h3><ul>
+<li>安装Node.js</li>
+<li>安装 gulp 命令行工具<ul>
+<li><code>npm install -g gulp</code></li>
+</ul>
+</li>
+<li>初始化 gulp 项目</li>
+<li>创建任务 - gulpfile.js</li>
+</ul>
+<h3 id="4-3-基本使用"><a href="#4-3-基本使用" class="headerlink" title="4.3.基本使用"></a>4.3.基本使用</h3><h3 id="4-4-常用插件"><a href="#4-4-常用插件" class="headerlink" title="4.4.常用插件"></a>4.4.常用插件</h3><ul>
+<li><a href="https://www.npmjs.com/package/gulp-less" target="_blank" rel="noopener">编译 Less：gulp-less</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-connect" target="_blank" rel="noopener">创建本地服务器：gulp-connect</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-concat" target="_blank" rel="noopener">合并文件：gulp-concat</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="noopener">最小化 js 文件：gulp-uglify</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-rename" target="_blank" rel="noopener">重命名文件：gulp-rename</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="noopener">最小化 css 文件：gulp-minify-css</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-minify-html" target="_blank" rel="noopener">压缩html文件 gulp-minify-html</a></li>
+<li><a href="https://www.npmjs.com/package/gulp-imagemin" target="_blank" rel="noopener">最小化图像：gulp-imagemin</a></li>
+</ul>
+<hr>
+<h2 id="5-Git"><a href="#5-Git" class="headerlink" title="5.Git"></a>5.Git</h2><h3 id="5-1-什么是GIT，什么是GITHUB"><a href="#5-1-什么是GIT，什么是GITHUB" class="headerlink" title="5.1.什么是GIT，什么是GITHUB"></a>5.1.什么是GIT，什么是GITHUB</h3><ul>
+<li>GIT</li>
+<li>GITHUB</li>
+</ul>
+<h3 id="5-2-环境安装"><a href="#5-2-环境安装" class="headerlink" title="5.2.环境安装"></a>5.2.环境安装</h3><h3 id="5-3-GIT常用命令"><a href="#5-3-GIT常用命令" class="headerlink" title="5.3.GIT常用命令"></a>5.3.GIT常用命令</h3><hr>
+<h2 id="6-Markdown"><a href="#6-Markdown" class="headerlink" title="6.Markdown"></a>6.Markdown</h2><p><a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener">https://guides.github.com/features/mastering-markdown/</a><br><a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="noopener">https://help.github.com/articles/github-flavored-markdown/</a><br><a href="https://help.github.com/articles/markdown-basics/" target="_blank" rel="noopener">https://help.github.com/articles/markdown-basics/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/jquery02事件绑定/" data-id="cjttvyfdm0000aobnsoi5jevy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-000相关工具/" data-id="cjttum1d4000j6sbnh173milz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -559,14 +391,14 @@
 
 
   
-    <article id="post-vue/vue-004json" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python/python000基础语法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-004json/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+    <a href="/2018/06/20/python/python000基础语法/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
+    <a class="article-category-link" href="/categories/python/">python</a>
   </div>
 
   </div>
@@ -577,7 +409,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-004json/">vue004json</a>
+      <a class="article-title" href="/2018/06/20/python/python000基础语法/">python000基础语法</a>
     </h1>
   
 
@@ -585,15 +417,462 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第一部分</p>
-<p>html部分</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-heading"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"panel-title"</span>&gt;</span>检修管理<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel-body form-inline"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检&amp;nbsp;&amp;nbsp;&amp;nbsp;修&amp;nbsp;&amp;nbsp;类&amp;nbsp;&amp;nbsp;型<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>   <span class="attr">v-model</span>=<span class="string">"jxtype"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"workname"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"starttime"</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"endtime"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-inline"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>责&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;任&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;人<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"manager"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">v-on:click</span>=<span class="string">"addjx"</span> <span class="attr">value</span>=<span class="string">"添加"</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">v-model</span>=<span class="string">"sworkname"</span> <span class="attr">v-focus</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table  table-striped  table-bordered  table-hover  table-condensed"</span>  &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>选择<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修类型<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修工作名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修开始时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>检修结束时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>责任人<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">"item in search(sworkname)"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>  &gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.id&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.jxtype&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.workname&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.starttime | dateFormat('') &#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.endtime  | dateFormat('')&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.manager&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>第二部分js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'dateFormat'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">dateStr,pattern</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dt =<span class="keyword">new</span> <span class="built_in">Date</span>(dateStr)</span><br><span class="line">    <span class="keyword">var</span> y=dt.getFullYear()</span><br><span class="line">    <span class="comment">//.padStart(2,'0')补0</span></span><br><span class="line">    <span class="keyword">var</span> m=(dt.getMonth()+<span class="number">1</span>).toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">var</span> d=dt.getDate().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">if</span>(pattern.toLowerCase() === <span class="string">'yyyy-mm-dd'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span>`</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hh=dt.getHours();</span><br><span class="line">        <span class="keyword">var</span> mm=dt.getMinutes();</span><br><span class="line">        <span class="keyword">var</span> ss=dt.getSeconds();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span> <span class="subst">$&#123;hh&#125;</span>:<span class="subst">$&#123;mm&#125;</span>:<span class="subst">$&#123;ss&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">Vue.directive(<span class="string">'focus'</span>,&#123;</span><br><span class="line">    inserted:<span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(</span><br><span class="line">    &#123;</span><br><span class="line">        el:<span class="string">'#app'</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            id:<span class="string">''</span>,</span><br><span class="line">            jxtype:<span class="string">''</span>,</span><br><span class="line">            workname:<span class="string">''</span>,</span><br><span class="line">            starttime:<span class="string">''</span>,</span><br><span class="line">            endtime:<span class="string">''</span>,</span><br><span class="line">            manager:<span class="string">''</span>,</span><br><span class="line">            sworkname:<span class="string">''</span>,</span><br><span class="line">            msg:<span class="string">'please input  something!!!'</span>,</span><br><span class="line">            lists:[&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">jxtype</span>:<span class="string">'项目实施'</span>,<span class="attr">workname</span>:<span class="string">'pms2.0升级至5.0'</span>,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="string">'张波'</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">jxtype</span>:<span class="string">'三级周检'</span>,<span class="attr">workname</span>:<span class="string">'营销业务应用升级至5.0'</span>,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="string">'刘强'</span>&#125;],</span><br><span class="line">            flag:<span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            addjx()&#123;</span><br><span class="line">                <span class="keyword">var</span> bid =<span class="keyword">this</span>.lists.length</span><br><span class="line">                <span class="keyword">var</span> jxjh=&#123;<span class="attr">id</span>:bid,<span class="attr">jxtype</span>:<span class="keyword">this</span>.jxtype,<span class="attr">workname</span>:<span class="keyword">this</span>.workname,<span class="attr">starttime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">endtime</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(),<span class="attr">manager</span>:<span class="keyword">this</span>.manager&#125;</span><br><span class="line">                <span class="keyword">this</span>.lists.push(jxjh);</span><br><span class="line">            &#125;,</span><br><span class="line">            search(sworkname)&#123;</span><br><span class="line">                <span class="keyword">var</span> newList = []</span><br><span class="line">                <span class="keyword">this</span>.lists.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span>(item.workname.indexOf(sworkname) != <span class="number">-1</span>)&#123;</span><br><span class="line">                        newList.push(item)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                <span class="keyword">return</span> newList;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+        <h1 id="python基础语法"><a href="#python基础语法" class="headerlink" title="python基础语法"></a>python基础语法</h1><h2 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h2><p><img src="D:\笔记\python\基础数据类型.png" alt="基础数据类型"></p>
+<h2 id="二、注释"><a href="#二、注释" class="headerlink" title="二、注释"></a>二、注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我是注释，可以在里写一些功能说明之类的哦</span></span><br><span class="line">print(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>这就是我牛X指出</p>
+<pre><code>  &apos;&apos;&apos;  哈哈哈。。。
+
+&apos;&apos;&apos;
+</code></pre><p>​        </p>
+<h2 id="三、数据类型转换"><a href="#三、数据类型转换" class="headerlink" title="三、数据类型转换"></a>三、数据类型转换</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int(x [,base ])</td>
+<td>将x转换为一个整数</td>
+</tr>
+<tr>
+<td>long(x [,base ])</td>
+<td>将x转换为一个长整数</td>
+</tr>
+<tr>
+<td>float(x )</td>
+<td>将x转换到一个浮点数</td>
+</tr>
+<tr>
+<td>complex(real [,imag ])</td>
+<td>创建一个复数</td>
+</tr>
+<tr>
+<td>str(x )</td>
+<td>将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td>repr(x )</td>
+<td>将对象 x 转换为表达式字符串</td>
+</tr>
+<tr>
+<td>eval(str )</td>
+<td>用来计算在字符串中的有效Python表达式,并返回一个对象</td>
+</tr>
+<tr>
+<td>tuple(s )</td>
+<td>将序列 s 转换为一个元组</td>
+</tr>
+<tr>
+<td>list(s )</td>
+<td>将序列 s 转换为一个列表</td>
+</tr>
+<tr>
+<td>chr(x )</td>
+<td>将一个整数转换为一个字符</td>
+</tr>
+<tr>
+<td>unichr(x )</td>
+<td>将一个整数转换为Unicode字符</td>
+</tr>
+<tr>
+<td>ord(x )</td>
+<td>将一个字符转换为它的整数值</td>
+</tr>
+<tr>
+<td>hex(x )</td>
+<td>将一个整数转换为一个十六进制字符串</td>
+</tr>
+<tr>
+<td>oct(x )</td>
+<td>将一个整数转换为一个八进制字符串</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四、if"><a href="#四、if" class="headerlink" title="四、if"></a><strong>四、if</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"------if判断开始------"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age&gt;=<span class="number">18</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"我已经成年了"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"------if判断结束------"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span> :</span><br><span class="line">    py004cardManagercone.show_menu()</span><br><span class="line">    py004cardManagercone.load_card()</span><br><span class="line">    inputtext=input(<span class="string">"请输入选择的功能，【1】、新建名片，【2】、浏览全部，【3】、查询，【4】、保存至文件，【0】、退出"</span>)</span><br><span class="line">    <span class="keyword">if</span> inputtext <span class="keyword">in</span> [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>]:</span><br><span class="line">         <span class="keyword">if</span> inputtext == <span class="string">"1"</span>:</span><br><span class="line">             py004cardManagercone.new_card()</span><br><span class="line">         <span class="keyword">elif</span> inputtext == <span class="string">"2"</span>:</span><br><span class="line">             py004cardManagercone.show_all()</span><br><span class="line">         <span class="keyword">elif</span> inputtext == <span class="string">"3"</span>:</span><br><span class="line">             py004cardManagercone.search_card()</span><br><span class="line">         <span class="keyword">elif</span> inputtext == <span class="string">"4"</span>:</span><br><span class="line">            print(<span class="string">"save card info"</span>)</span><br><span class="line">            py004cardManagercone.write_card()</span><br><span class="line">         <span class="keyword">else</span>:</span><br><span class="line">             print(<span class="string">"zouru"</span>)</span><br><span class="line">    <span class="keyword">elif</span> inputtext == <span class="string">"0"</span>:</span><br><span class="line">            print(<span class="string">"欢迎再次使用名片管理系统"</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"请输入合法数值"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="五、zip并行迭代"><a href="#五、zip并行迭代" class="headerlink" title="五、zip并行迭代"></a>五、zip并行迭代</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"*"</span>*<span class="number">150</span>)</span><br><span class="line">days = [<span class="string">'mon'</span>,<span class="string">'tue'</span>,<span class="string">'wed'</span>,<span class="string">'thu'</span>,<span class="string">'fri'</span>,<span class="string">'sat'</span>,<span class="string">'sun'</span>]</span><br><span class="line">months = [<span class="string">'jan'</span>,<span class="string">'feb'</span>,<span class="string">'mar'</span>,<span class="string">'apr'</span>,<span class="string">'may'</span>,<span class="string">'jun'</span>,<span class="string">'jul'</span>,<span class="string">'aug'</span>,<span class="string">'sep'</span>,<span class="string">'oct'</span>,<span class="string">'nov'</span>,<span class="string">'dec'</span>]</span><br><span class="line"><span class="comment">#zip()函数在最短序列“用完”时就会停止</span></span><br><span class="line"><span class="keyword">for</span> month,day <span class="keyword">in</span> zip(months,days):</span><br><span class="line">    print(day)</span><br><span class="line">    print(month)</span><br></pre></td></tr></table></figure>
+<p>zip()函数返回值既不是元组也不是列表，而是一个整合在一起的可迭代变量</p>
+<h2 id="六、循环迭代"><a href="#六、循环迭代" class="headerlink" title="六、循环迭代"></a>六、循环迭代</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-004json/" data-id="cjttum1du00186sbn7b6qsh3i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/python/python000基础语法/" data-id="cjttw2epe0001mwbn5egppmg9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-github基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/github基本使用方法/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title:github基本使用方法<br>date:2018-06-20 22:28:10</p>
+<hr>
+<h1 id="github基本使用方法"><a href="#github基本使用方法" class="headerlink" title="github基本使用方法"></a>github基本使用方法</h1><h4 id="5-3-1-初始化一个本地GIT仓储repository"><a href="#5-3-1-初始化一个本地GIT仓储repository" class="headerlink" title="5.3.1.初始化一个本地GIT仓储repository"></a>5.3.1.初始化一个本地GIT仓储repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 定位到仓储文件夹目录</span><br><span class="line">$ cd /dir</span><br><span class="line">// 初始化本地仓储</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-2-添加本地GIT忽略清单文件-gitignore"><a href="#5-3-2-添加本地GIT忽略清单文件-gitignore" class="headerlink" title="5.3.2.添加本地GIT忽略清单文件.gitignore"></a>5.3.2.添加本地GIT忽略清单文件.gitignore</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 添加OS X中系统文件.DS_Store到忽略清单，这将忽略项目任意目录下的.DS_Store文件或是文件夹</span><br><span class="line">$ echo .DS_Store &gt;&gt; .gitignore</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-3-查看本地仓储的变更状态"><a href="#5-3-3-查看本地仓储的变更状态" class="headerlink" title="5.3.3.查看本地仓储的变更状态"></a>5.3.3.查看本地仓储的变更状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-4-添加本地暂存（托管）文件"><a href="#5-3-4-添加本地暂存（托管）文件" class="headerlink" title="5.3.4.添加本地暂存（托管）文件"></a>5.3.4.添加本地暂存（托管）文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 添加指定文件名的文件</span><br><span class="line">$ git add README.md</span><br><span class="line">// 添加通配符匹配的文件</span><br><span class="line">$ git add *.md</span><br><span class="line">// 添加所有未托管的文件（忽略.gitignore清单中的列表）</span><br><span class="line">$ git add --all</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-5-提交被托管的文件变化到本地仓储"><a href="#5-3-5-提交被托管的文件变化到本地仓储" class="headerlink" title="5.3.5.提交被托管的文件变化到本地仓储"></a>5.3.5.提交被托管的文件变化到本地仓储</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &apos;Initial commit(change log)&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-6-为仓储添加远端（服务器端）地址"><a href="#5-3-6-为仓储添加远端（服务器端）地址" class="headerlink" title="5.3.6.为仓储添加远端（服务器端）地址"></a>5.3.6.为仓储添加远端（服务器端）地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加一个远端地址并起了一个别名叫origin</span><br><span class="line">$ git remote add origin https://github.com/Micua/Git.git</span><br><span class="line">// 查看现有的远端列表</span><br><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-7-将本地仓储的提交记录推送到远端的master分支"><a href="#5-3-7-将本地仓储的提交记录推送到远端的master分支" class="headerlink" title="5.3.7.将本地仓储的提交记录推送到远端的master分支"></a>5.3.7.将本地仓储的提交记录推送到远端的master分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-8-拉取远端master分支的更新记录到本地"><a href="#5-3-8-拉取远端master分支的更新记录到本地" class="headerlink" title="5.3.8.拉取远端master分支的更新记录到本地"></a>5.3.8.拉取远端master分支的更新记录到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">…or create a new repository on the command line</span><br><span class="line"></span><br><span class="line">echo &quot;# jameszhao83.github.io&quot; &gt;&gt; README.md git init git add README.md git commit -m &quot;first commit&quot; git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master </span><br><span class="line"></span><br><span class="line">…or push an existing repository from the command line</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master</span><br><span class="line"></span><br><span class="line">…or import code from another repository</span><br><span class="line"></span><br><span class="line">You can initialize this repository with code from a Subversion, Mercurial, or TFS project.</span><br><span class="line"></span><br><span class="line">[Import code](https://github.com/jameszhao83/jameszhao83.github.io/import)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate &amp;&amp;    cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/ &amp;&amp;     cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/ &amp;&amp;    cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io &amp;&amp;     git add --all &amp;&amp;    git commit -m &quot;webpack commit 2&quot; &amp;&amp;   git push -u origin master</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/github基本使用方法/" data-id="cjttvhyd60000x5bnzgbvs2jm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs/nodejs-003http" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs/nodejs-003http/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-003http/">nodejs003http</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs-http操作入门"><a href="#nodejs-http操作入门" class="headerlink" title="nodejs http操作入门"></a>nodejs http操作入门</h1><p>nodejs http操作分3步骤</p>
+<blockquote>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一步引入http</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二步创建http服务</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">     res.write(<span class="string">'&lt;meta charset="UTF-8"/&gt;'</span>);</span><br><span class="line"></span><br><span class="line">     res.end();</span><br><span class="line"><span class="comment">//创建监听</span></span><br><span class="line">&#125;).listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-003http/" data-id="cjty36yq40001h3bno2s6p7wk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs/nodejs-002file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs/nodejs-002file/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-002file/">nodejs002file操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs001"><a href="#nodejs001" class="headerlink" title="nodejs001"></a>nodejs001</h1><p>Nodejs文件写入及读取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">- @Author: Marte</span></span><br><span class="line"><span class="comment">- @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">- @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">- @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="comment">//必须引入文件操作组件</span></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test 写文件操作</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//读文件操作</span></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-002file/" data-id="cjty36ypf0000h3bnonioo38e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs/nodejs-001文件处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs/nodejs-001文件处理/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-001文件处理/">nodejs001文件处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nodejs-文件操作"><a href="#nodejs-文件操作" class="headerlink" title="nodejs 文件操作"></a>nodejs 文件操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* @Author: Marte</span></span><br><span class="line"><span class="comment">* @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">* @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">* @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-001文件处理/" data-id="cjttw2ep30000mwbn4lpmo9i3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python/python001file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/python/python001file/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/python/python001file/">python001文件打开模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Python 文件打开模式</p>
+<table>
+<thead>
+<tr>
+<th>访问模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>rb</td>
+<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>wb</td>
+<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建</td>
+<td>新文件进行写入。</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+<tr>
+<td>rb+</td>
+<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>wb+</td>
+<td>以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>ab+</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一个文件，文件名为:test.txt</span></span><br><span class="line">f = open(<span class="string">'test.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭这个文件</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/python/python001file/" data-id="cjttw2epi0002mwbnz2gnkke3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python/python002输入输出" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/python/python002输入输出/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/python/python002输入输出/">python002输入输出</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python-输入输出"><a href="#python-输入输出" class="headerlink" title="python 输入输出"></a>python 输入输出</h1><h4 id="一、输出"><a href="#一、输出" class="headerlink" title="一、输出"></a>一、输出</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">10</span></span><br><span class="line">print(<span class="string">"我今年%d岁"</span>%age)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">18</span></span><br><span class="line">name = <span class="string">"xiaohua"</span></span><br><span class="line">print(<span class="string">"我的姓名是%s,年龄是%d"</span>%(name,age))</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>格式符号</th>
+<th>转换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%s</td>
+<td>通过str() 字符串转换来格式化</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>字符</td>
+</tr>
+<tr>
+<td>%i</td>
+<td>有符号十进制整数</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>有符号十进制整数</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>无符号十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>八进制整数</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>十六进制整数（小写字母）</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>十六进制整数（大写字母）</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>索引符号（小写’e’）</td>
+</tr>
+<tr>
+<td>%E</td>
+<td>索引符号（大写“E”）</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点实数</td>
+</tr>
+<tr>
+<td>%g</td>
+<td>％f和％e 的简写</td>
+</tr>
+<tr>
+<td>%G</td>
+<td>％f和％E的简写</td>
+</tr>
+</tbody>
+</table>
+<p>换行符\n </p>
+<p>二、输入</p>
+<p>输入函数有2个，分别是raw_input()和input()，其中raw_input()在python3中已经abolish</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">password = raw_input(<span class="string">"请输入密码:"</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'您刚刚输入的密码是:'</span>, password</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = input() </span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/python/python002输入输出/" data-id="cjttw2eq70004mwbnkymc0xsh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -664,19 +943,19 @@
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis002：dao抽取手动/">(no title)</a>
+            <a href="/2019/03/29/python/python011面向对象/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis004：SqlMapConfig配置文件/">(no title)</a>
+            <a href="/2019/03/29/python/python008copy/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis006：mapper输出映射/">(no title)</a>
+            <a href="/2019/03/29/python/python009多线程/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis007：sql片段/">(no title)</a>
+            <a href="/2019/03/29/python/python006函数/">(no title)</a>
           </li>
         
       </ul>

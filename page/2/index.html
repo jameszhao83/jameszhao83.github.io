@@ -62,322 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-mybatis/mybatis014：与spring集成" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/mybatis/mybatis014：与spring集成/" class="article-date">
-  <time datetime="2019-03-29T08:28:05.562Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: mybatis014mybatis与spring集成<br>date: 2018-06-15 20:10:14<br>categories: mybatis<br>tags:</p>
-<h1 id="mybatis与spring集成"><a href="#mybatis与spring集成" class="headerlink" title="mybatis与spring集成"></a>mybatis与spring集成</h1><p>1、准备依赖包</p>
-<ul>
-<li>拷贝spring所有包</li>
-<li>拷贝mybatis所有包</li>
-<li>拷贝dbcp包commons-dbcp-1.4.jar  commons-logging-1.2.jar  commons-pool-1.3.jar mybatis-spring-1.3.2.jar mysql-connector-java-8.0.12.jar</li>
-</ul>
-<p>2、配置spring配置文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop/spring-aop.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/mvc</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/mvc/spring-mvc.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 加载配置文件 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:db.properties"</span> /&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 数据源，使用dbcp --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.apache.commons.dbcp.BasicDataSource"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driver&#125;"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxActive"</span> <span class="attr">value</span>=<span class="string">"10"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxIdle"</span> <span class="attr">value</span>=<span class="string">"5"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- sqlSessinFactory --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 加载mybatis的配置文件 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span> <span class="attr">value</span>=<span class="string">"mybatis/SqlMapConfig.xml"</span> /&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 数据源 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userDao"</span> <span class="attr">class</span>=<span class="string">"com.james.ssm.dao.UserDaoImpl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sqlSessionFactory"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>3、db.propertis</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jdbc.driver=com.mysql.cj.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql://localhost:3306/mybatis</span><br><span class="line">jdbc.username=root</span><br><span class="line">jdbc.password=nx123456</span><br></pre></td></tr></table></figure>
-<p>4、配置mybatis配置文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">"http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">	 	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.james.ssm.po"</span>/&gt;</span></span><br><span class="line">	 <span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span>  <span class="attr">resource</span>=<span class="string">"sqlMap/User.xml"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>5、配置user。xml文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"com.james.ssm.po.User"</span>&gt;</span></span><br><span class="line">		SELECT</span><br><span class="line">		* FROM user where id=#&#123;id&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>6、配置userdao</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUserById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>7、配置userdao实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public User getUserById(int id) &#123;</span><br><span class="line">		// **TODO** Auto-generated method stub</span><br><span class="line">		SqlSession sqlSession=this.getSqlSession();</span><br><span class="line">		User user=sqlSession.selectOne(&quot;test.findUserById&quot;,1);</span><br><span class="line">		return user;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>8、配置测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImplTest</span> </span>&#123;</span><br><span class="line">​	<span class="keyword">private</span> ApplicationContext applicationContext;</span><br><span class="line">​	<span class="meta">@Before</span></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initSessionFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		applicationContext=<span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"classpath:/spring/applicationContext.xml"</span>);</span><br><span class="line">​	&#125;</span><br><span class="line">​	<span class="meta">@Test</span></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindUserById</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		UserDao userDao=(UserDao)applicationContext.getBean(<span class="string">"userDao"</span>);</span><br><span class="line">​		User user=userDao.getUserById(<span class="number">1</span>);</span><br><span class="line">​		System.out.println(user.getUserName());</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在此处由于兼容性产生产生一个问题</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalAccessError: org.apache.commons.dbcp.DelegatingPreparedStatement.isClosed()Z</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>原因是commons-dbcp-1.4.jar之前的版本是1.2，更换至1.4后报错消失</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/mybatis/mybatis014：与spring集成/" data-id="cjttum1d3000i6sbnq9nruwqk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-springmvc/springmvc-000" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/springmvc/springmvc-000/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc-000/" data-id="cjttum1ae00006sbnvslst07n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python009多线程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python009多线程/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python009多线程-非共享数据<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<p>多线程-非共享数据</p>
-<p>对于全局变量，在多线程中要格外小心，否则容易造成数据错乱的情况发生</p>
-<ol>
-<li>非全局变量是否要加锁呢？</li>
-</ol>
-<p>小总结<br>在多线程开发中，全局变量是多个线程都共享的数据，而局部变量等是各自线程的，是非共享的</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python009多线程/" data-id="cjttw6t49000000bnhqd803t7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python006函数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python006函数/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python006函数<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><blockquote>
-<p>  一、函数返回值分以下四种情况：</p>
-<ul>
-<li>无参数，无返回值</li>
-<li>无参数，又反悔</li>
-<li>有参数，无返回值</li>
-<li>有参数，有返回值<br>二、函数<font color="red" size="5">返回值</font>可以有<font color="red" size="5">多个</font>属于<font color="red" size="5">列表</font><font color="red" size="5"></font><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divid</span><span class="params">(a, b)</span>:</span></span><br><span class="line">   shang = a//b</span><br><span class="line">   yushu = a%b</span><br><span class="line">   <span class="keyword">return</span> shang, yushu</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><blockquote>
-<p>  一、 <font color="red" size="5">缺省参数</font>（注意：带有默认值的参数一定要位于参数列表的最后面。）</p>
-<p>  <font color="red" size="5">def printinfo( name, age = 35 ):</font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printinfo</span><span class="params">( name, age = <span class="number">35</span> )</span>:</span></span><br><span class="line">   <span class="comment"># 打印任何传入的字符串</span></span><br><span class="line">   <span class="keyword">print</span> <span class="string">"Name: "</span>, name</span><br><span class="line">   <span class="keyword">print</span> <span class="string">"Age "</span>, age</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用printinfo函数</span></span><br><span class="line">printinfo(name=<span class="string">"miki"</span> )</span><br><span class="line">printinfo( age=<span class="number">9</span>,name=<span class="string">"miki"</span> )</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<h3 id="二、不定长参数"><a href="#二、不定长参数" class="headerlink" title="二、不定长参数"></a>二、<strong>不定长参数</strong></h3></blockquote>
-<p>加了星号（*）的变量args会存放所有<strong>未命名</strong>的变量参数，args为<font color="red" size="5">元组</font>；而加（<strong>）的变量kwargs会存放</strong>命名**参数，即形如key=value的参数，<font color="red" size="5"> kwargs</font>为字典。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(a, b, *args, **kwargs)</span>:</span></span><br><span class="line">     <span class="string">"""可变参数演示示例"""</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"a ="</span>, a</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"b ="</span>, b</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"args ="</span>, args</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"kwargs: "</span></span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">         <span class="keyword">print</span> key, <span class="string">"="</span>, value</span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">    fun(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,m=<span class="number">1</span>,q=<span class="number">2</span>)</span><br><span class="line">    其中（以下为运行结果）</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">	b = <span class="number">2</span></span><br><span class="line">	args = (<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>)</span><br><span class="line">	kwargs=&#123;<span class="string">'m'</span>: <span class="number">22</span>, <span class="string">'n'</span>: <span class="number">233</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>  三、引用传参</p>
-</blockquote>
-<p>Python中函数参数是<font color="red" size="5">引用</font>传递（注意不是<font color="darkgreen" size="5">值</font>传递）。对于不可变类型，因变量不能修改，所以运算不会影响到变量自身；而对于可变类型来说，函数体中的运算有可能会更改传入的参数变量。</p>
-<blockquote>
-<h1 id="四、闭包的概念"><a href="#四、闭包的概念" class="headerlink" title="四、闭包的概念"></a>四、闭包的概念</h1><p><font color="red" size="5">内部</font>函数可以看作一个<font color="red" size="5">闭包</font>。闭包是一个可以<font color="red" size="5">由另一个函数</font>动态生成的函数，而且可以改变和存储函数<font color="red" size="5">外</font>创建的变量的值</p>
-</blockquote>
-<ol>
-<li>在函数内部再定义一个函数，并且这个函数用到了外边函数的变量，那么将这个函数以及用到的一些变量称之为闭包；</li>
-<li></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在函数内部再定义一个函数，并且这个函数用到了外边函数的变量，那么将这个函数以及用到的一些变量称之为闭包</span></span><br><span class="line"><span class="function"><span class="keyword">def</span>  <span class="title">firstClicp</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    print(<span class="string">"first clip"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sencondClicp</span><span class="params">(z)</span>:</span></span><br><span class="line">        z=x+y+z</span><br><span class="line">        print(<span class="string">"sencond clip"</span>)</span><br><span class="line">        print(<span class="string">"x=%d;y=%d;z=%d"</span> % (x,y,z))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sencondClicp</span><br><span class="line">    <span class="comment">##以上返回函数名并未执行无括号()，因此此处仅返回函数体</span></span><br><span class="line"></span><br><span class="line">varbs=firstClicp(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">varbs(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<p>3月4日</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python006函数/" data-id="cjttum1dc000r6sbnvlqc2zvo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python008copy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python008copy/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python008copy<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h3 id="一、python-与is的关系"><a href="#一、python-与is的关系" class="headerlink" title="一、python =与is的关系"></a>一、python =与is的关系</h3><ul>
-<li>=表示赋值   is是判断 两者是不是同一个对象</li>
-</ul>
-<h3 id="二、深拷贝与浅拷贝"><a href="#二、深拷贝与浅拷贝" class="headerlink" title="二、深拷贝与浅拷贝"></a>二、深拷贝与浅拷贝</h3><ul>
-<li>如果仅仅将内存地址传递的赋值叫做浅拷贝，如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3]</span><br><span class="line">b = a</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>  浅拷贝中如执行id(a) id(b)其返回的是相同的内存地址</p>
-</blockquote>
-<ul>
-<li>深拷贝<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line">c = copy.deepcopy(a)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>  此时在执行id()其返回的内存地址是不同的</p>
-<h3 id><a href="#" class="headerlink" title=" "></a> </h3></blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python008copy/" data-id="cjttum1dd000t6sbnm3lf09pb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python010多态练习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python010多态练习/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python010多态练习<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h2 id="python多态练习"><a href="#python多态练习" class="headerlink" title="python多态练习"></a>python多态练习</h2><blockquote>
-<p>多继承</p>
-</blockquote>
-<pre><code>class 子类名（父类名1，父类名2）
-</code></pre><blockquote>
-<p>多态实现代码</p>
-</blockquote>
-<ul>
-<li>多态实现条件</li>
-<li>子类对象继承父类</li>
-<li>子类对象实现父类方法</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##python 多态练习</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"汪汪叫"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XTQ</span><span class="params">(Dog)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"哮天犬叫"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WmDog</span><span class="params">(Dog)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"wmDog shout"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">callDog</span><span class="params">(self, dog)</span>:</span></span><br><span class="line">        print(<span class="string">"%s 的狗"</span> % (self.name))</span><br><span class="line">        dog.shout()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = XTQ()</span><br><span class="line">p = Person(<span class="string">"sanson"</span>)</span><br><span class="line">p.callDog(d)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python010多态练习/" data-id="cjttum1df000v6sbnw8luii0c" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python011面向对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python011面向对象/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python011面向对象<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h3 id="python面向对象"><a href="#python面向对象" class="headerlink" title="python面向对象"></a>python面向对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  random</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Game</span><span class="params">(object)</span>:</span></span><br><span class="line">	    <span class="comment"># 历史最高分</span></span><br><span class="line">    <span class="comment"># 类属性</span></span><br><span class="line">    top_score = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name=name</span><br><span class="line">	    <span class="comment"># 静态方法</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show_help</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"类静态方法，显示帮助信息"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 类方法</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show_top_score</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">"历史最高得分是 %s"</span> % cls.top_score)</span><br><span class="line">    <span class="comment"># 实例方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_game</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            print(<span class="string">"开始游戏啦 %s"</span> % self.name)</span><br><span class="line">            score=random.randint(<span class="number">0</span>,<span class="number">100</span>)</span><br><span class="line">            print(<span class="string">"当前得分%d"</span> % score)</span><br><span class="line">            <span class="keyword">if</span>  score &gt; Game.top_score:</span><br><span class="line">                Game.top_score=score</span><br><span class="line">                print(<span class="string">"现在最高分是:%s"</span> % Game.top_score)</span><br><span class="line">            <span class="keyword">if</span> score&gt;=<span class="number">100</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">g=Game(<span class="string">"zhangsaN"</span>)</span><br><span class="line"></span><br><span class="line">g.start_game()</span><br><span class="line">Game.show_top_score()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>单例</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MusicPlayer</span><span class="params">(object)</span>:</span></span><br><span class="line">    instance =<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> cls.instance <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            cls.instance = super().__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls.instance</span><br><span class="line">mp=MusicPlayer()</span><br><span class="line">mp2=MusicPlayer()</span><br><span class="line">print(mp)</span><br><span class="line">print(mp2)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python011面向对象/" data-id="cjttum1di000x6sbnq3xt3fja" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python012编码相关" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python012编码相关/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python012面向对象<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h2 id="pythone编码相关"><a href="#pythone编码相关" class="headerlink" title="pythone编码相关"></a>pythone编码相关</h2><blockquote>
-<p>如何在python2.x中使用中文<br>直接在pythone源文件中最上一行添加</p>
-</blockquote>
-<pre><code># *-* coding:utf-8 *-*
-</code></pre><p>python 2.x默认不支持中文，python3.0直接支持中文</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python012编码相关/" data-id="cjttum1dk000z6sbnqp3imrtf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-springmvc/springmvc执行过程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/29/springmvc/springmvc执行过程/" class="article-date">
@@ -432,10 +116,10 @@
 
 
   
-    <article id="post-springmvc/springmvc解决前端到后端后端到前端乱码问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python/python005列表元组字典" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
+    <a href="/2019/03/29/python/python005列表元组字典/" class="article-date">
+  <time datetime="2019-03-29T07:38:14.000Z" itemprop="datePublished">2019-03-29</time>
 </a>
     
   </div>
@@ -444,18 +128,343 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>解决前端到后端日期乱码问题</p>
-<p>1、解决前端传至后端乱码问题</p>
-<p>spring配置文件中增加</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--日期格式转换--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span> <span class="attr">class</span>=<span class="string">"org.springframework.format.support.FormattingConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"converters"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.james.ssm.controller.converter.CustomDataConverter"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDataConverter</span>  <span class="keyword">implements</span> <span class="title">Converter</span>&lt;<span class="title">String</span>,<span class="title">Date</span>&gt;</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convert</span><span class="params">(String source)</span> </span>&#123;</span><br><span class="line"><span class="comment">//"yyyy-MM-dd HH:mm:ss"</span></span><br><span class="line">        SimpleDateFormat simpleDateFormat=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm"</span>);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> simpleDateFormat.parse(source);</span><br><span class="line">       &#125;<span class="keyword">catch</span> (ParseException e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、同时在pojo类中getter方法加如下注解（解决后端传至前端日期格式是长整形数字的问题）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm"</span>,timezone = <span class="string">"GMT+8"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Date <span class="title">getJxkssj</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> jxkssj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>title: python5列表、元组、字典<br>date: 2018-06-20 22:28:10<br>categories: python</p>
+<h1 id="pythone4列表、元组、字典"><a href="#pythone4列表、元组、字典" class="headerlink" title="pythone4列表、元组、字典"></a>pythone4列表、元组、字典</h1><blockquote>
+<h2 id="列表、元组、字典之间的区别与联系"><a href="#列表、元组、字典之间的区别与联系" class="headerlink" title="列表、元组、字典之间的区别与联系"></a>列表、元组、字典之间的区别与联系</h2><ul>
+<li>列表<br>列表与其他语言中的数组类似，比C语言的数组强大的地方在于列表中的元素可以是不同类型的</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">testList = [<span class="number">1</span>, <span class="string">'a'</span>]</span><br><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> namesList:</span><br><span class="line">        print(name)</span><br><span class="line">        //列表的循环</span><br><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">    length = len(namesList)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;length:</span><br><span class="line">        print(namesList[i])</span><br><span class="line">        i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数组内数字排序</span></span><br><span class="line">couples = [<span class="number">12</span>,<span class="number">14</span>,<span class="number">122</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">55</span>]</span><br><span class="line">coupleslenght=len(couples)</span><br><span class="line"><span class="keyword">for</span> b <span class="keyword">in</span> couples:</span><br><span class="line">    print(b)</span><br><span class="line"><span class="comment"># 仅逆转坐标，不按照大小排序</span></span><br><span class="line">print(<span class="string">"仅逆转坐标，不按照大小排序"</span>)</span><br><span class="line">couples.reverse()</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> couples:</span><br><span class="line">    print(c)</span><br><span class="line">couples.sort()</span><br><span class="line"><span class="comment">#排序后</span></span><br><span class="line">print(<span class="string">"排序后"</span>)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> couples:</span><br><span class="line">    print(d)</span><br><span class="line">print(<span class="string">"排序后结果进行逆转"</span>)</span><br><span class="line">couples.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> couples:</span><br><span class="line">    print(e)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>元组</li>
+</ul>
+<blockquote>
+<p>Python的元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>aTuple = (<span class="string">'et'</span>,<span class="number">77</span>,<span class="number">99.9</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>aTuple</span><br><span class="line">(<span class="string">'et'</span>,<span class="number">77</span>,<span class="number">99.9</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字典字典类似于map？</li>
+</ul>
+<blockquote>
+<p>1、字典和列表一样，也能够存储多个数据；2、列表中找某个元素时，是根据下标进行的；3、列表中找某个元素时，是根据下标进行的；4、字典的每个元素由2部分组成，键:值。例如 ‘name’:’班长’ ,’name’为键，’班长’为值</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> info = &#123;<span class="string">'name'</span>:<span class="string">'班长'</span>, <span class="string">'id'</span>:<span class="number">100</span>, <span class="string">'sex'</span>:<span class="string">'f'</span>, <span class="string">'address'</span>:<span class="string">'地球亚洲中国北京'</span>&#125;</span><br><span class="line"> &gt;&gt;&gt; age = info.get(<span class="string">'age'</span>)//在我们不确定字典中是否存在某个键而又想获取其值时，可以使用get方法，还可以设置默认值：</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age <span class="comment">#'age'键不存在，所以age为None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(age)</span><br><span class="line">&lt;type <span class="string">'NoneType'</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age = info.get(<span class="string">'age'</span>, <span class="number">18</span>) <span class="comment"># 若info中不存在'age'这个键，就返回默认值18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age</span><br><span class="line"><span class="number">18</span></span><br></pre></td></tr></table></figure>
+<p>可变类型与不可变类型<br>可变类型，值可以改变：</p>
+<blockquote>
+<p>列表 list<br>字典 dict</p>
+</blockquote>
+<p>不可变类型，值不可以改变：</p>
+<blockquote>
+<p>数值类型 int, long, bool, float<br>字符串 str<br>元组 tuple</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" data-id="cjttum1dn00116sbn1qr6oxi5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/29/python/python005列表元组字典/" data-id="cjttum1d9000p6sbnrf5ptjyp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/29/hello-world/" class="article-date">
+  <time datetime="2019-03-29T03:10:51.878Z" itemprop="datePublished">2019-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/29/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/29/hello-world/" data-id="cjttig1mf0000c4bnoeeewacg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven00" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/maven00/" class="article-date">
+  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/maven/">maven</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/maven00/">maven坐标查看网址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>### </p>
+<p>maven坐标查看网址</p>
+<p><a href="http://mvnrepository.com/" target="_blank" rel="noopener">http://mvnrepository.com/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/maven00/" data-id="cjttvyfdx0001aobn9kig0f8q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven001父子关系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/maven001父子关系/" class="article-date">
+  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/maven/">maven</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/maven001父子关系/">maven坐标查看网址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>### </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/maven001父子关系/" data-id="cjttvyfe20002aobnrjh4hfm8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven002mybatismaven常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/maven002mybatismaven常见问题/" class="article-date">
+  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/maven/">maven</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/maven002mybatismaven常见问题/">maven2常见问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://blog.csdn.net/qq_16488911/article/details/78863351" target="_blank" rel="noopener">https://blog.csdn.net/qq_16488911/article/details/78863351</a></p>
+<p>原因是：</p>
+<p>在maven与mybatis整合的时候，非编译型文件maven都不会将其拷贝至target目录，因此造成target运行的时候找不到相应xml文件。需要在pom.xml文件中配置resource</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/maven002mybatismaven常见问题/" data-id="cjttvyfer0007aobnioqh9gfh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs/nodejs-005开发一个页面服务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/nodejs/nodejs-005开发一个页面服务/" class="article-date">
+  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: nodejs005开发一个页面服务<br>date: 2018-06-20 22:28:10<br>categories: nodejs</p>
+<h1 id="nodejs开发一个页面服务"><a href="#nodejs开发一个页面服务" class="headerlink" title="nodejs开发一个页面服务"></a>nodejs开发一个页面服务</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Author: Marte</span></span><br><span class="line"><span class="comment"> * @Date:   2018-06-26 15:07:14</span></span><br><span class="line"><span class="comment"> * @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment"> * @Last Modified time: 2018-06-29 11:25:41</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="comment">//而解决金泰资源返回文件格式多样化问题。</span></span><br><span class="line"><span class="keyword">var</span> mime = <span class="built_in">require</span>(<span class="string">'mime'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="comment">//查询字符串转换为json字符串</span></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'underscore'</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.runders = <span class="function"><span class="keyword">function</span>(<span class="params">filename, tpldata</span>) </span>&#123;</span><br><span class="line">    fs.readFile(filename, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">        &#125;);</span><br><span class="line">        res.end(<span class="string">'404,not found'</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (tpldata) &#123;</span><br><span class="line">        <span class="keyword">var</span> fn = _.template(data.toString(<span class="string">'utf8'</span>));</span><br><span class="line">        data = fn(tpldata);</span><br><span class="line">      &#125;;</span><br><span class="line">      res.setHeader(<span class="string">'Content-Type'</span>, mime.getType(filename));</span><br><span class="line">      res.end(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  req.url = req.url.toLowerCase();</span><br><span class="line">  req.method = req.method.toLowerCase();</span><br><span class="line">  <span class="keyword">var</span> urlObj = url.parse(req.url, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (req.url === <span class="string">'/'</span> || req.url === <span class="string">'index'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"NEWSLIST:"</span> + newslist);</span><br><span class="line">      <span class="comment">//转换为数组后，将接受到的参数作为数组形式添加到数组中</span></span><br><span class="line">      res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'list.html'</span>), &#123;</span><br><span class="line">        list: newslist</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/submit'</span>) &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    <span class="comment">// res.runders(path.join(__dirname,'pages','submit.html'));</span></span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="comment">//加个ID</span></span><br><span class="line">      urlObj.query.id = newslist.length;</span><br><span class="line">      <span class="comment">//转换为数组后，将接受到的参数作为数组形式添加到数组中</span></span><br><span class="line">      newslist.push(urlObj.query);</span><br><span class="line">      fs.writeFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="built_in">JSON</span>.stringify(newslist), <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">          <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"get write success!!"</span>);</span><br><span class="line">         <span class="comment">//跳转至主页</span></span><br><span class="line">        res.statusCode = <span class="number">302</span>;</span><br><span class="line">        res.statusMessage = <span class="string">'Found'</span>;</span><br><span class="line">        res.setHeader(<span class="string">'Location'</span>, <span class="string">'/'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (urlObj.pathname === <span class="string">'/detail'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="keyword">var</span> model = <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; newslist.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (newslist[i].id.toString() === urlObj.query.id) &#123;</span><br><span class="line">          model = newslist[i];</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">if</span> (model) &#123;</span><br><span class="line">        res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'detail.html'</span>), &#123;</span><br><span class="line">          item: model</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">          <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">        &#125;);</span><br><span class="line">        res.end(<span class="string">'404,Page Not Found this news.'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">'/add'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'add.html'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">'/addp'</span> &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    res.runders(path.join(__dirname, <span class="string">'pages'</span>, <span class="string">'addp.html'</span>));</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/node_modules'</span>) &amp;&amp; req.method === <span class="string">'get'</span>) &#123;</span><br><span class="line">    <span class="comment">//如果用户请求以‘/node_modules’开头，即认为该请求为请求静态资源。</span></span><br><span class="line">    res.runders(path.join(__dirname, req.url));</span><br><span class="line">    <span class="comment">//post方式</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url.startsWith(<span class="string">'/submitpost'</span>) &amp;&amp; req.method === <span class="string">'post'</span>) &#123;</span><br><span class="line">    <span class="comment">//读取data.json文件</span></span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//判断读取文件是否出错，如果判定无该文件并不抛出异常</span></span><br><span class="line">      <span class="keyword">if</span> (error &amp;&amp; error.code != <span class="string">'ENOENT'</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> error;</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="comment">//如果读取到数据转换为list，无数据则转换成空数组</span></span><br><span class="line">      <span class="keyword">var</span> newslist = <span class="built_in">JSON</span>.parse(data || <span class="string">'[]'</span>);</span><br><span class="line">      <span class="comment">//该数组用于保存每次提交过来的数据</span></span><br><span class="line">      <span class="keyword">var</span> array = [];</span><br><span class="line">      <span class="comment">//post方法与get方法异同之处</span></span><br><span class="line">      req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        array.push(chunk);</span><br><span class="line">      &#125;);</span><br><span class="line">      req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> postBody = Buffer.concat(array);</span><br><span class="line">        <span class="comment">//buffer转换成string</span></span><br><span class="line">        postBody = postBody.toString(<span class="string">'utf8'</span>);</span><br><span class="line">        <span class="comment">//查询字符串转换为json字符串</span></span><br><span class="line">        postBody = querystring.parse(postBody);</span><br><span class="line"></span><br><span class="line">        postBody.id = newslist.length;</span><br><span class="line">        <span class="comment">//推入数组</span></span><br><span class="line">        newslist.push(postBody);</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      fs.writeFile(path.join(__dirname, <span class="string">'data'</span>, <span class="string">'data.json'</span>), <span class="string">"helloworld"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">          res.end(<span class="string">"error"</span>);</span><br><span class="line">          <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"post write success!!"</span>);</span><br><span class="line">        res.statusCode = <span class="number">302</span>;</span><br><span class="line">        res.statusMessage = <span class="string">'Found'</span>;</span><br><span class="line">        res.setHeader(<span class="string">'Location'</span>, <span class="string">'/'</span>);</span><br><span class="line">        res.end();</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res.writeHead(<span class="number">404</span>, <span class="string">'Not Found'</span>, &#123;</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'text/html;charset=utf-8'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    res.end(<span class="string">'404,Page Not Found.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).listen(<span class="number">9090</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/nodejs/nodejs-005开发一个页面服务/" data-id="cjty36yqk0003h3bnf5oiyhs1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs/nodejs-004http分流" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/nodejs/nodejs-004http分流/" class="article-date">
+  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: nodejs004http分流<br>date: 2018-06-20 22:28:10<br>categories: nodejs</p>
+<h1 id="nodejs-http分流（构建http服务程序-根据不同请求做出不同响应）"><a href="#nodejs-http分流（构建http服务程序-根据不同请求做出不同响应）" class="headerlink" title="nodejs http分流（构建http服务程序-根据不同请求做出不同响应）"></a>nodejs http分流（构建http服务程序-根据不同请求做出不同响应）</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/nodejs/nodejs-004http分流/" data-id="cjty36yqc0002h3bnzzijrakh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-002定义全局指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/vue/vue-002定义全局指令/" class="article-date">
+  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: vue002定义全局指令<br>date: 2018-06-21 11:26:05<br>categories: vue</p>
+<h1 id="vue定义全局指令"><a href="#vue定义全局指令" class="headerlink" title="vue定义全局指令"></a>vue定义全局指令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;focus&apos;,&#123;</span><br><span class="line">    inserted:function (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/vue/vue-002定义全局指令/" data-id="cjttum1ds00166sbnu061x7k8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mybatis/mybatis009：一对多查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/mybatis/mybatis009：一对多查询/" class="article-date">
+  <time datetime="2018-06-21T14:38:17.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/mybatis/mybatis009：一对多查询/">mybatis09一对多查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mybatis09一对多查询"><a href="#mybatis09一对多查询" class="headerlink" title="mybatis09一对多查询"></a>mybatis09一对多查询</h1><p>一对多查询需要用resultMap，如果使用resultType则会产生相当多重复数据，且resultMap支持懒加载</p>
+<blockquote>
+<p>​    业务场景：</p>
+</blockquote>
+<p>查询订单及订单明细的信息。 </p>
+<h3 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的订单信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- id：指定查询列中的唯 一标识，订单信息的中的唯 一标识，如果有多个列组成唯一标识，配置多个id</span></span><br><span class="line"><span class="comment">			column：订单信息的唯 一标识 列</span></span><br><span class="line"><span class="comment">			property：订单信息的唯 一标识 列所映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		  --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的关联的用户信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- association：用于映射关联查询单个对象的信息</span></span><br><span class="line"><span class="comment">		property：要将关联查询的用户信息映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span>  <span class="attr">javaType</span>=<span class="string">"com.james.po.User"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- id：关联查询用户的唯 一标识</span></span><br><span class="line"><span class="comment">			column：指定唯 一标识用户信息的列</span></span><br><span class="line"><span class="comment">			javaType：映射到user的哪个属性</span></span><br><span class="line"><span class="comment">			 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"userName"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderOrderdetailResultMap"</span>  <span class="attr">extends</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"orderdetails"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orderdetail"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"orderdetail_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"itemsId"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_num"</span> <span class="attr">property</span>=<span class="string">"itemsNum"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"orders_id"</span> <span class="attr">property</span>=<span class="string">"ordersId"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOrderOrderdetail"</span> <span class="attr">resultMap</span>=<span class="string">"OrderOrderdetailResultMap"</span>&gt;</span></span><br><span class="line">			SELECT </span><br><span class="line">			orders.*,USER.username,USER.sex,USER.address,orderdetail.id orderdetail_id,	orderdetail.items_id,orderdetail.items_num,orderdetail.orders_id</span><br><span class="line">			FROM	orders,USER,orderdetail	WHERE orders.user_id = user.id AND orderdetail.orders_id=orders.id</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/mybatis/mybatis009：一对多查询/" data-id="cjty3qvc500004xbns94yw8h1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -526,19 +535,19 @@
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis002：dao抽取手动/">(no title)</a>
+            <a href="/2019/03/29/python/python011面向对象/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis004：SqlMapConfig配置文件/">(no title)</a>
+            <a href="/2019/03/29/python/python008copy/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis006：mapper输出映射/">(no title)</a>
+            <a href="/2019/03/29/python/python009多线程/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis007：sql片段/">(no title)</a>
+            <a href="/2019/03/29/python/python006函数/">(no title)</a>
           </li>
         
       </ul>

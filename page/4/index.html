@@ -62,169 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-nodejs/nodejs-004http分流" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/22/nodejs/nodejs-004http分流/" class="article-date">
-  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: nodejs004http分流<br>date: 2018-06-20 22:28:10<br>categories: nodejs</p>
-<h1 id="nodejs-http分流（构建http服务程序-根据不同请求做出不同响应）"><a href="#nodejs-http分流（构建http服务程序-根据不同请求做出不同响应）" class="headerlink" title="nodejs http分流（构建http服务程序-根据不同请求做出不同响应）"></a>nodejs http分流（构建http服务程序-根据不同请求做出不同响应）</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/nodejs/nodejs-004http分流/" data-id="cjty36yqc0002h3bnzzijrakh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mybatis/mybatis009：一对多查询" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/mybatis/mybatis009：一对多查询/" class="article-date">
-  <time datetime="2018-06-21T14:38:17.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/mybatis/mybatis009：一对多查询/">mybatis09一对多查询</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mybatis09一对多查询"><a href="#mybatis09一对多查询" class="headerlink" title="mybatis09一对多查询"></a>mybatis09一对多查询</h1><p>一对多查询需要用resultMap，如果使用resultType则会产生相当多重复数据，且resultMap支持懒加载</p>
-<blockquote>
-<p>​    业务场景：</p>
-</blockquote>
-<p>查询订单及订单明细的信息。 </p>
-<h3 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的订单信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- id：指定查询列中的唯 一标识，订单信息的中的唯 一标识，如果有多个列组成唯一标识，配置多个id</span></span><br><span class="line"><span class="comment">			column：订单信息的唯 一标识 列</span></span><br><span class="line"><span class="comment">			property：订单信息的唯 一标识 列所映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		  --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的关联的用户信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- association：用于映射关联查询单个对象的信息</span></span><br><span class="line"><span class="comment">		property：要将关联查询的用户信息映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span>  <span class="attr">javaType</span>=<span class="string">"com.james.po.User"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- id：关联查询用户的唯 一标识</span></span><br><span class="line"><span class="comment">			column：指定唯 一标识用户信息的列</span></span><br><span class="line"><span class="comment">			javaType：映射到user的哪个属性</span></span><br><span class="line"><span class="comment">			 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"userName"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderOrderdetailResultMap"</span>  <span class="attr">extends</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"orderdetails"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orderdetail"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"orderdetail_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"itemsId"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_num"</span> <span class="attr">property</span>=<span class="string">"itemsNum"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"orders_id"</span> <span class="attr">property</span>=<span class="string">"ordersId"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOrderOrderdetail"</span> <span class="attr">resultMap</span>=<span class="string">"OrderOrderdetailResultMap"</span>&gt;</span></span><br><span class="line">			SELECT </span><br><span class="line">			orders.*,USER.username,USER.sex,USER.address,orderdetail.id orderdetail_id,	orderdetail.items_id,orderdetail.items_num,orderdetail.orders_id</span><br><span class="line">			FROM	orders,USER,orderdetail	WHERE orders.user_id = user.id AND orderdetail.orders_id=orders.id</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/mybatis/mybatis009：一对多查询/" data-id="cjty3qvc500004xbns94yw8h1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue/vue-003过滤器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-003过滤器/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-003过滤器/">vue003过滤器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><p>过滤日期格式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'dateFormat'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">dateStr,pattern</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dt =<span class="keyword">new</span> <span class="built_in">Date</span>(dateStr)</span><br><span class="line">    <span class="keyword">var</span> y=dt.getFullYear()</span><br><span class="line">    <span class="comment">//.padStart(2,'0')补0</span></span><br><span class="line">    <span class="keyword">var</span> m=(dt.getMonth()+<span class="number">1</span>).toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">var</span> d=dt.getDate().toString().padStart(<span class="number">2</span>,<span class="string">'0'</span>)</span><br><span class="line">    <span class="keyword">if</span>(pattern.toLowerCase() === <span class="string">'yyyy-mm-dd'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span>`</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hh=dt.getHours();</span><br><span class="line">        <span class="keyword">var</span> mm=dt.getMinutes();</span><br><span class="line">        <span class="keyword">var</span> ss=dt.getSeconds();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;y&#125;</span>-<span class="subst">$&#123;m&#125;</span>-<span class="subst">$&#123;d&#125;</span> <span class="subst">$&#123;hh&#125;</span>:<span class="subst">$&#123;mm&#125;</span>:<span class="subst">$&#123;ss&#125;</span>`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-003过滤器/" data-id="cjttum1dt00176sbn5wfzyefq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue/vue-007组件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-007组件/" class="article-date">
-  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-007组件/">vue007创建组建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue组件"><a href="#vue组件" class="headerlink" title="vue组件"></a>vue组件</h1><h5 id="创建组件方式1"><a href="#创建组件方式1" class="headerlink" title="创建组件方式1"></a>创建组件方式1</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用 Vue.extend创建全局的Vue组件</span></span><br><span class="line"> <span class="keyword">var</span> com = Vue.extend(&#123;</span><br><span class="line">    <span class="comment">//template里面必须是唯一的根元素</span></span><br><span class="line">     template:<span class="string">'&lt;h1&gt;组件创建&lt;/h1&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"> <span class="comment">//使用Vue.componenet</span></span><br><span class="line">Vue.component(<span class="string">'mycom'</span>,com)</span><br><span class="line"> <span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(</span><br><span class="line">     &#123;</span><br><span class="line">         el:<span class="string">'#app'</span>,</span><br><span class="line">         data:&#123;</span><br><span class="line">         &#125;,</span><br><span class="line">         created()&#123;</span><br><span class="line">         &#125;,</span><br><span class="line">         methods:&#123;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
-<p>在使用的地方使用<code>&lt;my-com&gt;&lt;/my-com&gt;</code>标签进行访问</p>
-<h5 id="创建组件方式2"><a href="#创建组件方式2" class="headerlink" title="创建组件方式2"></a>创建组件方式2</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'mycom'</span>,&#123;</span><br><span class="line">    template:<span class="string">'&lt;h1&gt;组件内容&lt;/h1&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h5 id="创建组件方式3"><a href="#创建组件方式3" class="headerlink" title="创建组件方式3"></a>创建组件方式3</h5><ul>
-<li><p>第三种方式分为两段代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;mycom&apos;,&#123;</span><br><span class="line">    template:&apos;#tmp1&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>下面代码必须是在id为app的div 外面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template id=&quot;tmp1&quot;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;第三种方式必须是在app div外面定义&lt;/h1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-007组件/" data-id="cjttum1e0001e6sbnvzxjbvm8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-vue/vue-006Resource" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/21/vue/vue-006Resource/" class="article-date">
@@ -269,6 +106,165 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2018/06/21/vue/vue-006Resource/" data-id="cjttum1dx001b6sbnu7sqen1n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-000" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-000/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-000/">vue000vue经典结构</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p># </p>
+<p>vue页面引用式经典结构</p>
+<p>1.使用script标签引入vue的包</p>
+<p>2.在index页面中，创建一个id为app的div容器；</p>
+<p>3.通过new Vue的方式得到一个vm的实例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../node_modules/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>bbm<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">login</span>&gt;</span><span class="tag">&lt;/<span class="name">login</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> login=&#123;</span></span><br><span class="line"><span class="xml">    template:'<span class="tag">&lt;<span class="name">h1</span>&gt;</span>this is  login  component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el:<span class="string">"#app"</span>,</span></span><br><span class="line"><span class="undefined">    data:&#123;&#125;,</span></span><br><span class="line"><span class="undefined">    methods:&#123;&#125;,</span></span><br><span class="line"><span class="undefined">    components:&#123;</span></span><br><span class="line"><span class="undefined">        login</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-000/" data-id="cjttw43jk0000rtbnzdewoabv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-008组件中的属性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-008组件中的属性/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-008组件中的属性/">vue008组件中的属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>组件中的属性</p>
+<p>组件中的data</p>
+<ul>
+<li>组件中的data与vue实例中的data不同，除了必须是一个方法外，这个方法内部必须返回一个对象才行；</li>
+<li>组件中的data数据使用使用方式与实例的data使用使用方式完全一样！！{如差值表达式}</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;mycom&apos;,&#123;</span><br><span class="line">    template:&apos;&lt;h1&gt;组件内容 &#123;&#123;msg&#125;&#125;&lt;/h1&gt;&apos;,</span><br><span class="line">    data:function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg:&apos;这是差值表达式中的内容&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>data中变量共享的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template id=&quot;tmp1&quot;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;button&quot; value=&quot;ADD&quot; v-on:click=&quot;addIt&quot;&gt;</span><br><span class="line">        &#123;&#123;count&#125;&#125;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    //使用公用变量可以使各组件之间的变量进行共享</span><br><span class="line">// var objdata=&#123;count:0&#125;公用变量</span><br><span class="line">   Vue.component(&apos;mycom&apos;,&#123;</span><br><span class="line">       template:&apos;#tmp1&apos;,</span><br><span class="line">       data:function () &#123;</span><br><span class="line">           // return objdata 公用变量</span><br><span class="line">           return &#123;</span><br><span class="line">               count:0</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,methods:&#123;</span><br><span class="line">           addIt()&#123;</span><br><span class="line">               this.count++</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-008组件中的属性/" data-id="cjttum1e4001g6sbncc7zoawb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-017vue配合webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-017vue配合webpack/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-017vue配合webpack/">vue17Webpack 中使用vue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>## </p>
+<h1 id="Webpack-中使用vue001"><a href="#Webpack-中使用vue001" class="headerlink" title="Webpack 中使用vue001"></a>Webpack 中使用vue001</h1><h4 id="第一步安装支持包"><a href="#第一步安装支持包" class="headerlink" title="第一步安装支持包"></a>第一步安装支持包</h4><p>npm i vue-loader vue-template-compiler -D </p>
+<h4 id="第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"><a href="#第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）" class="headerlink" title="第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"></a>第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）</h4><blockquote>
+<p>注意vue-loader15以后均需增加新的配置，否则会报错</p>
+</blockquote>
+<blockquote>
+<p>const VueLoaderPlugin = require(‘vue-loader/lib/plugin’);</p>
+<p>plugins: [ new VueLoaderPlugin(), new htmlWebpackPlugin({ template:path.join(__dirname,”./src/index.html”), filename:’index.html’ })//这个插件可以在内存中生成一个html页面的插件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span>  path= <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span>  htmlWebpackPlugin=<span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> VueLoaderPlugin = <span class="built_in">require</span>(<span class="string">'vue-loader/lib/plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这个文件只是js文件，通过node中的模块操作，向外暴露一个配置对象</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry: path.join(__dirname,<span class="string">'./src/main.js'</span>),</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname,<span class="string">'./dist'</span>),</span><br><span class="line">        filename: <span class="string">"bundle.js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">            <span class="keyword">new</span> VueLoaderPlugin(),</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template:path.join(__dirname,<span class="string">"./src/index.html"</span>),</span><br><span class="line">            filename:<span class="string">'index.html'</span></span><br><span class="line">    &#125;)<span class="comment">//这个插件可以在内存中生成一个html页面的插件</span></span><br><span class="line"></span><br><span class="line">],<span class="attr">module</span> :&#123;</span><br><span class="line">    rules:[</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;,</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|jpeg|png)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=1800'</span>&#125;,<span class="comment">//limit=1800该参数控制图片是否需转成base64文本格式，该处单位是byte，此处文件名</span></span><br><span class="line"><span class="comment">//会改变成hash代码，同样可以使用参数形式保持原名,参数形式如下name=[name].[ext]</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader'</span>&#125;,<span class="comment">//用来处理字体文件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.js$/</span>,<span class="attr">use</span>:<span class="string">'babel-loader'</span>,<span class="attr">exclude</span>:<span class="regexp">/node_modules/</span>&#125;,<span class="comment">//用来ES6语法插件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.vue$/</span>,<span class="attr">use</span>:<span class="string">'vue-loader'</span>&#125;<span class="comment">//处理.vue文件的loader</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    resolve:&#123;</span><br><span class="line">        alias:&#123;</span><br><span class="line">            <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步，新建vue文件，其基本格式如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>login component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第四步，main中导入vue组件</p>
+<blockquote>
+<p>​    4.1如需在main中使用<code>import Vue from &#39;vue&#39;</code>则需在webpack.config.js中出入口中增加如下配置</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve:&#123;</span><br><span class="line">    alias:&#123;</span><br><span class="line">        <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第五步，main.js中修改渲染组件集成方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不能直接导入vue，导入vue会导成运行时环境，造成环境异常</span></span><br><span class="line"><span class="comment">// import Vue from 'vue'</span></span><br><span class="line"><span class="comment">//方式1</span></span><br><span class="line"><span class="comment">// import Vue from '../node_modules/vue/dist/vue.js'</span></span><br><span class="line"><span class="comment">//方式2（该方法必须调整webpack.config.js配置文件）</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="comment">//webpack.config中修改内容如下</span></span><br><span class="line">    <span class="comment">// resolve:&#123;</span></span><br><span class="line">    <span class="comment">//     alias:&#123;</span></span><br><span class="line">    <span class="comment">//         "vue$":"vue/dist/vue.js"</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"this is test"</span>);</span><br><span class="line"><span class="keyword">import</span> login <span class="keyword">from</span> <span class="string">'./login.vue'</span></span><br><span class="line"><span class="comment">//此处已经不能使用components属性集成组件ß</span></span><br><span class="line"><span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">"#app"</span>,</span><br><span class="line">	data:&#123;</span><br><span class="line">		msg:<span class="string">'massage'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	        render:<span class="function"><span class="keyword">function</span> (<span class="params">createElements</span>) </span>&#123;<span class="comment">//createElements是一个方法，调用他能够把制定的组件模板渲染为html结构ß</span></span><br><span class="line">            <span class="keyword">return</span> createElements(login)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render:function (createElements) &#123;</span><br><span class="line"></span><br><span class="line">return createElements(login) &#125;</span><br></pre></td></tr></table></figure>
+<p>可以简写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render: c =&gt; c(login)</span><br></pre></td></tr></table></figure>
+<p>步骤总结</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.安装vue的包：npm i vue -S</span><br><span class="line">2.由于在webpack中，推荐使用.vue这个组件模板文件定义组件，所以需要安装能解析这种文件的loader。npm i vue-loader vue-template-compiler -D</span><br><span class="line">3.在main.js中，导入vue模块import Vue from &apos;vue&apos;</span><br><span class="line">4.定义一个.vue文件的组件，其中，组件有三部分组成：template、script、style</span><br><span class="line">5.使用import login from &apos;./login.vue&apos;导入这个组件</span><br><span class="line">6.创建vm的实例var vm= new Vue(&#123;el:&quot;#app&quot;,render:c =&gt; c(login)&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-017vue配合webpack/" data-id="cjttum1ep00206sbndn4uffhf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -531,6 +527,48 @@
 
 
   
+    <article id="post-vue/vue-014router嵌套" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-014router嵌套/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-014router嵌套/">vue-014子路有嵌套</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue子路有嵌套</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const login = &#123; template: '&lt;h1&gt;登录------------&#123;&#123;$route.query.id&#125;&#125;----------&#123;&#123;$route.query.name&#125;&#125;-------&lt;/h1&gt;',</span></span><br><span class="line"><span class="comment">//传参方式2需改造取参数方式</span></span><br><span class="line"><span class="keyword">var</span> acounttemp = &#123; <span class="attr">template</span>: <span class="string">'#acounttemp'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> login = &#123; <span class="attr">template</span>: <span class="string">'#login'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> register = &#123; <span class="attr">template</span>: <span class="string">'#register'</span>&#125;</span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123;<span class="attr">path</span>:<span class="string">'/account'</span>,<span class="attr">component</span>:acounttemp,</span><br><span class="line">    children:[</span><br><span class="line">        &#123;<span class="attr">path</span>:<span class="string">'login'</span>,<span class="attr">component</span>:login&#125;,<span class="comment">//此处不能有‘/’</span></span><br><span class="line">        &#123;<span class="attr">path</span>:<span class="string">'register'</span>,<span class="attr">component</span>:register&#125;</span><br><span class="line">    ]</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-014router嵌套/" data-id="cjttum1ei001u6sbnvc3ilpj9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
 
 
   <nav id="page-nav">
@@ -592,19 +630,19 @@
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis002：dao抽取手动/">(no title)</a>
+            <a href="/2019/03/29/python/python011面向对象/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis004：SqlMapConfig配置文件/">(no title)</a>
+            <a href="/2019/03/29/python/python008copy/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis006：mapper输出映射/">(no title)</a>
+            <a href="/2019/03/29/python/python009多线程/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis007：sql片段/">(no title)</a>
+            <a href="/2019/03/29/python/python006函数/">(no title)</a>
           </li>
         
       </ul>
