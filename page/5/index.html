@@ -62,6 +62,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-github基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/github基本使用方法/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title:github基本使用方法<br>date:2018-06-20 22:28:10</p>
+<hr>
+<h1 id="github基本使用方法"><a href="#github基本使用方法" class="headerlink" title="github基本使用方法"></a>github基本使用方法</h1><h4 id="5-3-1-初始化一个本地GIT仓储repository"><a href="#5-3-1-初始化一个本地GIT仓储repository" class="headerlink" title="5.3.1.初始化一个本地GIT仓储repository"></a>5.3.1.初始化一个本地GIT仓储repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 定位到仓储文件夹目录</span><br><span class="line">$ cd /dir</span><br><span class="line">// 初始化本地仓储</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-2-添加本地GIT忽略清单文件-gitignore"><a href="#5-3-2-添加本地GIT忽略清单文件-gitignore" class="headerlink" title="5.3.2.添加本地GIT忽略清单文件.gitignore"></a>5.3.2.添加本地GIT忽略清单文件.gitignore</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 添加OS X中系统文件.DS_Store到忽略清单，这将忽略项目任意目录下的.DS_Store文件或是文件夹</span><br><span class="line">$ echo .DS_Store &gt;&gt; .gitignore</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-3-查看本地仓储的变更状态"><a href="#5-3-3-查看本地仓储的变更状态" class="headerlink" title="5.3.3.查看本地仓储的变更状态"></a>5.3.3.查看本地仓储的变更状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-4-添加本地暂存（托管）文件"><a href="#5-3-4-添加本地暂存（托管）文件" class="headerlink" title="5.3.4.添加本地暂存（托管）文件"></a>5.3.4.添加本地暂存（托管）文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 添加指定文件名的文件</span><br><span class="line">$ git add README.md</span><br><span class="line">// 添加通配符匹配的文件</span><br><span class="line">$ git add *.md</span><br><span class="line">// 添加所有未托管的文件（忽略.gitignore清单中的列表）</span><br><span class="line">$ git add --all</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-5-提交被托管的文件变化到本地仓储"><a href="#5-3-5-提交被托管的文件变化到本地仓储" class="headerlink" title="5.3.5.提交被托管的文件变化到本地仓储"></a>5.3.5.提交被托管的文件变化到本地仓储</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &apos;Initial commit(change log)&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-6-为仓储添加远端（服务器端）地址"><a href="#5-3-6-为仓储添加远端（服务器端）地址" class="headerlink" title="5.3.6.为仓储添加远端（服务器端）地址"></a>5.3.6.为仓储添加远端（服务器端）地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加一个远端地址并起了一个别名叫origin</span><br><span class="line">$ git remote add origin https://github.com/Micua/Git.git</span><br><span class="line">// 查看现有的远端列表</span><br><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-7-将本地仓储的提交记录推送到远端的master分支"><a href="#5-3-7-将本地仓储的提交记录推送到远端的master分支" class="headerlink" title="5.3.7.将本地仓储的提交记录推送到远端的master分支"></a>5.3.7.将本地仓储的提交记录推送到远端的master分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-8-拉取远端master分支的更新记录到本地"><a href="#5-3-8-拉取远端master分支的更新记录到本地" class="headerlink" title="5.3.8.拉取远端master分支的更新记录到本地"></a>5.3.8.拉取远端master分支的更新记录到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">…or create a new repository on the command line</span><br><span class="line"></span><br><span class="line">echo &quot;# jameszhao83.github.io&quot; &gt;&gt; README.md git init git add README.md git commit -m &quot;first commit&quot; git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master </span><br><span class="line"></span><br><span class="line">…or push an existing repository from the command line</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master</span><br><span class="line"></span><br><span class="line">…or import code from another repository</span><br><span class="line"></span><br><span class="line">You can initialize this repository with code from a Subversion, Mercurial, or TFS project.</span><br><span class="line"></span><br><span class="line">[Import code](https://github.com/jameszhao83/jameszhao83.github.io/import)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate &amp;&amp;    cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/ &amp;&amp;     cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/ &amp;&amp;    cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io &amp;&amp;     git add --all &amp;&amp;    git commit -m &quot;webpack commit 2&quot; &amp;&amp;   git push -u origin master</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/github基本使用方法/" data-id="cjttvhyd60000x5bnzgbvs2jm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python/python007推导式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/20/python/python007推导式/" class="article-date">
@@ -158,46 +197,6 @@
 
 
   
-    <article id="post-nodejs/nodejs-004http分流" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/20/nodejs/nodejs-004http分流/" class="article-date">
-  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/nodejs/nodejs-004http分流/">nodejs004http分流</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="nodejs-http分流（构建http服务程序-根据不同请求做出不同响应）"><a href="#nodejs-http分流（构建http服务程序-根据不同请求做出不同响应）" class="headerlink" title="nodejs http分流（构建http服务程序-根据不同请求做出不同响应）"></a>nodejs http分流（构建http服务程序-根据不同请求做出不同响应）</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-004http分流/" data-id="cjty36yqc0002h3bnzzijrakh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-nodejs/nodejs-003http" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/20/nodejs/nodejs-003http/" class="article-date">
@@ -284,36 +283,84 @@
 
 
   
-    <article id="post-github基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python/python009多线程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/20/github基本使用方法/" class="article-date">
+    <a href="/2018/06/20/python/python009多线程/" class="article-date">
   <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/python/python009多线程/">python009多线程-非共享数据</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title:github基本使用方法<br>date:2018-06-20 22:28:10</p>
-<hr>
-<h1 id="github基本使用方法"><a href="#github基本使用方法" class="headerlink" title="github基本使用方法"></a>github基本使用方法</h1><h4 id="5-3-1-初始化一个本地GIT仓储repository"><a href="#5-3-1-初始化一个本地GIT仓储repository" class="headerlink" title="5.3.1.初始化一个本地GIT仓储repository"></a>5.3.1.初始化一个本地GIT仓储repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 定位到仓储文件夹目录</span><br><span class="line">$ cd /dir</span><br><span class="line">// 初始化本地仓储</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-2-添加本地GIT忽略清单文件-gitignore"><a href="#5-3-2-添加本地GIT忽略清单文件-gitignore" class="headerlink" title="5.3.2.添加本地GIT忽略清单文件.gitignore"></a>5.3.2.添加本地GIT忽略清单文件.gitignore</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 添加OS X中系统文件.DS_Store到忽略清单，这将忽略项目任意目录下的.DS_Store文件或是文件夹</span><br><span class="line">$ echo .DS_Store &gt;&gt; .gitignore</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-3-查看本地仓储的变更状态"><a href="#5-3-3-查看本地仓储的变更状态" class="headerlink" title="5.3.3.查看本地仓储的变更状态"></a>5.3.3.查看本地仓储的变更状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-4-添加本地暂存（托管）文件"><a href="#5-3-4-添加本地暂存（托管）文件" class="headerlink" title="5.3.4.添加本地暂存（托管）文件"></a>5.3.4.添加本地暂存（托管）文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 添加指定文件名的文件</span><br><span class="line">$ git add README.md</span><br><span class="line">// 添加通配符匹配的文件</span><br><span class="line">$ git add *.md</span><br><span class="line">// 添加所有未托管的文件（忽略.gitignore清单中的列表）</span><br><span class="line">$ git add --all</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-5-提交被托管的文件变化到本地仓储"><a href="#5-3-5-提交被托管的文件变化到本地仓储" class="headerlink" title="5.3.5.提交被托管的文件变化到本地仓储"></a>5.3.5.提交被托管的文件变化到本地仓储</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &apos;Initial commit(change log)&apos;</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-6-为仓储添加远端（服务器端）地址"><a href="#5-3-6-为仓储添加远端（服务器端）地址" class="headerlink" title="5.3.6.为仓储添加远端（服务器端）地址"></a>5.3.6.为仓储添加远端（服务器端）地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加一个远端地址并起了一个别名叫origin</span><br><span class="line">$ git remote add origin https://github.com/Micua/Git.git</span><br><span class="line">// 查看现有的远端列表</span><br><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-7-将本地仓储的提交记录推送到远端的master分支"><a href="#5-3-7-将本地仓储的提交记录推送到远端的master分支" class="headerlink" title="5.3.7.将本地仓储的提交记录推送到远端的master分支"></a>5.3.7.将本地仓储的提交记录推送到远端的master分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-<h4 id="5-3-8-拉取远端master分支的更新记录到本地"><a href="#5-3-8-拉取远端master分支的更新记录到本地" class="headerlink" title="5.3.8.拉取远端master分支的更新记录到本地"></a>5.3.8.拉取远端master分支的更新记录到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">…or create a new repository on the command line</span><br><span class="line"></span><br><span class="line">echo &quot;# jameszhao83.github.io&quot; &gt;&gt; README.md git init git add README.md git commit -m &quot;first commit&quot; git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master </span><br><span class="line"></span><br><span class="line">…or push an existing repository from the command line</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master</span><br><span class="line"></span><br><span class="line">…or import code from another repository</span><br><span class="line"></span><br><span class="line">You can initialize this repository with code from a Subversion, Mercurial, or TFS project.</span><br><span class="line"></span><br><span class="line">[Import code](https://github.com/jameszhao83/jameszhao83.github.io/import)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate &amp;&amp;    cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/ &amp;&amp;     cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/ &amp;&amp;    cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io &amp;&amp;     git add --all &amp;&amp;    git commit -m &quot;webpack commit 2&quot; &amp;&amp;   git push -u origin master</span><br></pre></td></tr></table></figure>
+        <p>多线程-非共享数据</p>
+<p>对于全局变量，在多线程中要格外小心，否则容易造成数据错乱的情况发生</p>
+<ol>
+<li>非全局变量是否要加锁呢？</li>
+</ol>
+<p>小总结<br>在多线程开发中，全局变量是多个线程都共享的数据，而局部变量等是各自线程的，是非共享的</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/github基本使用方法/" data-id="cjttvhyd60000x5bnzgbvs2jm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/python/python009多线程/" data-id="cjttw6t49000000bnhqd803t7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nodejs/nodejs-001文件处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs/nodejs-001文件处理/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-001文件处理/">nodejs001文件处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nodejs-文件操作"><a href="#nodejs-文件操作" class="headerlink" title="nodejs 文件操作"></a>nodejs 文件操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* @Author: Marte</span></span><br><span class="line"><span class="comment">* @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">* @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">* @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-001文件处理/" data-id="cjttw2ep30000mwbn4lpmo9i3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -648,167 +695,6 @@
 
 
   
-    <article id="post-python/python003基础运算符" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/20/python/python003基础运算符/" class="article-date">
-  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/python/python003基础运算符/">python003文件打开模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="python002基础运算符"><a href="#python002基础运算符" class="headerlink" title="python002基础运算符"></a>python002基础运算符</h2><p>python支持以下几种运算符</p>
-<ul>
-<li>算术运算符</li>
-</ul>
-<p>下面以a=10 ,b=20为例进行计算</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+</td>
-<td>加</td>
-<td>两个对象相加 a + b 输出结果 30</td>
-</tr>
-<tr>
-<td>-</td>
-<td>减</td>
-<td>得到负数或是一个数减去另一个数 a - b 输出结果 -10</td>
-</tr>
-<tr>
-<td>*</td>
-<td>乘</td>
-<td>两个数相乘或是返回一个被重复若干次的字符串 a * b 输出结果 200</td>
-</tr>
-<tr>
-<td>/</td>
-<td>除</td>
-<td>x除以y b / a 输出结果 2</td>
-</tr>
-<tr>
-<td>//</td>
-<td>取整除</td>
-<td>返回商的整数部分 9//2 输出结果 4 , 9.0//2.0 输出结果 4.0</td>
-</tr>
-<tr>
-<td>%</td>
-<td>取余</td>
-<td>返回除法的余数 b % a 输出结果 0</td>
-</tr>
-<tr>
-<td>**</td>
-<td>幂</td>
-<td>返回x的y次幂 a**b 为10的20次方， 输出结果 100000000000000000000</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 9/2.0</span><br><span class="line">4.5</span><br><span class="line">&gt;&gt;&gt; 9//2.0</span><br><span class="line">4.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>赋值运算符</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>=</td>
-<td>赋值运算符</td>
-<td>把=号右边的结果给左边的变量 num=1+2*3 结果num的值为7</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a, b = 1, 2</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<ul>
-<li>复合赋值运算符</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+=</td>
-<td>加法赋值运算符</td>
-<td>c += a 等效于 c = c + a</td>
-</tr>
-<tr>
-<td>-=</td>
-<td>减法赋值运算符</td>
-<td>c -= a 等效于 c = c - a</td>
-</tr>
-<tr>
-<td>*=</td>
-<td>乘法赋值运算符</td>
-<td>c <em>= a 等效于 c = c </em> a</td>
-</tr>
-<tr>
-<td>/=</td>
-<td>除法赋值运算符</td>
-<td>c /= a 等效于 c = c / a</td>
-</tr>
-<tr>
-<td>%=</td>
-<td>取模赋值运算符</td>
-<td>c %= a 等效于 c = c % a</td>
-</tr>
-<tr>
-<td>**=</td>
-<td>幂赋值运算符</td>
-<td>c <strong>= a 等效于 c = c </strong> a</td>
-</tr>
-<tr>
-<td>//=</td>
-<td>取整除赋值运算符</td>
-<td>c //= a 等效于 c = c // a</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/python/python003基础运算符/" data-id="cjttw2eqa0006mwbn3te0js0p" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -866,23 +752,23 @@
       <ul>
         
           <li>
+            <a href="/2019/03/29/springmvc/springmvc-000/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python006函数/">(no title)</a>
+            <a href="/2019/03/29/springmvc/springmvc执行过程/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python008copy/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/29/python/python010多态练习/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/29/springmvc/springmvc-000/">(no title)</a>
+            <a href="/2019/03/29/hello-world/">Hello World</a>
           </li>
         
       </ul>

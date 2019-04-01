@@ -62,312 +62,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-python/python005列表元组字典" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vue/vue-013router传参数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/python/python005列表元组字典/" class="article-date">
-  <time datetime="2019-03-29T07:38:14.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python5列表、元组、字典<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h1 id="pythone4列表、元组、字典"><a href="#pythone4列表、元组、字典" class="headerlink" title="pythone4列表、元组、字典"></a>pythone4列表、元组、字典</h1><blockquote>
-<h2 id="列表、元组、字典之间的区别与联系"><a href="#列表、元组、字典之间的区别与联系" class="headerlink" title="列表、元组、字典之间的区别与联系"></a>列表、元组、字典之间的区别与联系</h2><ul>
-<li>列表<br>列表与其他语言中的数组类似，比C语言的数组强大的地方在于列表中的元素可以是不同类型的</li>
-</ul>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">testList = [<span class="number">1</span>, <span class="string">'a'</span>]</span><br><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> namesList:</span><br><span class="line">        print(name)</span><br><span class="line">        //列表的循环</span><br><span class="line">namesList = [<span class="string">'xiaoWang'</span>,<span class="string">'xiaoZhang'</span>,<span class="string">'xiaoHua'</span>]</span><br><span class="line">    length = len(namesList)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;length:</span><br><span class="line">        print(namesList[i])</span><br><span class="line">        i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数组内数字排序</span></span><br><span class="line">couples = [<span class="number">12</span>,<span class="number">14</span>,<span class="number">122</span>,<span class="number">12</span>,<span class="number">34</span>,<span class="number">21</span>,<span class="number">55</span>]</span><br><span class="line">coupleslenght=len(couples)</span><br><span class="line"><span class="keyword">for</span> b <span class="keyword">in</span> couples:</span><br><span class="line">    print(b)</span><br><span class="line"><span class="comment"># 仅逆转坐标，不按照大小排序</span></span><br><span class="line">print(<span class="string">"仅逆转坐标，不按照大小排序"</span>)</span><br><span class="line">couples.reverse()</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> couples:</span><br><span class="line">    print(c)</span><br><span class="line">couples.sort()</span><br><span class="line"><span class="comment">#排序后</span></span><br><span class="line">print(<span class="string">"排序后"</span>)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> couples:</span><br><span class="line">    print(d)</span><br><span class="line">print(<span class="string">"排序后结果进行逆转"</span>)</span><br><span class="line">couples.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> couples:</span><br><span class="line">    print(e)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>元组</li>
-</ul>
-<blockquote>
-<p>Python的元组与列表类似，不同之处在于元组的元素不能修改。元组使用小括号，列表使用方括号。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>aTuple = (<span class="string">'et'</span>,<span class="number">77</span>,<span class="number">99.9</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>aTuple</span><br><span class="line">(<span class="string">'et'</span>,<span class="number">77</span>,<span class="number">99.9</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>字典字典类似于map？</li>
-</ul>
-<blockquote>
-<p>1、字典和列表一样，也能够存储多个数据；2、列表中找某个元素时，是根据下标进行的；3、列表中找某个元素时，是根据下标进行的；4、字典的每个元素由2部分组成，键:值。例如 ‘name’:’班长’ ,’name’为键，’班长’为值</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> info = &#123;<span class="string">'name'</span>:<span class="string">'班长'</span>, <span class="string">'id'</span>:<span class="number">100</span>, <span class="string">'sex'</span>:<span class="string">'f'</span>, <span class="string">'address'</span>:<span class="string">'地球亚洲中国北京'</span>&#125;</span><br><span class="line"> &gt;&gt;&gt; age = info.get(<span class="string">'age'</span>)//在我们不确定字典中是否存在某个键而又想获取其值时，可以使用get方法，还可以设置默认值：</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age <span class="comment">#'age'键不存在，所以age为None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(age)</span><br><span class="line">&lt;type <span class="string">'NoneType'</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age = info.get(<span class="string">'age'</span>, <span class="number">18</span>) <span class="comment"># 若info中不存在'age'这个键，就返回默认值18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>age</span><br><span class="line"><span class="number">18</span></span><br></pre></td></tr></table></figure>
-<p>可变类型与不可变类型<br>可变类型，值可以改变：</p>
-<blockquote>
-<p>列表 list<br>字典 dict</p>
-</blockquote>
-<p>不可变类型，值不可以改变：</p>
-<blockquote>
-<p>数值类型 int, long, bool, float<br>字符串 str<br>元组 tuple</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python005列表元组字典/" data-id="cjttum1d9000p6sbnrf5ptjyp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/hello-world/" class="article-date">
-  <time datetime="2019-03-29T03:10:51.878Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/hello-world/" data-id="cjttig1mf0000c4bnoeeewacg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-maven00" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/21/maven00/" class="article-date">
-  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/maven/">maven</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/maven00/">maven坐标查看网址</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>### </p>
-<p>maven坐标查看网址</p>
-<p><a href="http://mvnrepository.com/" target="_blank" rel="noopener">http://mvnrepository.com/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/maven00/" data-id="cjttvyfdx0001aobn9kig0f8q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-maven001父子关系" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/21/maven001父子关系/" class="article-date">
-  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/maven/">maven</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/maven001父子关系/">maven坐标查看网址</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>### </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/maven001父子关系/" data-id="cjttvyfe20002aobnrjh4hfm8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-maven002mybatismaven常见问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/21/maven002mybatismaven常见问题/" class="article-date">
-  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/maven/">maven</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/21/maven002mybatismaven常见问题/">maven2常见问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://blog.csdn.net/qq_16488911/article/details/78863351" target="_blank" rel="noopener">https://blog.csdn.net/qq_16488911/article/details/78863351</a></p>
-<p>原因是：</p>
-<p>在maven与mybatis整合的时候，非编译型文件maven都不会将其拷贝至target目录，因此造成target运行的时候找不到相应xml文件。需要在pom.xml文件中配置resource</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/maven002mybatismaven常见问题/" data-id="cjttvyfer0007aobnioqh9gfh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue/vue-002定义全局指令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/22/vue/vue-002定义全局指令/" class="article-date">
-  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: vue002定义全局指令<br>date: 2018-06-21 11:26:05<br>categories: vue</p>
-<h1 id="vue定义全局指令"><a href="#vue定义全局指令" class="headerlink" title="vue定义全局指令"></a>vue定义全局指令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;focus&apos;,&#123;</span><br><span class="line">    inserted:function (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/vue/vue-002定义全局指令/" data-id="cjttum1ds00166sbnu061x7k8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mybatis/mybatis009：一对多查询" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/mybatis/mybatis009：一对多查询/" class="article-date">
-  <time datetime="2018-06-21T14:38:17.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/mybatis/mybatis009：一对多查询/">mybatis09一对多查询</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mybatis09一对多查询"><a href="#mybatis09一对多查询" class="headerlink" title="mybatis09一对多查询"></a>mybatis09一对多查询</h1><p>一对多查询需要用resultMap，如果使用resultType则会产生相当多重复数据，且resultMap支持懒加载</p>
-<blockquote>
-<p>​    业务场景：</p>
-</blockquote>
-<p>查询订单及订单明细的信息。 </p>
-<h3 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的订单信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- id：指定查询列中的唯 一标识，订单信息的中的唯 一标识，如果有多个列组成唯一标识，配置多个id</span></span><br><span class="line"><span class="comment">			column：订单信息的唯 一标识 列</span></span><br><span class="line"><span class="comment">			property：订单信息的唯 一标识 列所映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		  --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的关联的用户信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- association：用于映射关联查询单个对象的信息</span></span><br><span class="line"><span class="comment">		property：要将关联查询的用户信息映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span>  <span class="attr">javaType</span>=<span class="string">"com.james.po.User"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- id：关联查询用户的唯 一标识</span></span><br><span class="line"><span class="comment">			column：指定唯 一标识用户信息的列</span></span><br><span class="line"><span class="comment">			javaType：映射到user的哪个属性</span></span><br><span class="line"><span class="comment">			 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"userName"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderOrderdetailResultMap"</span>  <span class="attr">extends</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"orderdetails"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orderdetail"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"orderdetail_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"itemsId"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_num"</span> <span class="attr">property</span>=<span class="string">"itemsNum"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"orders_id"</span> <span class="attr">property</span>=<span class="string">"ordersId"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOrderOrderdetail"</span> <span class="attr">resultMap</span>=<span class="string">"OrderOrderdetailResultMap"</span>&gt;</span></span><br><span class="line">			SELECT </span><br><span class="line">			orders.*,USER.username,USER.sex,USER.address,orderdetail.id orderdetail_id,	orderdetail.items_id,orderdetail.items_num,orderdetail.orders_id</span><br><span class="line">			FROM	orders,USER,orderdetail	WHERE orders.user_id = user.id AND orderdetail.orders_id=orders.id</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/mybatis/mybatis009：一对多查询/" data-id="cjty3qvc500004xbns94yw8h1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vue/vue-016父子组建间相互传递消息" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/vue/vue-016父子组建间相互传递消息/" class="article-date">
+    <a href="/2018/06/21/vue/vue-013router传参数/" class="article-date">
   <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
 </a>
     
@@ -383,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/vue/vue-016父子组建间相互传递消息/">vue16父子组建间相互传递消息</a>
+      <a class="article-title" href="/2018/06/21/vue/vue-013router传参数/">vue-013router传参数</a>
     </h1>
   
 
@@ -391,38 +88,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="父子组建间相互传递消息"><a href="#父子组建间相互传递消息" class="headerlink" title="父子组建间相互传递消息"></a>父子组建间相互传递消息</h2><h4 id="一、子组建获取父组件变量"><a href="#一、子组建获取父组件变量" class="headerlink" title="一、子组建获取父组件变量"></a>一、子组建获取父组件变量</h4><p>子组建获取父组建数据的方法是</p>
-<ul>
-<li><p>父组建在调用子组建时，需传递变量给子组件「此处msg是父组件中的变量」</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;soncon v-bind:parentsmsg=<span class="string">"msg"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">soncon</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>子组件中需定义</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props:[&apos;parentsmsg&apos;]</span><br></pre></td></tr></table></figure>
-<p>在调用时直接调用pareantmsg即可</p>
-<h4 id="二、父组件获取子组件的方法如下"><a href="#二、父组件获取子组件的方法如下" class="headerlink" title="二、父组件获取子组件的方法如下"></a>二、父组件获取子组件的方法如下</h4><ul>
-<li><p>第一步父组件中定义一个供子组件调用的方法「此处是getSonMsg」，并要求传入参数</p>
-</li>
-<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        daba:<span class="string">'332323'</span>,</span><br><span class="line">        msg:<span class="string">'parents message!'</span>,</span><br><span class="line">        savesongivedata:<span class="string">''</span></span><br><span class="line">    &#125;,<span class="attr">methods</span>:&#123;</span><br><span class="line">        getSonMsg(songivedata)&#123;</span><br><span class="line">            <span class="keyword">this</span>.savesongivedata=songivedata;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.savesongivedata)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        soncon</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>父组件在调用子组件时，需传入方法</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">soncon</span> <span class="attr">v-bind:parentsmsg</span>=<span class="string">"msg"</span> @<span class="attr">func</span>=<span class="string">"getSonMsg"</span>&gt;</span><span class="tag">&lt;/<span class="name">soncon</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>子组件定义事件，以便点击触发向父组件传递消息的方法执行{此处是}</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"sontemp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> &gt;</span>son component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>子组建获取父组建变量<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    form parent msg &#123;&#123;parentsmsg&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"sonFunc"</span>&gt;</span>向父组建传递消息<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>子组件中定义相应方法</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> soncon = Vue.extend(&#123;</span><br><span class="line">    <span class="comment">//template里面必须是唯一的根元素</span></span><br><span class="line">    template:<span class="string">'#sontemp'</span>,</span><br><span class="line">    data()&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            msg:<span class="string">'son message'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        sonFunc()&#123;</span><br><span class="line">            <span class="keyword">this</span>.$emit(<span class="string">'func'</span>,<span class="keyword">this</span>.msg)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    props:[<span class="string">'parentsmsg'</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+        <h1 id="vue-013router传参数"><a href="#vue-013router传参数" class="headerlink" title="vue-013router传参数"></a>vue-013router传参数</h1><p><strong>传参方式1</strong>query</p>
+<blockquote>
+<p>传参</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login?id=10&amp;name=zhangsan&quot;&gt;登陆&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/register&quot;&gt;注册&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>获取参数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const login = &#123; template: &apos;&lt;h1&gt;登录------------&#123;&#123;$route.query.id&#125;&#125;----------&#123;&#123;$route.query.name&#125;&#125;-------&lt;/h1&gt;&apos;,</span><br><span class="line">created()&#123;</span><br><span class="line">    console.log(this.$route.query.id)//获取路径传来参数</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>传参方式2</strong>params</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">&#123;&#123;daba&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/login"</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/register"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--传参方式1--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;router-link to="/login?id=10&amp;name=zhangsan"&gt;登陆&lt;/router-link&gt;--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--传参方式2params需改造成以下形式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/login/10/zhangsan"</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/register"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="xml">    // const login = &#123; template: '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>登录------------&#123;&#123;$route.query.id&#125;&#125;----------&#123;&#123;$route.query.name&#125;&#125;-------<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>',</span></span><br><span class="line"><span class="javascript">    <span class="comment">//传参方式2需改造取参数方式</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> login = &#123; <span class="attr">template</span>: <span class="string">'&lt;h1&gt;登录------------&#123;&#123;$route.params.id&#125;&#125;----------&#123;&#123;$route.params.name&#125;&#125;-------&lt;/h1&gt;'</span>,</span></span><br><span class="line"><span class="undefined">    created()&#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// console.log(this.$route.query.id)</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$route.params.id)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> register = &#123; <span class="attr">template</span>: <span class="string">'&lt;h1&gt;注册&lt;/h1&gt;'</span> &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> routes = [</span></span><br><span class="line"><span class="javascript">        &#123;<span class="attr">path</span>:<span class="string">'/'</span>,<span class="attr">redirect</span>:<span class="string">'/login'</span>&#125;,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="comment">//        &#123; path: '/login', component: login &#125;,</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//传参方式2需改造path</span></span></span><br><span class="line"><span class="javascript">        &#123;<span class="attr">path</span>: <span class="string">'/login/:id/:name'</span>, <span class="attr">component</span>: login&#125;,</span></span><br><span class="line"><span class="javascript">        &#123; <span class="attr">path</span>: <span class="string">'/register'</span>, <span class="attr">component</span>: register &#125;</span></span><br><span class="line"><span class="undefined">    ]</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span></span><br><span class="line"><span class="javascript">        routes <span class="comment">// (缩写) 相当于 routes: routes</span></span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="undefined">        data:&#123;</span></span><br><span class="line"><span class="javascript">            daba:<span class="string">'332323'</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        router</span></span><br><span class="line"><span class="javascript">    &#125;).$mount(<span class="string">'#app'</span>)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/vue/vue-016父子组建间相互传递消息/" data-id="cjttum1en001y6sbn2je7oond" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-013router传参数/" data-id="cjttum1eg001s6sbn52a6ygdm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -528,6 +208,416 @@
 
 
   
+    <article id="post-jquery02事件绑定" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/jquery02事件绑定/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jquery/">jquery</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/jquery02事件绑定/">jquery02事件绑定</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>对象.事件名称（事件处理函数）；—&gt;普通写法<br>   事件.bind（参数1，参数2）—-&gt;参数1：事件的名称，参数2：事件处理函数</li>
+</ul>
+<blockquote>
+<p>   前两种 方式只能为存在的绑定事件，后添加的元素没有事件</p>
+</blockquote>
+<p>下面的两种方式，可以为存在的元素绑定事件，后添加的元素也有事件</p>
+<ul>
+<li>对象.dalegate(“选择器”,”事件名称”,事件处理函数);<blockquote>
+<p>  父级元素调用方法，代替子级元素绑定事件</p>
+</blockquote>
+</li>
+<li>对象.on(“事件名称”,”选择器”,事件处理函数)；<br>   父级元素调用方法，代理子级元素绑定事件</li>
+</ul>
+<ul>
+<li>因为delegate方法中是调用的on的方法，所以直接用on就可以了 </li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/jquery02事件绑定/" data-id="cjttvyfdm0000aobnsoi5jevy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jquery01选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/jquery01选择器/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jquery/">jquery</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/jquery01选择器/">jquery01选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jquery笔记1"><a href="#jquery笔记1" class="headerlink" title="jquery笔记1"></a>jquery笔记1</h3><ul>
+<li><p>交集选择器</p>
+<blockquote>
+<p>标签名.类名</p>
+</blockquote>
+</li>
+<li><p>并集选择器</p>
+<blockquote>
+<p>选择器,选择器,选择器,……….</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $(<span class="string">"p.cls,span.cls"</span>).css(<span class="string">"background-color"</span>,<span class="string">"red"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"button"</span> id=<span class="string">"btn"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn"</span>&gt;</span><br><span class="line">&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;高防攻击、防篡改、防病毒、防瘫痪、防窃密&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;p &gt;防窃密&lt;/</span>p&gt;</span><br><span class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"uu"</span>&gt;&lt;li&gt;防篡改&lt;/li&gt;&lt;li&gt;防病毒	&lt;/li&gt; &lt;li&gt;防瘫痪&lt;<span class="regexp">/li&gt;&lt;/u</span>l&gt;</span><br><span class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;为加强和规范国家电网公司（以下简称“公司”）网络与信息系统安全工作，切实提高防攻击、防篡改、防病毒、防瘫痪、防窃密	&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 增加类样式（开关灯）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//                style one</span></span><br><span class="line">	<span class="comment">//                $("body").toggleClass("cls");</span></span><br><span class="line">	<span class="comment">//                style two</span></span><br><span class="line">            <span class="keyword">if</span> ($(<span class="string">"body"</span>).hasClass(<span class="string">"cls"</span>))&#123;</span><br><span class="line">                $(<span class="string">"body"</span>).removeClass(<span class="string">"cls"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                $(<span class="string">"body"</span>).addClass(<span class="string">"cls"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>常用选择器有如下几种（不限于以下几种）</p>
+</blockquote>
+<table id="tb" cellspacing="0"><br>    <tr><br>        <td>序号</td><br>        <td>选择器名称</td><br>        <td>用法</td><br>        <td>备注</td><br>    </tr><br>    <tr><td>1 </td><td>id选择器选择器</td><td>$(“#id属性值”)</td><td></td></tr><br>    <tr><td>2 </td><td>标签选择器</td><td>$(“p 标签名称”)</td><td></td></tr><br>    <tr><td>3 </td><td>类选择器</td><td>$(“.类样式名字”)</td><td></td></tr><br>    <tr><td> 4</td><td>交集选择器</td><td>$(“标签.样式的名字”)</td><td></td></tr><br>    <tr><td>5 </td><td>并集选择器</td><td>$(“选择器，选择器，选择器，选择器。。。”)</td><td></td></tr><br>    <tr><td>6 </td><td>索引选择器</td><td>$(“选择器:eq（索引的值）”)</td><td></td></tr><br>    <tr><td>7 </td><td>奇数选择器</td><td>$(“选择器:odd”)</td><td></td></tr><br>    <tr><td>8 </td><td>偶数选择器</td><td>$(“选择器：even”)</td><td></td></tr><br>    <tr><td> 9</td><td>筛选选择器</td><td>$(“选择器:lt(索引)”) or $(“选择器:gt(索引)”)</td><td></td></tr><br>    <tr><td>10</td><td>最后一个选择器</td><td>$(“选择器:last”)</td><td></td></tr><br>    <tr><td>11</td><td>第一个选择器</td><td>$(“选择器：first”)</td><td></td></tr><br>    <tr><td>12</td><td>下一个选择器</td><td>$(“当前元素.next()”)</td><td></td></tr><br>    <tr><td>13</td><td>当前元素选择器</td><td>$(“当前元素.nextAll()”)</td><td></td></tr><br></table>
+
+<blockquote>
+<p>常用方法（不限于以下几种）</p>
+</blockquote>
+<p><table cellspacing="0" id="tb" style="border: 1px;"></table></p>
+<p><tr><td>序号</td><td>选择器名称</td><td>用法</td><td>备注</td></tr></p>
+<p><tr><td>1</td><td>操作表单元素value属性，可以获取也可以设置</td><td>.val()</td><td></td></tr></p>
+<p><tr><td>2</td><td>操作元素的样式</td><td>.css()</td><td></td></tr></p>
+<p><tr><td>3</td><td>操作元素中的html代码及内容，相当于innerHTML</td><td>.html()</td><td></td></tr></p>
+<p><tr><td>4</td><td>操作元素中的文本内容，相当于innerText</td><td>.text()</td><td></td></tr></p>
+<p><tr><td>5</td><td>添加类样式</td><td>addClass</td><td></td></tr></p>
+<p><tr><td>6</td><td>移除类样式</td><td>.removeClass()</td><td></td></tr></p>
+<p><tr><td>7</td><td>判断元素是否引用了某个样式</td><td>hasClass()</td><td></td></tr></p>
+<p><tr><td>8</td><td>元素的索引</td><td>.index()</td><td></td></tr></p>
+<p><tr><td>9</td><td>显示</td><td>.show()</td><td></td></tr></p>
+<p><tr><td>10</td><td>隐藏</td><td>.hide()</td><td></td></tr></p>
+<p><tr><td>11</td><td>停止动画</td><td>.stop()</td><td></td></tr></p>
+<p><tr><td>12</td><td>动画的方法</td><td>.animate()</td><td></td></tr></p>
+<p><tr><td>13</td><td>滑入</td><td>.slideUp()</td><td></td></tr></p>
+<p><tr><td>14</td><td>滑出</td><td>.slideDown()</td><td></td></tr></p>
+<p><tr><td>15</td><td>淡入</td><td>.fadeIn()</td><td></td></tr></p>
+<p><tr><td>16</td><td>淡出</td><td>.fadeOut()</td><td></td></tr></p>
+<p><tr><td>17</td><td>切换淡入淡出</td><td>fadeToggle()</td><td></td></tr></p>
+<p><tr><td>18</td><td>时间，透明度的值</td><td>fadeTo()</td><td></td></tr><br><br><br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/jquery01选择器/" data-id="cjttvwhu4000051bnb0kj9u2l" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/hexo基本使用方法/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/hexo基本使用方法/">hexo基本使用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>文章上传步骤</p>
+<p>1、切换只hexo相关目录，运行“hexo new 文档名”</p>
+<p>2、编译md文件 hexo generate</p>
+<p>3、切换至/Users/james/Documents/exercise/nodejsexercise/hexo/blog/public</p>
+<p>4、运行cp -rf ./*  ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</p>
+<p>5、切换至/Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</p>
+<blockquote>
+<p>   git add –all</p>
+</blockquote>
+<blockquote>
+<p>  git commit -m “webpack commit 2”</p>
+</blockquote>
+<blockquote>
+<p>  git push -u origin master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate</span><br><span class="line">   cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/</span><br><span class="line">    cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/</span><br><span class="line">   cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io</span><br><span class="line"></span><br><span class="line">    git add --all</span><br><span class="line">   git commit -m &quot;webpack commit 2&quot;</span><br><span class="line">  git push -u origin master</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/hexo基本使用方法/" data-id="cjttvunfj0000zjbn1ckdqdj3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-017vue配合webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-017vue配合webpack/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-017vue配合webpack/">vue17Webpack 中使用vue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>## </p>
+<h1 id="Webpack-中使用vue001"><a href="#Webpack-中使用vue001" class="headerlink" title="Webpack 中使用vue001"></a>Webpack 中使用vue001</h1><h4 id="第一步安装支持包"><a href="#第一步安装支持包" class="headerlink" title="第一步安装支持包"></a>第一步安装支持包</h4><p>npm i vue-loader vue-template-compiler -D </p>
+<h4 id="第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"><a href="#第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）" class="headerlink" title="第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"></a>第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）</h4><blockquote>
+<p>注意vue-loader15以后均需增加新的配置，否则会报错</p>
+</blockquote>
+<blockquote>
+<p>const VueLoaderPlugin = require(‘vue-loader/lib/plugin’);</p>
+<p>plugins: [ new VueLoaderPlugin(), new htmlWebpackPlugin({ template:path.join(__dirname,”./src/index.html”), filename:’index.html’ })//这个插件可以在内存中生成一个html页面的插件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span>  path= <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span>  htmlWebpackPlugin=<span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> VueLoaderPlugin = <span class="built_in">require</span>(<span class="string">'vue-loader/lib/plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这个文件只是js文件，通过node中的模块操作，向外暴露一个配置对象</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry: path.join(__dirname,<span class="string">'./src/main.js'</span>),</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname,<span class="string">'./dist'</span>),</span><br><span class="line">        filename: <span class="string">"bundle.js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">            <span class="keyword">new</span> VueLoaderPlugin(),</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template:path.join(__dirname,<span class="string">"./src/index.html"</span>),</span><br><span class="line">            filename:<span class="string">'index.html'</span></span><br><span class="line">    &#125;)<span class="comment">//这个插件可以在内存中生成一个html页面的插件</span></span><br><span class="line"></span><br><span class="line">],<span class="attr">module</span> :&#123;</span><br><span class="line">    rules:[</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;,</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|jpeg|png)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=1800'</span>&#125;,<span class="comment">//limit=1800该参数控制图片是否需转成base64文本格式，该处单位是byte，此处文件名</span></span><br><span class="line"><span class="comment">//会改变成hash代码，同样可以使用参数形式保持原名,参数形式如下name=[name].[ext]</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader'</span>&#125;,<span class="comment">//用来处理字体文件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.js$/</span>,<span class="attr">use</span>:<span class="string">'babel-loader'</span>,<span class="attr">exclude</span>:<span class="regexp">/node_modules/</span>&#125;,<span class="comment">//用来ES6语法插件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.vue$/</span>,<span class="attr">use</span>:<span class="string">'vue-loader'</span>&#125;<span class="comment">//处理.vue文件的loader</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    resolve:&#123;</span><br><span class="line">        alias:&#123;</span><br><span class="line">            <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步，新建vue文件，其基本格式如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>login component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第四步，main中导入vue组件</p>
+<blockquote>
+<p>​    4.1如需在main中使用<code>import Vue from &#39;vue&#39;</code>则需在webpack.config.js中出入口中增加如下配置</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve:&#123;</span><br><span class="line">    alias:&#123;</span><br><span class="line">        <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第五步，main.js中修改渲染组件集成方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不能直接导入vue，导入vue会导成运行时环境，造成环境异常</span></span><br><span class="line"><span class="comment">// import Vue from 'vue'</span></span><br><span class="line"><span class="comment">//方式1</span></span><br><span class="line"><span class="comment">// import Vue from '../node_modules/vue/dist/vue.js'</span></span><br><span class="line"><span class="comment">//方式2（该方法必须调整webpack.config.js配置文件）</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="comment">//webpack.config中修改内容如下</span></span><br><span class="line">    <span class="comment">// resolve:&#123;</span></span><br><span class="line">    <span class="comment">//     alias:&#123;</span></span><br><span class="line">    <span class="comment">//         "vue$":"vue/dist/vue.js"</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"this is test"</span>);</span><br><span class="line"><span class="keyword">import</span> login <span class="keyword">from</span> <span class="string">'./login.vue'</span></span><br><span class="line"><span class="comment">//此处已经不能使用components属性集成组件ß</span></span><br><span class="line"><span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">"#app"</span>,</span><br><span class="line">	data:&#123;</span><br><span class="line">		msg:<span class="string">'massage'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	        render:<span class="function"><span class="keyword">function</span> (<span class="params">createElements</span>) </span>&#123;<span class="comment">//createElements是一个方法，调用他能够把制定的组件模板渲染为html结构ß</span></span><br><span class="line">            <span class="keyword">return</span> createElements(login)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render:function (createElements) &#123;</span><br><span class="line"></span><br><span class="line">return createElements(login) &#125;</span><br></pre></td></tr></table></figure>
+<p>可以简写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render: c =&gt; c(login)</span><br></pre></td></tr></table></figure>
+<p>步骤总结</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.安装vue的包：npm i vue -S</span><br><span class="line">2.由于在webpack中，推荐使用.vue这个组件模板文件定义组件，所以需要安装能解析这种文件的loader。npm i vue-loader vue-template-compiler -D</span><br><span class="line">3.在main.js中，导入vue模块import Vue from &apos;vue&apos;</span><br><span class="line">4.定义一个.vue文件的组件，其中，组件有三部分组成：template、script、style</span><br><span class="line">5.使用import login from &apos;./login.vue&apos;导入这个组件</span><br><span class="line">6.创建vm的实例var vm= new Vue(&#123;el:&quot;#app&quot;,render:c =&gt; c(login)&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-017vue配合webpack/" data-id="cjttum1ep00206sbndn4uffhf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-016父子组建间相互传递消息" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-016父子组建间相互传递消息/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-016父子组建间相互传递消息/">vue16父子组建间相互传递消息</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="父子组建间相互传递消息"><a href="#父子组建间相互传递消息" class="headerlink" title="父子组建间相互传递消息"></a>父子组建间相互传递消息</h2><h4 id="一、子组建获取父组件变量"><a href="#一、子组建获取父组件变量" class="headerlink" title="一、子组建获取父组件变量"></a>一、子组建获取父组件变量</h4><p>子组建获取父组建数据的方法是</p>
+<ul>
+<li><p>父组建在调用子组建时，需传递变量给子组件「此处msg是父组件中的变量」</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;soncon v-bind:parentsmsg=<span class="string">"msg"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">soncon</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子组件中需定义</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props:[&apos;parentsmsg&apos;]</span><br></pre></td></tr></table></figure>
+<p>在调用时直接调用pareantmsg即可</p>
+<h4 id="二、父组件获取子组件的方法如下"><a href="#二、父组件获取子组件的方法如下" class="headerlink" title="二、父组件获取子组件的方法如下"></a>二、父组件获取子组件的方法如下</h4><ul>
+<li><p>第一步父组件中定义一个供子组件调用的方法「此处是getSonMsg」，并要求传入参数</p>
+</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        daba:<span class="string">'332323'</span>,</span><br><span class="line">        msg:<span class="string">'parents message!'</span>,</span><br><span class="line">        savesongivedata:<span class="string">''</span></span><br><span class="line">    &#125;,<span class="attr">methods</span>:&#123;</span><br><span class="line">        getSonMsg(songivedata)&#123;</span><br><span class="line">            <span class="keyword">this</span>.savesongivedata=songivedata;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.savesongivedata)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        soncon</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>父组件在调用子组件时，需传入方法</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">soncon</span> <span class="attr">v-bind:parentsmsg</span>=<span class="string">"msg"</span> @<span class="attr">func</span>=<span class="string">"getSonMsg"</span>&gt;</span><span class="tag">&lt;/<span class="name">soncon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>子组件定义事件，以便点击触发向父组件传递消息的方法执行{此处是}</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"sontemp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> &gt;</span>son component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>子组建获取父组建变量<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    form parent msg &#123;&#123;parentsmsg&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"sonFunc"</span>&gt;</span>向父组建传递消息<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>子组件中定义相应方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> soncon = Vue.extend(&#123;</span><br><span class="line">    <span class="comment">//template里面必须是唯一的根元素</span></span><br><span class="line">    template:<span class="string">'#sontemp'</span>,</span><br><span class="line">    data()&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            msg:<span class="string">'son message'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        sonFunc()&#123;</span><br><span class="line">            <span class="keyword">this</span>.$emit(<span class="string">'func'</span>,<span class="keyword">this</span>.msg)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    props:[<span class="string">'parentsmsg'</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-016父子组建间相互传递消息/" data-id="cjttum1en001y6sbn2je7oond" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-015router-view实现经典视图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-015router-view实现经典视图/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-015router-view实现经典视图/">vue-15router-view实现经典视图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;link rel="stylesheet" href="jslib/bootstrap/css/bootstrap.css"&gt;--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;script src="jslib/bootstrap/js/bootstrap.js"&gt;&lt;/script&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jslib/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jslib/vue-resource.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jslib/vue-router.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.router-link-active</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">background-color</span>: <span class="selector-id">#ff5e93</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-enter</span>,</span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-leave-to</span>&#123;</span></span><br><span class="line"><span class="undefined">            opacity: 0;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">transform</span><span class="selector-pseudo">:translateX(140px)</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-enter-active</span>,</span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-leave-active</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">transition</span><span class="selector-pseudo">:all</span> 0<span class="selector-class">.5s</span> <span class="selector-tag">ease</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.topcls</span>&#123;</span></span><br><span class="line"><span class="undefined">              height: 80px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">background-color</span>: <span class="selector-id">#fd7e14</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.containers</span>&#123;</span></span><br><span class="line"><span class="undefined">            display: flex;</span></span><br><span class="line"><span class="undefined">            height: 700px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.leftcls</span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">            <span class="selector-tag">background-color</span>: <span class="selector-id">#ff5e93</span>;</span></span><br><span class="line"><span class="undefined">            flex: 2;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.rightcls</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">background-color</span>: <span class="selector-id">#71dd8a</span>;</span></span><br><span class="line"><span class="undefined">            flex: 8;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        h1&#123;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">padding</span><span class="selector-pseudo">:0px</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        html,body&#123;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="undefined">            padding: 0;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span> &gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"containers"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">name</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span> <span class="attr">name</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"toptemp"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"topcls"</span>&gt;</span>top<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">"leftcls"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>left<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"right"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"rightcls"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span> &gt;</span>right<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">    // const login = &#123; template: '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>登录------------&#123;&#123;$route.query.id&#125;&#125;----------&#123;&#123;$route.query.name&#125;&#125;-------<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>',</span></span><br><span class="line"><span class="javascript">    <span class="comment">//传参方式2需改造取参数方式</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> topv = &#123; <span class="attr">template</span>: <span class="string">'#toptemp'</span>&#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> left = &#123; <span class="attr">template</span>: <span class="string">'#left'</span>&#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> right = &#123; <span class="attr">template</span>: <span class="string">'#right'</span>&#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> routes = [</span></span><br><span class="line"><span class="javascript">        &#123;<span class="attr">path</span>:<span class="string">'/'</span>,<span class="attr">components</span>: &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">default</span>: topv,</span></span><br><span class="line"><span class="javascript">        <span class="string">'left'</span>: left,</span></span><br><span class="line"><span class="javascript">        <span class="string">'right'</span>: right</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    ]</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span></span><br><span class="line"><span class="javascript">        routes <span class="comment">// (缩写) 相当于 routes: routes</span></span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="undefined">        data:&#123;</span></span><br><span class="line"><span class="javascript">            daba:<span class="string">'332323'</span></span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        router</span></span><br><span class="line"><span class="javascript">    &#125;).$mount(<span class="string">'#app'</span>)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-015router-view实现经典视图/" data-id="cjttum1ek001w6sbnnnkguz62" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-014router嵌套" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-014router嵌套/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/vue/vue-014router嵌套/">vue-014子路有嵌套</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue子路有嵌套</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const login = &#123; template: '&lt;h1&gt;登录------------&#123;&#123;$route.query.id&#125;&#125;----------&#123;&#123;$route.query.name&#125;&#125;-------&lt;/h1&gt;',</span></span><br><span class="line"><span class="comment">//传参方式2需改造取参数方式</span></span><br><span class="line"><span class="keyword">var</span> acounttemp = &#123; <span class="attr">template</span>: <span class="string">'#acounttemp'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> login = &#123; <span class="attr">template</span>: <span class="string">'#login'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> register = &#123; <span class="attr">template</span>: <span class="string">'#register'</span>&#125;</span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123;<span class="attr">path</span>:<span class="string">'/account'</span>,<span class="attr">component</span>:acounttemp,</span><br><span class="line">    children:[</span><br><span class="line">        &#123;<span class="attr">path</span>:<span class="string">'login'</span>,<span class="attr">component</span>:login&#125;,<span class="comment">//此处不能有‘/’</span></span><br><span class="line">        &#123;<span class="attr">path</span>:<span class="string">'register'</span>,<span class="attr">component</span>:register&#125;</span><br><span class="line">    ]</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-014router嵌套/" data-id="cjttum1ei001u6sbnvc3ilpj9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
 
 
   <nav id="page-nav">
@@ -585,23 +675,23 @@
       <ul>
         
           <li>
+            <a href="/2019/03/29/springmvc/springmvc-000/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python006函数/">(no title)</a>
+            <a href="/2019/03/29/springmvc/springmvc执行过程/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python008copy/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/29/python/python010多态练习/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/29/springmvc/springmvc-000/">(no title)</a>
+            <a href="/2019/03/29/hello-world/">Hello World</a>
           </li>
         
       </ul>

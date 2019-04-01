@@ -62,179 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-springmvc/springmvc解决前端到后端后端到前端乱码问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>解决前端到后端日期乱码问题</p>
-<p>1、解决前端传至后端乱码问题</p>
-<p>spring配置文件中增加</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--日期格式转换--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span> <span class="attr">class</span>=<span class="string">"org.springframework.format.support.FormattingConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"converters"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.james.ssm.controller.converter.CustomDataConverter"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDataConverter</span>  <span class="keyword">implements</span> <span class="title">Converter</span>&lt;<span class="title">String</span>,<span class="title">Date</span>&gt;</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convert</span><span class="params">(String source)</span> </span>&#123;</span><br><span class="line"><span class="comment">//"yyyy-MM-dd HH:mm:ss"</span></span><br><span class="line">        SimpleDateFormat simpleDateFormat=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm"</span>);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> simpleDateFormat.parse(source);</span><br><span class="line">       &#125;<span class="keyword">catch</span> (ParseException e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、同时在pojo类中getter方法加如下注解（解决后端传至前端日期格式是长整形数字的问题）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm"</span>,timezone = <span class="string">"GMT+8"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Date <span class="title">getJxkssj</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> jxkssj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" data-id="cjttum1dn00116sbn1qr6oxi5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python006函数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python006函数/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python006函数<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><blockquote>
-<p>  一、函数返回值分以下四种情况：</p>
-<ul>
-<li>无参数，无返回值</li>
-<li>无参数，又反悔</li>
-<li>有参数，无返回值</li>
-<li>有参数，有返回值<br>二、函数<font color="red" size="5">返回值</font>可以有<font color="red" size="5">多个</font>属于<font color="red" size="5">列表</font><font color="red" size="5"></font><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divid</span><span class="params">(a, b)</span>:</span></span><br><span class="line">   shang = a//b</span><br><span class="line">   yushu = a%b</span><br><span class="line">   <span class="keyword">return</span> shang, yushu</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><blockquote>
-<p>  一、 <font color="red" size="5">缺省参数</font>（注意：带有默认值的参数一定要位于参数列表的最后面。）</p>
-<p>  <font color="red" size="5">def printinfo( name, age = 35 ):</font><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printinfo</span><span class="params">( name, age = <span class="number">35</span> )</span>:</span></span><br><span class="line">   <span class="comment"># 打印任何传入的字符串</span></span><br><span class="line">   <span class="keyword">print</span> <span class="string">"Name: "</span>, name</span><br><span class="line">   <span class="keyword">print</span> <span class="string">"Age "</span>, age</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用printinfo函数</span></span><br><span class="line">printinfo(name=<span class="string">"miki"</span> )</span><br><span class="line">printinfo( age=<span class="number">9</span>,name=<span class="string">"miki"</span> )</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<h3 id="二、不定长参数"><a href="#二、不定长参数" class="headerlink" title="二、不定长参数"></a>二、<strong>不定长参数</strong></h3></blockquote>
-<p>加了星号（*）的变量args会存放所有<strong>未命名</strong>的变量参数，args为<font color="red" size="5">元组</font>；而加（<strong>）的变量kwargs会存放</strong>命名**参数，即形如key=value的参数，<font color="red" size="5"> kwargs</font>为字典。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(a, b, *args, **kwargs)</span>:</span></span><br><span class="line">     <span class="string">"""可变参数演示示例"""</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"a ="</span>, a</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"b ="</span>, b</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"args ="</span>, args</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"kwargs: "</span></span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">         <span class="keyword">print</span> key, <span class="string">"="</span>, value</span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">    fun(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,m=<span class="number">1</span>,q=<span class="number">2</span>)</span><br><span class="line">    其中（以下为运行结果）</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">	b = <span class="number">2</span></span><br><span class="line">	args = (<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>)</span><br><span class="line">	kwargs=&#123;<span class="string">'m'</span>: <span class="number">22</span>, <span class="string">'n'</span>: <span class="number">233</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>  三、引用传参</p>
-</blockquote>
-<p>Python中函数参数是<font color="red" size="5">引用</font>传递（注意不是<font color="darkgreen" size="5">值</font>传递）。对于不可变类型，因变量不能修改，所以运算不会影响到变量自身；而对于可变类型来说，函数体中的运算有可能会更改传入的参数变量。</p>
-<blockquote>
-<h1 id="四、闭包的概念"><a href="#四、闭包的概念" class="headerlink" title="四、闭包的概念"></a>四、闭包的概念</h1><p><font color="red" size="5">内部</font>函数可以看作一个<font color="red" size="5">闭包</font>。闭包是一个可以<font color="red" size="5">由另一个函数</font>动态生成的函数，而且可以改变和存储函数<font color="red" size="5">外</font>创建的变量的值</p>
-</blockquote>
-<ol>
-<li>在函数内部再定义一个函数，并且这个函数用到了外边函数的变量，那么将这个函数以及用到的一些变量称之为闭包；</li>
-<li></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在函数内部再定义一个函数，并且这个函数用到了外边函数的变量，那么将这个函数以及用到的一些变量称之为闭包</span></span><br><span class="line"><span class="function"><span class="keyword">def</span>  <span class="title">firstClicp</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    print(<span class="string">"first clip"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sencondClicp</span><span class="params">(z)</span>:</span></span><br><span class="line">        z=x+y+z</span><br><span class="line">        print(<span class="string">"sencond clip"</span>)</span><br><span class="line">        print(<span class="string">"x=%d;y=%d;z=%d"</span> % (x,y,z))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sencondClicp</span><br><span class="line">    <span class="comment">##以上返回函数名并未执行无括号()，因此此处仅返回函数体</span></span><br><span class="line"></span><br><span class="line">varbs=firstClicp(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">varbs(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<p>3月4日</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python006函数/" data-id="cjttum1dc000r6sbnvlqc2zvo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python008copy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python008copy/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python008copy<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h3 id="一、python-与is的关系"><a href="#一、python-与is的关系" class="headerlink" title="一、python =与is的关系"></a>一、python =与is的关系</h3><ul>
-<li>=表示赋值   is是判断 两者是不是同一个对象</li>
-</ul>
-<h3 id="二、深拷贝与浅拷贝"><a href="#二、深拷贝与浅拷贝" class="headerlink" title="二、深拷贝与浅拷贝"></a>二、深拷贝与浅拷贝</h3><ul>
-<li>如果仅仅将内存地址传递的赋值叫做浅拷贝，如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3]</span><br><span class="line">b = a</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>  浅拷贝中如执行id(a) id(b)其返回的是相同的内存地址</p>
-</blockquote>
-<ul>
-<li>深拷贝<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line">c = copy.deepcopy(a)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>  此时在执行id()其返回的内存地址是不同的</p>
-<h3 id><a href="#" class="headerlink" title=" "></a> </h3></blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python008copy/" data-id="cjttum1dd000t6sbnm3lf09pb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python010多态练习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python010多态练习/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python010多态练习<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h2 id="python多态练习"><a href="#python多态练习" class="headerlink" title="python多态练习"></a>python多态练习</h2><blockquote>
-<p>多继承</p>
-</blockquote>
-<pre><code>class 子类名（父类名1，父类名2）
-</code></pre><blockquote>
-<p>多态实现代码</p>
-</blockquote>
-<ul>
-<li>多态实现条件</li>
-<li>子类对象继承父类</li>
-<li>子类对象实现父类方法</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##python 多态练习</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"汪汪叫"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XTQ</span><span class="params">(Dog)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"哮天犬叫"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WmDog</span><span class="params">(Dog)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shout</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"wmDog shout"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">callDog</span><span class="params">(self, dog)</span>:</span></span><br><span class="line">        print(<span class="string">"%s 的狗"</span> % (self.name))</span><br><span class="line">        dog.shout()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = XTQ()</span><br><span class="line">p = Person(<span class="string">"sanson"</span>)</span><br><span class="line">p.callDog(d)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python010多态练习/" data-id="cjttum1df000v6sbnw8luii0c" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-springmvc/springmvc-000" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/29/springmvc/springmvc-000/" class="article-date">
@@ -252,38 +79,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc-000/" data-id="cjttum1ae00006sbnvslst07n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python011面向对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python011面向对象/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python011面向对象<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h3 id="python面向对象"><a href="#python面向对象" class="headerlink" title="python面向对象"></a>python面向对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  random</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Game</span><span class="params">(object)</span>:</span></span><br><span class="line">	    <span class="comment"># 历史最高分</span></span><br><span class="line">    <span class="comment"># 类属性</span></span><br><span class="line">    top_score = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name=name</span><br><span class="line">	    <span class="comment"># 静态方法</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show_help</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"类静态方法，显示帮助信息"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 类方法</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show_top_score</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">"历史最高得分是 %s"</span> % cls.top_score)</span><br><span class="line">    <span class="comment"># 实例方法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_game</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            print(<span class="string">"开始游戏啦 %s"</span> % self.name)</span><br><span class="line">            score=random.randint(<span class="number">0</span>,<span class="number">100</span>)</span><br><span class="line">            print(<span class="string">"当前得分%d"</span> % score)</span><br><span class="line">            <span class="keyword">if</span>  score &gt; Game.top_score:</span><br><span class="line">                Game.top_score=score</span><br><span class="line">                print(<span class="string">"现在最高分是:%s"</span> % Game.top_score)</span><br><span class="line">            <span class="keyword">if</span> score&gt;=<span class="number">100</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">g=Game(<span class="string">"zhangsaN"</span>)</span><br><span class="line"></span><br><span class="line">g.start_game()</span><br><span class="line">Game.show_top_score()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>单例</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MusicPlayer</span><span class="params">(object)</span>:</span></span><br><span class="line">    instance =<span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> cls.instance <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            cls.instance = super().__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls.instance</span><br><span class="line">mp=MusicPlayer()</span><br><span class="line">mp2=MusicPlayer()</span><br><span class="line">print(mp)</span><br><span class="line">print(mp2)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python011面向对象/" data-id="cjttum1di000x6sbnq3xt3fja" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,9 +116,9 @@
 
 
   
-    <article id="post-python/python009多线程" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-springmvc/springmvc解决前端到后端后端到前端乱码问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/python/python009多线程/" class="article-date">
+    <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" class="article-date">
   <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
 </a>
     
@@ -333,18 +128,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: python009多线程-非共享数据<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<p>多线程-非共享数据</p>
-<p>对于全局变量，在多线程中要格外小心，否则容易造成数据错乱的情况发生</p>
-<ol>
-<li>非全局变量是否要加锁呢？</li>
-</ol>
-<p>小总结<br>在多线程开发中，全局变量是多个线程都共享的数据，而局部变量等是各自线程的，是非共享的</p>
+        <p>解决前端到后端日期乱码问题</p>
+<p>1、解决前端传至后端乱码问题</p>
+<p>spring配置文件中增加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--日期格式转换--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span> <span class="attr">class</span>=<span class="string">"org.springframework.format.support.FormattingConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"converters"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.james.ssm.controller.converter.CustomDataConverter"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDataConverter</span>  <span class="keyword">implements</span> <span class="title">Converter</span>&lt;<span class="title">String</span>,<span class="title">Date</span>&gt;</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convert</span><span class="params">(String source)</span> </span>&#123;</span><br><span class="line"><span class="comment">//"yyyy-MM-dd HH:mm:ss"</span></span><br><span class="line">        SimpleDateFormat simpleDateFormat=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm"</span>);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> simpleDateFormat.parse(source);</span><br><span class="line">       &#125;<span class="keyword">catch</span> (ParseException e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、同时在pojo类中getter方法加如下注解（解决后端传至前端日期格式是长整形数字的问题）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm"</span>,timezone = <span class="string">"GMT+8"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Date <span class="title">getJxkssj</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> jxkssj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python009多线程/" data-id="cjttw6t49000000bnhqd803t7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" data-id="cjttum1dn00116sbn1qr6oxi5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -408,10 +203,183 @@
 
 
   
-    <article id="post-python/python012编码相关" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/python/python012编码相关/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
+    <a href="/2019/03/29/hello-world/" class="article-date">
+  <time datetime="2019-03-29T03:10:51.878Z" itemprop="datePublished">2019-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/29/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/29/hello-world/" data-id="cjttig1mf0000c4bnoeeewacg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven002mybatismaven常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/maven002mybatismaven常见问题/" class="article-date">
+  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/maven/">maven</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/maven002mybatismaven常见问题/">maven2常见问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://blog.csdn.net/qq_16488911/article/details/78863351" target="_blank" rel="noopener">https://blog.csdn.net/qq_16488911/article/details/78863351</a></p>
+<p>原因是：</p>
+<p>在maven与mybatis整合的时候，非编译型文件maven都不会将其拷贝至target目录，因此造成target运行的时候找不到相应xml文件。需要在pom.xml文件中配置resource</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/maven002mybatismaven常见问题/" data-id="cjttvyfer0007aobnioqh9gfh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven001父子关系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/maven001父子关系/" class="article-date">
+  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/maven/">maven</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/maven001父子关系/">maven坐标查看网址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>### </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/maven001父子关系/" data-id="cjttvyfe20002aobnrjh4hfm8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven00" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/maven00/" class="article-date">
+  <time datetime="2019-01-21T03:26:05.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/maven/">maven</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/maven00/">maven坐标查看网址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>### </p>
+<p>maven坐标查看网址</p>
+<p><a href="http://mvnrepository.com/" target="_blank" rel="noopener">http://mvnrepository.com/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/maven00/" data-id="cjttvyfdx0001aobn9kig0f8q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue/vue-002定义全局指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/vue/vue-002定义全局指令/" class="article-date">
+  <time datetime="2018-07-22T07:33:36.000Z" itemprop="datePublished">2018-07-22</time>
 </a>
     
   </div>
@@ -420,17 +388,59 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: python012面向对象<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h2 id="pythone编码相关"><a href="#pythone编码相关" class="headerlink" title="pythone编码相关"></a>pythone编码相关</h2><blockquote>
-<p>如何在python2.x中使用中文<br>直接在pythone源文件中最上一行添加</p>
-</blockquote>
-<pre><code># *-* coding:utf-8 *-*
-</code></pre><p>python 2.x默认不支持中文，python3.0直接支持中文</p>
+        <p>title: vue002定义全局指令<br>date: 2018-06-21 11:26:05<br>categories: vue</p>
+<h1 id="vue定义全局指令"><a href="#vue定义全局指令" class="headerlink" title="vue定义全局指令"></a>vue定义全局指令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;focus&apos;,&#123;</span><br><span class="line">    inserted:function (el) &#123;</span><br><span class="line">        el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python012编码相关/" data-id="cjttum1dk000z6sbnqp3imrtf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/vue/vue-002定义全局指令/" data-id="cjttum1ds00166sbnu061x7k8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mybatis/mybatis009：一对多查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/mybatis/mybatis009：一对多查询/" class="article-date">
+  <time datetime="2018-06-21T14:38:17.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/mybatis/mybatis009：一对多查询/">mybatis09一对多查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mybatis09一对多查询"><a href="#mybatis09一对多查询" class="headerlink" title="mybatis09一对多查询"></a>mybatis09一对多查询</h1><p>一对多查询需要用resultMap，如果使用resultType则会产生相当多重复数据，且resultMap支持懒加载</p>
+<blockquote>
+<p>​    业务场景：</p>
+</blockquote>
+<p>查询订单及订单明细的信息。 </p>
+<h3 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的订单信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- id：指定查询列中的唯 一标识，订单信息的中的唯 一标识，如果有多个列组成唯一标识，配置多个id</span></span><br><span class="line"><span class="comment">			column：订单信息的唯 一标识 列</span></span><br><span class="line"><span class="comment">			property：订单信息的唯 一标识 列所映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		  --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置映射的关联的用户信息 --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- association：用于映射关联查询单个对象的信息</span></span><br><span class="line"><span class="comment">		property：要将关联查询的用户信息映射到Orders中哪个属性</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span>  <span class="attr">javaType</span>=<span class="string">"com.james.po.User"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- id：关联查询用户的唯 一标识</span></span><br><span class="line"><span class="comment">			column：指定唯 一标识用户信息的列</span></span><br><span class="line"><span class="comment">			javaType：映射到user的哪个属性</span></span><br><span class="line"><span class="comment">			 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"userName"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrderOrderdetailResultMap"</span>  <span class="attr">extends</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"orderdetails"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orderdetail"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"orderdetail_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"itemsId"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_num"</span> <span class="attr">property</span>=<span class="string">"itemsNum"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">		 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"orders_id"</span> <span class="attr">property</span>=<span class="string">"ordersId"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 一对多查询 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOrderOrderdetail"</span> <span class="attr">resultMap</span>=<span class="string">"OrderOrderdetailResultMap"</span>&gt;</span></span><br><span class="line">			SELECT </span><br><span class="line">			orders.*,USER.username,USER.sex,USER.address,orderdetail.id orderdetail_id,	orderdetail.items_id,orderdetail.items_num,orderdetail.orders_id</span><br><span class="line">			FROM	orders,USER,orderdetail	WHERE orders.user_id = user.id AND orderdetail.orders_id=orders.id</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/mybatis/mybatis009：一对多查询/" data-id="cjty3qvc500004xbns94yw8h1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -497,23 +507,23 @@
       <ul>
         
           <li>
+            <a href="/2019/03/29/springmvc/springmvc-000/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python006函数/">(no title)</a>
+            <a href="/2019/03/29/springmvc/springmvc执行过程/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python008copy/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/29/python/python010多态练习/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/29/springmvc/springmvc-000/">(no title)</a>
+            <a href="/2019/03/29/hello-world/">Hello World</a>
           </li>
         
       </ul>
