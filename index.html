@@ -62,89 +62,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-mybatis/mybatis001：mybatis基本框架" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-springmvc/springmvc解决前端到后端后端到前端乱码问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/mybatis/mybatis001：mybatis基本框架/" class="article-date">
-  <time datetime="2019-03-29T08:30:25.678Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: mybatis01mybatis和hibernate本质区别和应用场景？<br>date: 2018-06-15 15:50:14<br>categories: mybatis<br>tags:</p>
-<h2 id="Mybatis001"><a href="#Mybatis001" class="headerlink" title="Mybatis001"></a>Mybatis001</h2><h3 id="mybatis和hibernate本质区别和应用场景"><a href="#mybatis和hibernate本质区别和应用场景" class="headerlink" title="mybatis和hibernate本质区别和应用场景"></a>mybatis和hibernate本质区别和应用场景</h3><p><strong>hibernate：</strong>是一个<u>标准ORM框架</u>（对象关系映射）。入门门槛较高的，不需要程序写sql，sql语句自动生成了。</p>
-<p>对sql语句进行优化、修改比较困难的。</p>
-<p>应用场景：</p>
-<p>​    适用与需求变化不多的中小型项目，比如：后台管理系统，erp、orm、oa。。</p>
-<p> <strong>mybatis：</strong>专注是sql本身，需要程序员自己编写sql语句，sql修改、优化比较方便。mybatis是一个<u>不完全</u> 的ORM框架，虽然程序员自己写sql，mybatis 也可以实现映射（输入映射、输出映射）。</p>
-<p>应用场景：</p>
-<p>​    适用与需求变化较多的项目，比如：互联网项目。</p>
-<p> 企业进行技术选型，以低成本 高回报作为技术选型的原则，根据项目组的技术力量进行选择。</p>
-<p><img src="file:///C:\Users\jms\AppData\Local\Temp\ksohtml\wpsFE3D.tmp.png" alt="img"></p>
-<ul>
-<li><strong>此步骤导入的包主要是mybatis自己的包、mysql驱动</strong></li>
-</ul>
-<p>log4j.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger=DEBUG, Console</span><br><span class="line">#Console</span><br><span class="line">log4j.appender.Console=org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.Console.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.Console.layout.ConversionPattern=%d [%t] %-5p [%c] - %m%n</span><br><span class="line">log4j.logger.java.sql.ResultSet=INFO</span><br><span class="line">log4j.logger.org.apache=INFO</span><br><span class="line">log4j.logger.java.sql.Connection=DEBUG</span><br><span class="line">log4j.logger.java.sql.Statement=DEBUG</span><br><span class="line">log4j.logger.java.sql.PreparedStatement=DEBUG</span><br></pre></td></tr></table></figure>
-<p>SqlMapConfig.xml配置mybatis的运行环境，数据源、事务等。</p>
-<blockquote>
-<p>​    关于mybatis的说明</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">"http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"db.properties"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 和spring整合后废除该部分配置内容 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driver&#125;"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"mapper/UserMapper.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 单个加载 &lt;mapper class="com.james.mapper.UserMapper"&gt;&lt;/mapper&gt; --&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 批量加载 </span></span><br><span class="line"><span class="comment">		&lt;package name="com.james.mapper" /&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>UserMapper.xml文件配置</p>
-<ul>
-<li><p>#{id} 传参占位符，其中id表示接收输入的参数，参数名称是id，如果参数是简单类型，#{}中的参数名可以任意，可以value或者其他名称</p>
-</li>
-<li><p>${value} 字符串拼接，接收输入参数的内容，如果参数类型是简单类型，${}中只能使用value</p>
-</li>
-<li><p>#{}表示一个占位符号，#{}接收输入参数，类型可以是简单类型，pojo、hashmap。</p>
-</li>
-</ul>
-<blockquote>
-<p>​    如果接收简单类型，#{}中可以写成value或其它名称。</p>
-</blockquote>
-<blockquote>
-<p>​    #{}接收pojo对象值，通过OGNL读取对象中的属性值，通过属性.属性.属性…的方式获取对象属性值。</p>
-</blockquote>
-<blockquote>
-<p>​    ${}表示一个拼接符号，会引用sql注入，所以不建议使用${}。</p>
-</blockquote>
-<blockquote>
-<p>​    ${}接收输入参数，类型可以是简单类型，pojo、hashmap。</p>
-</blockquote>
-<blockquote>
-<p>​    如果接收简单类型，${}中只能写成value。</p>
-</blockquote>
-<blockquote>
-<p>​    ${}接收pojo对象值，通过OGNL读取对象中的属性值，通过属性.属性.属性…的方式获取对象属性值。</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">- #&#123;id&#125; 传参占位符，其中id表示接收输入的参数，参数名称是id，如果参数是简单类型，#&#123;&#125;中的参数名可以任意，可以value或者其他名称</span></span><br><span class="line"><span class="comment">- $&#123;value&#125; 字符串拼接，接收输入参数的内容，如果参数类型是简单类型，$&#123;&#125;中只能使用value</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserById"</span>  <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"com.james.po.User"</span>&gt;</span></span><br><span class="line">	SELECT * FROM user   where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserByUserName"</span>  <span class="attr">parameterType</span>=<span class="string">"java.lang.String"</span> <span class="attr">resultType</span>=<span class="string">"com.james.po.User"</span>&gt;</span></span><br><span class="line">	SELECT * FROM user   where userName like '%$&#123;value&#125;%'</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>test类</p>
-<ul>
-<li>selectOne表示查询出一条记录进行映射</li>
-<li>selectList表示查询出一个列表，多条记录，但是</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.james.test;</span><br><span class="line"><span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mybatistest</span> </span>&#123;</span><br><span class="line">	String resource=<span class="string">"SqlMapConfig.xml"</span>;</span><br><span class="line">	InputStream inputStream=<span class="keyword">null</span>;</span><br><span class="line">	SqlSession sqlSession=<span class="keyword">null</span>;</span><br><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initSqlSession</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	SqlSessionFactory sqlSessionFactory= <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">	sqlSession=sqlSessionFactory.openSession();		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findUserById</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//第一个参数是mapper中select 对应的id，第二个参数是传入查询参数</span></span><br><span class="line">	User user=sqlSession.selectOne(<span class="string">"test.findUserById"</span>,<span class="number">1</span>);</span><br><span class="line">	System.out.println(user.getUserName());</span><br><span class="line">	sqlSession.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findUserByName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	List&lt;User&gt; users=sqlSession.selectList(<span class="string">"test.findUserByUserName"</span>,<span class="string">"小明"</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; users.size(); i++) &#123;</span><br><span class="line">		User u=users.get(i);</span><br><span class="line">		System.out.println(u.getUserName());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/mybatis/mybatis001：mybatis基本框架/" data-id="cjttum1c800046sbn8ecno61c" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-springmvc/springmybatis自动生成代码查询" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/" class="article-date">
+    <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" class="article-date">
   <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
 </a>
     
@@ -154,90 +74,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="spring-mybatis-自动生成代码-进行查询"><a href="#spring-mybatis-自动生成代码-进行查询" class="headerlink" title="spring mybatis 自动生成代码 进行查询"></a>spring mybatis 自动生成代码 进行查询</h1><p>利用mybatis自动代码生成工具生成的mapper查询方式如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"jsonjxjhupdate"</span>,method = RequestMethod.POST,consumes = &#123;<span class="string">"application/x-www-form-urlencoded;charset=UTF-8"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span>  <span class="meta">@ResponseBody</span> <span class="function"><span class="keyword">int</span> <span class="title">jsonjxjhupdate</span><span class="params">(Jxjht jxjht)</span></span>&#123;</span><br><span class="line">    JxjhtExample jxjhtExample1=<span class="keyword">new</span> JxjhtExample();</span><br><span class="line">    JxjhtExample.Criteria criteria=jxjhtExample1.createCriteria();</span><br><span class="line">    System.out.println(jxjht.getId());</span><br><span class="line">    criteria.andIdEqualTo(jxjht.getId());</span><br><span class="line">    jxjhService.updateByExample(jxjht,jxjhtExample1);</span><br><span class="line">    <span class="keyword">int</span> id=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>解决前端到后端日期乱码问题</p>
+<p>1、解决前端传至后端乱码问题</p>
+<p>spring配置文件中增加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--日期格式转换--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span> <span class="attr">class</span>=<span class="string">"org.springframework.format.support.FormattingConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"converters"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.james.ssm.controller.converter.CustomDataConverter"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDataConverter</span>  <span class="keyword">implements</span> <span class="title">Converter</span>&lt;<span class="title">String</span>,<span class="title">Date</span>&gt;</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convert</span><span class="params">(String source)</span> </span>&#123;</span><br><span class="line"><span class="comment">//"yyyy-MM-dd HH:mm:ss"</span></span><br><span class="line">        SimpleDateFormat simpleDateFormat=<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm"</span>);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> simpleDateFormat.parse(source);</span><br><span class="line">       &#125;<span class="keyword">catch</span> (ParseException e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、同时在pojo类中getter方法加如下注解（解决后端传至前端日期格式是长整形数字的问题）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm"</span>,timezone = <span class="string">"GMT+8"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Date <span class="title">getJxkssj</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> jxkssj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmybatis自动生成代码查询/" data-id="cjttum1do00126sbnq4cxyg0c" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python008copy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python008copy/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python008copy<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h3 id="一、python-与is的关系"><a href="#一、python-与is的关系" class="headerlink" title="一、python =与is的关系"></a>一、python =与is的关系</h3><ul>
-<li>=表示赋值   is是判断 两者是不是同一个对象</li>
-</ul>
-<h3 id="二、深拷贝与浅拷贝"><a href="#二、深拷贝与浅拷贝" class="headerlink" title="二、深拷贝与浅拷贝"></a>二、深拷贝与浅拷贝</h3><ul>
-<li>如果仅仅将内存地址传递的赋值叫做浅拷贝，如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3]</span><br><span class="line">b = a</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>  浅拷贝中如执行id(a) id(b)其返回的是相同的内存地址</p>
-</blockquote>
-<ul>
-<li>深拷贝<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line">c = copy.deepcopy(a)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>  此时在执行id()其返回的内存地址是不同的</p>
-<h3 id><a href="#" class="headerlink" title=" "></a> </h3></blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python008copy/" data-id="cjttum1dd000t6sbnm3lf09pb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python/python009多线程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/29/python/python009多线程/" class="article-date">
-  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: python009多线程-非共享数据<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<p>多线程-非共享数据</p>
-<p>对于全局变量，在多线程中要格外小心，否则容易造成数据错乱的情况发生</p>
-<ol>
-<li>非全局变量是否要加锁呢？</li>
-</ol>
-<p>小总结<br>在多线程开发中，全局变量是多个线程都共享的数据，而局部变量等是各自线程的，是非共享的</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python009多线程/" data-id="cjttw6t49000000bnhqd803t7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/" data-id="cjttum1dn00116sbn1qr6oxi5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,6 +152,50 @@
 
 
   
+    <article id="post-python/python008copy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/29/python/python008copy/" class="article-date">
+  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: python008copy<br>date: 2018-06-20 22:28:10<br>categories: python</p>
+<h3 id="一、python-与is的关系"><a href="#一、python-与is的关系" class="headerlink" title="一、python =与is的关系"></a>一、python =与is的关系</h3><ul>
+<li>=表示赋值   is是判断 两者是不是同一个对象</li>
+</ul>
+<h3 id="二、深拷贝与浅拷贝"><a href="#二、深拷贝与浅拷贝" class="headerlink" title="二、深拷贝与浅拷贝"></a>二、深拷贝与浅拷贝</h3><ul>
+<li>如果仅仅将内存地址传递的赋值叫做浅拷贝，如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3]</span><br><span class="line">b = a</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>  浅拷贝中如执行id(a) id(b)其返回的是相同的内存地址</p>
+</blockquote>
+<ul>
+<li>深拷贝<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line">c = copy.deepcopy(a)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>  此时在执行id()其返回的内存地址是不同的</p>
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3></blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/29/python/python008copy/" data-id="cjttum1dd000t6sbnm3lf09pb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-python/python010多态练习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/29/python/python010多态练习/" class="article-date">
@@ -334,6 +226,32 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2019/03/29/python/python010多态练习/" data-id="cjttum1df000v6sbnw8luii0c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-springmvc/springmvc-000" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/29/springmvc/springmvc-000/" class="article-date">
+  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc-000/" data-id="cjttum1ae00006sbnvslst07n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -375,9 +293,9 @@
 
 
   
-    <article id="post-springmvc/springmvc-000" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-springmvc/springmybatis自动生成代码查询" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/springmvc/springmvc-000/" class="article-date">
+    <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/" class="article-date">
   <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
 </a>
     
@@ -387,11 +305,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="spring-mybatis-自动生成代码-进行查询"><a href="#spring-mybatis-自动生成代码-进行查询" class="headerlink" title="spring mybatis 自动生成代码 进行查询"></a>spring mybatis 自动生成代码 进行查询</h1><p>利用mybatis自动代码生成工具生成的mapper查询方式如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"jsonjxjhupdate"</span>,method = RequestMethod.POST,consumes = &#123;<span class="string">"application/x-www-form-urlencoded;charset=UTF-8"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span>  <span class="meta">@ResponseBody</span> <span class="function"><span class="keyword">int</span> <span class="title">jsonjxjhupdate</span><span class="params">(Jxjht jxjht)</span></span>&#123;</span><br><span class="line">    JxjhtExample jxjhtExample1=<span class="keyword">new</span> JxjhtExample();</span><br><span class="line">    JxjhtExample.Criteria criteria=jxjhtExample1.createCriteria();</span><br><span class="line">    System.out.println(jxjht.getId());</span><br><span class="line">    criteria.andIdEqualTo(jxjht.getId());</span><br><span class="line">    jxjhService.updateByExample(jxjht,jxjhtExample1);</span><br><span class="line">    <span class="keyword">int</span> id=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmvc-000/" data-id="cjttum1ae00006sbnvslst07n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/29/springmvc/springmybatis自动生成代码查询/" data-id="cjttum1do00126sbnq4cxyg0c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -401,9 +321,9 @@
 
 
   
-    <article id="post-python/python012编码相关" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python/python009多线程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/29/python/python012编码相关/" class="article-date">
+    <a href="/2019/03/29/python/python009多线程/" class="article-date">
   <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
 </a>
     
@@ -413,17 +333,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: python012面向对象<br>date: 2018-06-20 22:28:10<br>categories: python</p>
-<h2 id="pythone编码相关"><a href="#pythone编码相关" class="headerlink" title="pythone编码相关"></a>pythone编码相关</h2><blockquote>
-<p>如何在python2.x中使用中文<br>直接在pythone源文件中最上一行添加</p>
-</blockquote>
-<pre><code># *-* coding:utf-8 *-*
-</code></pre><p>python 2.x默认不支持中文，python3.0直接支持中文</p>
+        <p>title: python009多线程-非共享数据<br>date: 2018-06-20 22:28:10<br>categories: python</p>
+<p>多线程-非共享数据</p>
+<p>对于全局变量，在多线程中要格外小心，否则容易造成数据错乱的情况发生</p>
+<ol>
+<li>非全局变量是否要加锁呢？</li>
+</ol>
+<p>小总结<br>在多线程开发中，全局变量是多个线程都共享的数据，而局部变量等是各自线程的，是非共享的</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/29/python/python012编码相关/" data-id="cjttum1dk000z6sbnqp3imrtf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/29/python/python009多线程/" data-id="cjttw6t49000000bnhqd803t7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -487,6 +408,38 @@
 
 
   
+    <article id="post-python/python012编码相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/29/python/python012编码相关/" class="article-date">
+  <time datetime="2019-03-29T07:38:16.000Z" itemprop="datePublished">2019-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: python012面向对象<br>date: 2018-06-20 22:28:10<br>categories: python</p>
+<h2 id="pythone编码相关"><a href="#pythone编码相关" class="headerlink" title="pythone编码相关"></a>pythone编码相关</h2><blockquote>
+<p>如何在python2.x中使用中文<br>直接在pythone源文件中最上一行添加</p>
+</blockquote>
+<pre><code># *-* coding:utf-8 *-*
+</code></pre><p>python 2.x默认不支持中文，python3.0直接支持中文</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/29/python/python012编码相关/" data-id="cjttum1dk000z6sbnqp3imrtf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
 
 
   <nav id="page-nav">
@@ -512,7 +465,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
     </div>
   </div>
 
@@ -522,7 +475,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a>
+      <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a>
     </div>
   </div>
 
@@ -544,11 +497,11 @@
       <ul>
         
           <li>
-            <a href="/2019/03/29/mybatis/mybatis001：mybatis基本框架/">(no title)</a>
+            <a href="/2019/03/29/springmvc/springmvc解决前端到后端后端到前端乱码问题/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/">(no title)</a>
+            <a href="/2019/03/29/python/python006函数/">(no title)</a>
           </li>
         
           <li>
@@ -556,11 +509,11 @@
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python009多线程/">(no title)</a>
+            <a href="/2019/03/29/python/python010多态练习/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python006函数/">(no title)</a>
+            <a href="/2019/03/29/springmvc/springmvc-000/">(no title)</a>
           </li>
         
       </ul>
