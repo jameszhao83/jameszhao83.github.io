@@ -5,19 +5,19 @@
   
 
   
-  <title>nodejs001file操作 | Hexo</title>
+  <title>nodejs003http | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="nodejs001Nodejs文件写入及读取 12345678910111213141516171819202122232425262728293031323334353637/*- @Author: Marte- @Date:   2018-06-24 16:36:54- @Last Modified by:   Marte- @Last Modified time: 2018-06-24 17">
+  <meta name="description" content="nodejs http操作入门nodejs http操作分3步骤   12345678910111213141516&apos;use strict&apos;;//第一步引入httpvar http = require(&apos;http&apos;);var path = require(&apos;path&apos;);//第二步创建http服务http.createServer(function(req,res)&amp;#123;     res.w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodejs001file操作">
-<meta property="og:url" content="http://yoursite.com/2018/06/20/nodejs/nodejs-001file/index.html">
+<meta property="og:title" content="nodejs003http">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/nodejs/nodejs-003http/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="nodejs001Nodejs文件写入及读取 12345678910111213141516171819202122232425262728293031323334353637/*- @Author: Marte- @Date:   2018-06-24 16:36:54- @Last Modified by:   Marte- @Last Modified time: 2018-06-24 17">
+<meta property="og:description" content="nodejs http操作入门nodejs http操作分3步骤   12345678910111213141516&apos;use strict&apos;;//第一步引入httpvar http = require(&apos;http&apos;);var path = require(&apos;path&apos;);//第二步创建http服务http.createServer(function(req,res)&amp;#123;     res.w">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-29T09:50:56.092Z">
+<meta property="og:updated_time" content="2019-04-01T08:20:28.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodejs001file操作">
-<meta name="twitter:description" content="nodejs001Nodejs文件写入及读取 12345678910111213141516171819202122232425262728293031323334353637/*- @Author: Marte- @Date:   2018-06-24 16:36:54- @Last Modified by:   Marte- @Last Modified time: 2018-06-24 17">
+<meta name="twitter:title" content="nodejs003http">
+<meta name="twitter:description" content="nodejs http操作入门nodejs http操作分3步骤   12345678910111213141516&apos;use strict&apos;;//第一步引入httpvar http = require(&apos;http&apos;);var path = require(&apos;path&apos;);//第二步创建http服务http.createServer(function(req,res)&amp;#123;     res.w">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,9 +64,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-nodejs/nodejs-001file" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-nodejs/nodejs-003http" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/20/nodejs/nodejs-001file/" class="article-date">
+    <a href="/2018/06/20/nodejs/nodejs-003http/" class="article-date">
   <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      nodejs001file操作
+      nodejs003http
     </h1>
   
 
@@ -90,13 +90,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="nodejs001"><a href="#nodejs001" class="headerlink" title="nodejs001"></a>nodejs001</h1><p>Nodejs文件写入及读取</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">- @Author: Marte</span></span><br><span class="line"><span class="comment">- @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">- @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">- @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="comment">//必须引入文件操作组件</span></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test 写文件操作</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//读文件操作</span></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <h1 id="nodejs-http操作入门"><a href="#nodejs-http操作入门" class="headerlink" title="nodejs http操作入门"></a>nodejs http操作入门</h1><p>nodejs http操作分3步骤</p>
+<blockquote>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一步引入http</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二步创建http服务</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">     res.write(<span class="string">'&lt;meta charset="UTF-8"/&gt;'</span>);</span><br><span class="line"></span><br><span class="line">     res.end();</span><br><span class="line"><span class="comment">//创建监听</span></span><br><span class="line">&#125;).listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-001file/" data-id="cjttw05350000g1bn34k0a3y1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-003http/" data-id="cjty36yq40001h3bno2s6p7wk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -115,9 +117,9 @@
     </a>
   
   
-    <a href="/2018/06/20/nodejs/nodejs-001文件处理/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/20/nodejs/nodejs-002file/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">nodejs001文件处理</div>
+      <div class="article-nav-title">nodejs002file操作</div>
     </a>
   
 </nav>

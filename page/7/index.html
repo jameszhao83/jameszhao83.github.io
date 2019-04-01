@@ -179,9 +179,9 @@
 
 
   
-    <article id="post-python/python001file" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-python/python007推导式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/20/python/python001file/" class="article-date">
+    <a href="/2018/06/20/python/python007推导式/" class="article-date">
   <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
@@ -197,7 +197,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/python/python001file/">python001文件打开模式</a>
+      <a class="article-title" href="/2018/06/20/python/python007推导式/">python007推导式</a>
     </h1>
   
 
@@ -205,71 +205,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Python 文件打开模式</p>
-<table>
-<thead>
-<tr>
-<th>访问模式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>r</td>
-<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
-</tr>
-<tr>
-<td>w</td>
-<td>打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>a</td>
-<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
-</tr>
-<tr>
-<td>rb</td>
-<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。</td>
-</tr>
-<tr>
-<td>wb</td>
-<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>ab</td>
-<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建</td>
-<td>新文件进行写入。</td>
-</tr>
-<tr>
-<td>r+</td>
-<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
-</tr>
-<tr>
-<td>w+</td>
-<td>打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>a+</td>
-<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
-</tr>
-<tr>
-<td>rb+</td>
-<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。</td>
-</tr>
-<tr>
-<td>wb+</td>
-<td>以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
-</tr>
-<tr>
-<td>ab+</td>
-<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一个文件，文件名为:test.txt</span></span><br><span class="line">f = open(<span class="string">'test.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭这个文件</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+        <h1 id="python推导式"><a href="#python推导式" class="headerlink" title="python推导式"></a>python推导式</h1><blockquote>
+<p>   <strong>[expression for item in iterable]</strong></p>
+</blockquote>
+<p>推导式是从一个或者多个迭代器快速简介地创建数据结构的一种方法。他可以将循环和条件判断相结合，避免冗长的语法</p>
+<p><u>推导式可精简大量代码，如以下代码</u></p>
+<ul>
+<li>统计字符串中，各个字符的个数</li>
+<li>比如：”hello world” 字符串统计的结果为： h:1 e:1 l:3 o:2 d:1 r:1 w:1</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">"hello world!"</span></span><br><span class="line">mydict=&#123;&#125;</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> str:</span><br><span class="line">    countnum=str.count(x)</span><br><span class="line">    <span class="comment">##print("%s有%d个"%(x,countnum))</span></span><br><span class="line">    strlen = mydict.keys()</span><br><span class="line">    <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> strlen:</span><br><span class="line">        mydict[x]=countnum</span><br><span class="line"></span><br><span class="line">keyss = mydict.keys()</span><br></pre></td></tr></table></figure>
+<p>但是如果使用推导式，代码可以精简至如下状态</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用字典推导式可以把以上代码简化成一句话</span></span><br><span class="line">words = <span class="string">"this is letters"</span></span><br><span class="line">lettercount = &#123;letter:words.count(letter) <span class="keyword">for</span>  letter <span class="keyword">in</span> words&#125;</span><br><span class="line">print(lettercount)</span><br></pre></td></tr></table></figure>
+<p>使用推导式创建一个<font color="red" size="55">数据结构</font></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numberlist = [nbs <span class="keyword">for</span> nbs <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">6</span>)]</span><br><span class="line">print(numberlist)</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+<p>如果迭代存在<font color="red" size="55">嵌套循环</font>则语法如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rows = range(<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line">cols = range(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">cells = [(row,col) <span class="keyword">for</span> row <span class="keyword">in</span> rows <span class="keyword">for</span> col <span class="keyword">in</span> cols]</span><br><span class="line">print(cells)</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/python/python001file/" data-id="cjttw2epi0002mwbnz2gnkke3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/python/python007推导式/" data-id="cjttw2eqr000bmwbntnww5ehr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -279,105 +234,36 @@
 
 
   
-    <article id="post-python/python002输入输出" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-github基本使用方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/20/python/python002输入输出/" class="article-date">
+    <a href="/2018/06/20/github基本使用方法/" class="article-date">
   <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/python/python002输入输出/">python002输入输出</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python-输入输出"><a href="#python-输入输出" class="headerlink" title="python 输入输出"></a>python 输入输出</h1><h4 id="一、输出"><a href="#一、输出" class="headerlink" title="一、输出"></a>一、输出</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">10</span></span><br><span class="line">print(<span class="string">"我今年%d岁"</span>%age)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">18</span></span><br><span class="line">name = <span class="string">"xiaohua"</span></span><br><span class="line">print(<span class="string">"我的姓名是%s,年龄是%d"</span>%(name,age))</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>格式符号</th>
-<th>转换</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%s</td>
-<td>通过str() 字符串转换来格式化</td>
-</tr>
-<tr>
-<td>%c</td>
-<td>字符</td>
-</tr>
-<tr>
-<td>%i</td>
-<td>有符号十进制整数</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>有符号十进制整数</td>
-</tr>
-<tr>
-<td>%u</td>
-<td>无符号十进制整数</td>
-</tr>
-<tr>
-<td>%o</td>
-<td>八进制整数</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>十六进制整数（小写字母）</td>
-</tr>
-<tr>
-<td>%X</td>
-<td>十六进制整数（大写字母）</td>
-</tr>
-<tr>
-<td>%e</td>
-<td>索引符号（小写’e’）</td>
-</tr>
-<tr>
-<td>%E</td>
-<td>索引符号（大写“E”）</td>
-</tr>
-<tr>
-<td>%f</td>
-<td>浮点实数</td>
-</tr>
-<tr>
-<td>%g</td>
-<td>％f和％e 的简写</td>
-</tr>
-<tr>
-<td>%G</td>
-<td>％f和％E的简写</td>
-</tr>
-</tbody>
-</table>
-<p>换行符\n </p>
-<p>二、输入</p>
-<p>输入函数有2个，分别是raw_input()和input()，其中raw_input()在python3中已经abolish</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">password = raw_input(<span class="string">"请输入密码:"</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'您刚刚输入的密码是:'</span>, password</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = input() </span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
+        <hr>
+<p>title:github基本使用方法<br>date:2018-06-20 22:28:10</p>
+<hr>
+<h1 id="github基本使用方法"><a href="#github基本使用方法" class="headerlink" title="github基本使用方法"></a>github基本使用方法</h1><h4 id="5-3-1-初始化一个本地GIT仓储repository"><a href="#5-3-1-初始化一个本地GIT仓储repository" class="headerlink" title="5.3.1.初始化一个本地GIT仓储repository"></a>5.3.1.初始化一个本地GIT仓储repository</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 定位到仓储文件夹目录</span><br><span class="line">$ cd /dir</span><br><span class="line">// 初始化本地仓储</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-2-添加本地GIT忽略清单文件-gitignore"><a href="#5-3-2-添加本地GIT忽略清单文件-gitignore" class="headerlink" title="5.3.2.添加本地GIT忽略清单文件.gitignore"></a>5.3.2.添加本地GIT忽略清单文件.gitignore</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 添加OS X中系统文件.DS_Store到忽略清单，这将忽略项目任意目录下的.DS_Store文件或是文件夹</span><br><span class="line">$ echo .DS_Store &gt;&gt; .gitignore</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-3-查看本地仓储的变更状态"><a href="#5-3-3-查看本地仓储的变更状态" class="headerlink" title="5.3.3.查看本地仓储的变更状态"></a>5.3.3.查看本地仓储的变更状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-4-添加本地暂存（托管）文件"><a href="#5-3-4-添加本地暂存（托管）文件" class="headerlink" title="5.3.4.添加本地暂存（托管）文件"></a>5.3.4.添加本地暂存（托管）文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 添加指定文件名的文件</span><br><span class="line">$ git add README.md</span><br><span class="line">// 添加通配符匹配的文件</span><br><span class="line">$ git add *.md</span><br><span class="line">// 添加所有未托管的文件（忽略.gitignore清单中的列表）</span><br><span class="line">$ git add --all</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-5-提交被托管的文件变化到本地仓储"><a href="#5-3-5-提交被托管的文件变化到本地仓储" class="headerlink" title="5.3.5.提交被托管的文件变化到本地仓储"></a>5.3.5.提交被托管的文件变化到本地仓储</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &apos;Initial commit(change log)&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-6-为仓储添加远端（服务器端）地址"><a href="#5-3-6-为仓储添加远端（服务器端）地址" class="headerlink" title="5.3.6.为仓储添加远端（服务器端）地址"></a>5.3.6.为仓储添加远端（服务器端）地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加一个远端地址并起了一个别名叫origin</span><br><span class="line">$ git remote add origin https://github.com/Micua/Git.git</span><br><span class="line">// 查看现有的远端列表</span><br><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-7-将本地仓储的提交记录推送到远端的master分支"><a href="#5-3-7-将本地仓储的提交记录推送到远端的master分支" class="headerlink" title="5.3.7.将本地仓储的提交记录推送到远端的master分支"></a>5.3.7.将本地仓储的提交记录推送到远端的master分支</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<h4 id="5-3-8-拉取远端master分支的更新记录到本地"><a href="#5-3-8-拉取远端master分支的更新记录到本地" class="headerlink" title="5.3.8.拉取远端master分支的更新记录到本地"></a>5.3.8.拉取远端master分支的更新记录到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">…or create a new repository on the command line</span><br><span class="line"></span><br><span class="line">echo &quot;# jameszhao83.github.io&quot; &gt;&gt; README.md git init git add README.md git commit -m &quot;first commit&quot; git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master </span><br><span class="line"></span><br><span class="line">…or push an existing repository from the command line</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/jameszhao83/jameszhao83.github.io.git git push -u origin master</span><br><span class="line"></span><br><span class="line">…or import code from another repository</span><br><span class="line"></span><br><span class="line">You can initialize this repository with code from a Subversion, Mercurial, or TFS project.</span><br><span class="line"></span><br><span class="line">[Import code](https://github.com/jameszhao83/jameszhao83.github.io/import)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo   generate &amp;&amp;    cd ~/Documents/exercise/nodejsexercise/hexo/blog/public/ &amp;&amp;     cp -rf ./* ~/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io/ &amp;&amp;    cd /Users/james/Documents/exercise/nodejsexercise/blog/jameszhao83.github.io &amp;&amp;     git add --all &amp;&amp;    git commit -m &quot;webpack commit 2&quot; &amp;&amp;   git push -u origin master</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/python/python002输入输出/" data-id="cjttw2eq70004mwbnkymc0xsh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/github基本使用方法/" data-id="cjttvhyd60000x5bnzgbvs2jm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -387,14 +273,14 @@
 
 
   
-    <article id="post-python/python003基础运算符" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs/nodejs-003http" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/20/python/python003基础运算符/" class="article-date">
+    <a href="/2018/06/20/nodejs/nodejs-003http/" class="article-date">
   <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
   </div>
 
   </div>
@@ -405,7 +291,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/python/python003基础运算符/">python003文件打开模式</a>
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-003http/">nodejs003http</a>
     </h1>
   
 
@@ -413,132 +299,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="python002基础运算符"><a href="#python002基础运算符" class="headerlink" title="python002基础运算符"></a>python002基础运算符</h2><p>python支持以下几种运算符</p>
-<ul>
-<li>算术运算符</li>
-</ul>
-<p>下面以a=10 ,b=20为例进行计算</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+</td>
-<td>加</td>
-<td>两个对象相加 a + b 输出结果 30</td>
-</tr>
-<tr>
-<td>-</td>
-<td>减</td>
-<td>得到负数或是一个数减去另一个数 a - b 输出结果 -10</td>
-</tr>
-<tr>
-<td>*</td>
-<td>乘</td>
-<td>两个数相乘或是返回一个被重复若干次的字符串 a * b 输出结果 200</td>
-</tr>
-<tr>
-<td>/</td>
-<td>除</td>
-<td>x除以y b / a 输出结果 2</td>
-</tr>
-<tr>
-<td>//</td>
-<td>取整除</td>
-<td>返回商的整数部分 9//2 输出结果 4 , 9.0//2.0 输出结果 4.0</td>
-</tr>
-<tr>
-<td>%</td>
-<td>取余</td>
-<td>返回除法的余数 b % a 输出结果 0</td>
-</tr>
-<tr>
-<td>**</td>
-<td>幂</td>
-<td>返回x的y次幂 a**b 为10的20次方， 输出结果 100000000000000000000</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 9/2.0</span><br><span class="line">4.5</span><br><span class="line">&gt;&gt;&gt; 9//2.0</span><br><span class="line">4.0</span><br></pre></td></tr></table></figure>
-<ul>
-<li>赋值运算符</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>=</td>
-<td>赋值运算符</td>
-<td>把=号右边的结果给左边的变量 num=1+2*3 结果num的值为7</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a, b = 1, 2</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">1</span><br><span class="line">&gt;&gt;&gt; b</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<ul>
-<li>复合赋值运算符</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+=</td>
-<td>加法赋值运算符</td>
-<td>c += a 等效于 c = c + a</td>
-</tr>
-<tr>
-<td>-=</td>
-<td>减法赋值运算符</td>
-<td>c -= a 等效于 c = c - a</td>
-</tr>
-<tr>
-<td>*=</td>
-<td>乘法赋值运算符</td>
-<td>c <em>= a 等效于 c = c </em> a</td>
-</tr>
-<tr>
-<td>/=</td>
-<td>除法赋值运算符</td>
-<td>c /= a 等效于 c = c / a</td>
-</tr>
-<tr>
-<td>%=</td>
-<td>取模赋值运算符</td>
-<td>c %= a 等效于 c = c % a</td>
-</tr>
-<tr>
-<td>**=</td>
-<td>幂赋值运算符</td>
-<td>c <strong>= a 等效于 c = c </strong> a</td>
-</tr>
-<tr>
-<td>//=</td>
-<td>取整除赋值运算符</td>
-<td>c //= a 等效于 c = c // a</td>
-</tr>
-</tbody>
-</table>
+        <h1 id="nodejs-http操作入门"><a href="#nodejs-http操作入门" class="headerlink" title="nodejs http操作入门"></a>nodejs http操作入门</h1><p>nodejs http操作分3步骤</p>
+<blockquote>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第一步引入http</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二步创建http服务</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">     res.write(<span class="string">'&lt;meta charset="UTF-8"/&gt;'</span>);</span><br><span class="line"></span><br><span class="line">     res.end();</span><br><span class="line"><span class="comment">//创建监听</span></span><br><span class="line">&#125;).listen(<span class="number">9090</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'http://localhost:9090'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/python/python003基础运算符/" data-id="cjttw2eqa0006mwbn3te0js0p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-003http/" data-id="cjty36yq40001h3bno2s6p7wk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -548,14 +317,14 @@
 
 
   
-    <article id="post-python/python000基础语法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs/nodejs-002file" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/20/python/python000基础语法/" class="article-date">
+    <a href="/2018/06/20/nodejs/nodejs-002file/" class="article-date">
   <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
   </div>
 
   </div>
@@ -566,7 +335,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/python/python000基础语法/">python000基础语法</a>
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-002file/">nodejs002file操作</a>
     </h1>
   
 
@@ -574,88 +343,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python基础语法"><a href="#python基础语法" class="headerlink" title="python基础语法"></a>python基础语法</h1><h2 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h2><p><img src="D:\笔记\python\基础数据类型.png" alt="基础数据类型"></p>
-<h2 id="二、注释"><a href="#二、注释" class="headerlink" title="二、注释"></a>二、注释</h2><h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我是注释，可以在里写一些功能说明之类的哦</span></span><br><span class="line">print(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>这就是我牛X指出</p>
-<pre><code>  &apos;&apos;&apos;  哈哈哈。。。
+        <h1 id="nodejs001"><a href="#nodejs001" class="headerlink" title="nodejs001"></a>nodejs001</h1><p>Nodejs文件写入及读取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">- @Author: Marte</span></span><br><span class="line"><span class="comment">- @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">- @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">- @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="comment">//必须引入文件操作组件</span></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test 写文件操作</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//读文件操作</span></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-&apos;&apos;&apos;
-</code></pre><p>​        </p>
-<h2 id="三、数据类型转换"><a href="#三、数据类型转换" class="headerlink" title="三、数据类型转换"></a>三、数据类型转换</h2><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int(x [,base ])</td>
-<td>将x转换为一个整数</td>
-</tr>
-<tr>
-<td>long(x [,base ])</td>
-<td>将x转换为一个长整数</td>
-</tr>
-<tr>
-<td>float(x )</td>
-<td>将x转换到一个浮点数</td>
-</tr>
-<tr>
-<td>complex(real [,imag ])</td>
-<td>创建一个复数</td>
-</tr>
-<tr>
-<td>str(x )</td>
-<td>将对象 x 转换为字符串</td>
-</tr>
-<tr>
-<td>repr(x )</td>
-<td>将对象 x 转换为表达式字符串</td>
-</tr>
-<tr>
-<td>eval(str )</td>
-<td>用来计算在字符串中的有效Python表达式,并返回一个对象</td>
-</tr>
-<tr>
-<td>tuple(s )</td>
-<td>将序列 s 转换为一个元组</td>
-</tr>
-<tr>
-<td>list(s )</td>
-<td>将序列 s 转换为一个列表</td>
-</tr>
-<tr>
-<td>chr(x )</td>
-<td>将一个整数转换为一个字符</td>
-</tr>
-<tr>
-<td>unichr(x )</td>
-<td>将一个整数转换为Unicode字符</td>
-</tr>
-<tr>
-<td>ord(x )</td>
-<td>将一个字符转换为它的整数值</td>
-</tr>
-<tr>
-<td>hex(x )</td>
-<td>将一个整数转换为一个十六进制字符串</td>
-</tr>
-<tr>
-<td>oct(x )</td>
-<td>将一个整数转换为一个八进制字符串</td>
-</tr>
-</tbody>
-</table>
-<h2 id="四、if"><a href="#四、if" class="headerlink" title="四、if"></a><strong>四、if</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"------if判断开始------"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age&gt;=<span class="number">18</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"我已经成年了"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"------if判断结束------"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span> :</span><br><span class="line">    py004cardManagercone.show_menu()</span><br><span class="line">    py004cardManagercone.load_card()</span><br><span class="line">    inputtext=input(<span class="string">"请输入选择的功能，【1】、新建名片，【2】、浏览全部，【3】、查询，【4】、保存至文件，【0】、退出"</span>)</span><br><span class="line">    <span class="keyword">if</span> inputtext <span class="keyword">in</span> [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>]:</span><br><span class="line">         <span class="keyword">if</span> inputtext == <span class="string">"1"</span>:</span><br><span class="line">             py004cardManagercone.new_card()</span><br><span class="line">         <span class="keyword">elif</span> inputtext == <span class="string">"2"</span>:</span><br><span class="line">             py004cardManagercone.show_all()</span><br><span class="line">         <span class="keyword">elif</span> inputtext == <span class="string">"3"</span>:</span><br><span class="line">             py004cardManagercone.search_card()</span><br><span class="line">         <span class="keyword">elif</span> inputtext == <span class="string">"4"</span>:</span><br><span class="line">            print(<span class="string">"save card info"</span>)</span><br><span class="line">            py004cardManagercone.write_card()</span><br><span class="line">         <span class="keyword">else</span>:</span><br><span class="line">             print(<span class="string">"zouru"</span>)</span><br><span class="line">    <span class="keyword">elif</span> inputtext == <span class="string">"0"</span>:</span><br><span class="line">            print(<span class="string">"欢迎再次使用名片管理系统"</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"请输入合法数值"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="五、zip并行迭代"><a href="#五、zip并行迭代" class="headerlink" title="五、zip并行迭代"></a>五、zip并行迭代</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"*"</span>*<span class="number">150</span>)</span><br><span class="line">days = [<span class="string">'mon'</span>,<span class="string">'tue'</span>,<span class="string">'wed'</span>,<span class="string">'thu'</span>,<span class="string">'fri'</span>,<span class="string">'sat'</span>,<span class="string">'sun'</span>]</span><br><span class="line">months = [<span class="string">'jan'</span>,<span class="string">'feb'</span>,<span class="string">'mar'</span>,<span class="string">'apr'</span>,<span class="string">'may'</span>,<span class="string">'jun'</span>,<span class="string">'jul'</span>,<span class="string">'aug'</span>,<span class="string">'sep'</span>,<span class="string">'oct'</span>,<span class="string">'nov'</span>,<span class="string">'dec'</span>]</span><br><span class="line"><span class="comment">#zip()函数在最短序列“用完”时就会停止</span></span><br><span class="line"><span class="keyword">for</span> month,day <span class="keyword">in</span> zip(months,days):</span><br><span class="line">    print(day)</span><br><span class="line">    print(month)</span><br></pre></td></tr></table></figure>
-<p>zip()函数返回值既不是元组也不是列表，而是一个整合在一起的可迭代变量</p>
-<h2 id="六、循环迭代"><a href="#六、循环迭代" class="headerlink" title="六、循环迭代"></a>六、循环迭代</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/python/python000基础语法/" data-id="cjttw2epe0001mwbn5egppmg9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-002file/" data-id="cjty36ypf0000h3bnonioo38e" class="article-share-link">Share</a>
       
       
     </footer>
