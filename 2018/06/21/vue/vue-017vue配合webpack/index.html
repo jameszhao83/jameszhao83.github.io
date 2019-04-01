@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue17Webpack 中使用vue | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##  Webpack 中使用vue001第一步安装支持包npm i vue-loader vue-template-compiler -D  第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤） 注意vue-loader15以后均需增加新的配置，否则会报错   const VueLoaderPlugin =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue17Webpack 中使用vue">
+<meta property="og:url" content="http://yoursite.com/2018/06/21/vue/vue-017vue配合webpack/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##  Webpack 中使用vue001第一步安装支持包npm i vue-loader vue-template-compiler -D  第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤） 注意vue-loader15以后均需增加新的配置，否则会报错   const VueLoaderPlugin =">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-29T07:11:46.062Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue17Webpack 中使用vue">
+<meta name="twitter:description" content="##  Webpack 中使用vue001第一步安装支持包npm i vue-loader vue-template-compiler -D  第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤） 注意vue-loader15以后均需增加新的配置，否则会报错   const VueLoaderPlugin =">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue/vue-017vue配合webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/vue/vue-017vue配合webpack/" class="article-date">
+  <time datetime="2018-06-21T03:26:05.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue17Webpack 中使用vue
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>## </p>
+<h1 id="Webpack-中使用vue001"><a href="#Webpack-中使用vue001" class="headerlink" title="Webpack 中使用vue001"></a>Webpack 中使用vue001</h1><h4 id="第一步安装支持包"><a href="#第一步安装支持包" class="headerlink" title="第一步安装支持包"></a>第一步安装支持包</h4><p>npm i vue-loader vue-template-compiler -D </p>
+<h4 id="第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"><a href="#第二步webpack-config-js中增加对-vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）" class="headerlink" title="第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）"></a>第二步webpack.config.js中增加对.vue文件处理的loader，并且导入VueLoaderPlugin（传智播客教程无该步骤）</h4><blockquote>
+<p>注意vue-loader15以后均需增加新的配置，否则会报错</p>
+</blockquote>
+<blockquote>
+<p>const VueLoaderPlugin = require(‘vue-loader/lib/plugin’);</p>
+<p>plugins: [ new VueLoaderPlugin(), new htmlWebpackPlugin({ template:path.join(__dirname,”./src/index.html”), filename:’index.html’ })//这个插件可以在内存中生成一个html页面的插件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span>  path= <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span>  htmlWebpackPlugin=<span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> VueLoaderPlugin = <span class="built_in">require</span>(<span class="string">'vue-loader/lib/plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这个文件只是js文件，通过node中的模块操作，向外暴露一个配置对象</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry: path.join(__dirname,<span class="string">'./src/main.js'</span>),</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname,<span class="string">'./dist'</span>),</span><br><span class="line">        filename: <span class="string">"bundle.js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">            <span class="keyword">new</span> VueLoaderPlugin(),</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template:path.join(__dirname,<span class="string">"./src/index.html"</span>),</span><br><span class="line">            filename:<span class="string">'index.html'</span></span><br><span class="line">    &#125;)<span class="comment">//这个插件可以在内存中生成一个html页面的插件</span></span><br><span class="line"></span><br><span class="line">],<span class="attr">module</span> :&#123;</span><br><span class="line">    rules:[</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;,</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|jpeg|png)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=1800'</span>&#125;,<span class="comment">//limit=1800该参数控制图片是否需转成base64文本格式，该处单位是byte，此处文件名</span></span><br><span class="line"><span class="comment">//会改变成hash代码，同样可以使用参数形式保持原名,参数形式如下name=[name].[ext]</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader'</span>&#125;,<span class="comment">//用来处理字体文件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.js$/</span>,<span class="attr">use</span>:<span class="string">'babel-loader'</span>,<span class="attr">exclude</span>:<span class="regexp">/node_modules/</span>&#125;,<span class="comment">//用来ES6语法插件</span></span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.vue$/</span>,<span class="attr">use</span>:<span class="string">'vue-loader'</span>&#125;<span class="comment">//处理.vue文件的loader</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    resolve:&#123;</span><br><span class="line">        alias:&#123;</span><br><span class="line">            <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步，新建vue文件，其基本格式如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>login component<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>第四步，main中导入vue组件</p>
+<blockquote>
+<p>​    4.1如需在main中使用<code>import Vue from &#39;vue&#39;</code>则需在webpack.config.js中出入口中增加如下配置</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve:&#123;</span><br><span class="line">    alias:&#123;</span><br><span class="line">        <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第五步，main.js中修改渲染组件集成方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不能直接导入vue，导入vue会导成运行时环境，造成环境异常</span></span><br><span class="line"><span class="comment">// import Vue from 'vue'</span></span><br><span class="line"><span class="comment">//方式1</span></span><br><span class="line"><span class="comment">// import Vue from '../node_modules/vue/dist/vue.js'</span></span><br><span class="line"><span class="comment">//方式2（该方法必须调整webpack.config.js配置文件）</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="comment">//webpack.config中修改内容如下</span></span><br><span class="line">    <span class="comment">// resolve:&#123;</span></span><br><span class="line">    <span class="comment">//     alias:&#123;</span></span><br><span class="line">    <span class="comment">//         "vue$":"vue/dist/vue.js"</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"this is test"</span>);</span><br><span class="line"><span class="keyword">import</span> login <span class="keyword">from</span> <span class="string">'./login.vue'</span></span><br><span class="line"><span class="comment">//此处已经不能使用components属性集成组件ß</span></span><br><span class="line"><span class="keyword">var</span> vm= <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">"#app"</span>,</span><br><span class="line">	data:&#123;</span><br><span class="line">		msg:<span class="string">'massage'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	        render:<span class="function"><span class="keyword">function</span> (<span class="params">createElements</span>) </span>&#123;<span class="comment">//createElements是一个方法，调用他能够把制定的组件模板渲染为html结构ß</span></span><br><span class="line">            <span class="keyword">return</span> createElements(login)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render:function (createElements) &#123;</span><br><span class="line"></span><br><span class="line">return createElements(login) &#125;</span><br></pre></td></tr></table></figure>
+<p>可以简写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render: c =&gt; c(login)</span><br></pre></td></tr></table></figure>
+<p>步骤总结</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.安装vue的包：npm i vue -S</span><br><span class="line">2.由于在webpack中，推荐使用.vue这个组件模板文件定义组件，所以需要安装能解析这种文件的loader。npm i vue-loader vue-template-compiler -D</span><br><span class="line">3.在main.js中，导入vue模块import Vue from &apos;vue&apos;</span><br><span class="line">4.定义一个.vue文件的组件，其中，组件有三部分组成：template、script、style</span><br><span class="line">5.使用import login from &apos;./login.vue&apos;导入这个组件</span><br><span class="line">6.创建vm的实例var vm= new Vue(&#123;el:&quot;#app&quot;,render:c =&gt; c(login)&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/21/vue/vue-017vue配合webpack/" data-id="cjttum1ep00206sbndn4uffhf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/21/vue/vue-016父子组建间相互传递消息/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vue16父子组建间相互传递消息
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/21/vue/vue-005动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vue005动画</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis001：mybatis基本框架/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis002：dao抽取手动/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis004：SqlMapConfig配置文件/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis006：mapper输出映射/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis007：sql片段/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

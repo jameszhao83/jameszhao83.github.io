@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>webpak入门1 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="创建基本的webpack4.5项目 ​    json中不能写注释  第一步npm i webpack -G 还需要安装webpack的脚手架npm i webpack-cli  -D 第二步初始化项目npm -init -y 第三部在根目录建立webpack.config.js文件 12345678910111213141516171819202122//由于webpack是基于node构建的因">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpak入门1">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/webpack第一步/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="创建基本的webpack4.5项目 ​    json中不能写注释  第一步npm i webpack -G 还需要安装webpack的脚手架npm i webpack-cli  -D 第二步初始化项目npm -init -y 第三部在根目录建立webpack.config.js文件 12345678910111213141516171819202122//由于webpack是基于node构建的因">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-29T09:49:33.271Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpak入门1">
+<meta name="twitter:description" content="创建基本的webpack4.5项目 ​    json中不能写注释  第一步npm i webpack -G 还需要安装webpack的脚手架npm i webpack-cli  -D 第二步初始化项目npm -init -y 第三部在根目录建立webpack.config.js文件 12345678910111213141516171819202122//由于webpack是基于node构建的因">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webpack第一步" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/webpack第一步/" class="article-date">
+  <time datetime="2017-05-02T06:11:11.000Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/webpack/">webpack</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpak入门1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="创建基本的webpack4-5项目"><a href="#创建基本的webpack4-5项目" class="headerlink" title="创建基本的webpack4.5项目"></a>创建基本的webpack4.5项目</h2><blockquote>
+<p>​    <strong>json中不能写注释</strong></p>
+</blockquote>
+<h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><p><code>npm i webpack -G</code></p>
+<p>还需要安装webpack的脚手架<br><code>npm i webpack-cli  -D</code></p>
+<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><p>初始化项目<br><code>npm -init -y</code></p>
+<h4 id="第三部"><a href="#第三部" class="headerlink" title="第三部"></a>第三部</h4><p>在根目录建立<code>webpack.config.js</code>文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//由于webpack是基于node构建的因此webpack中可以识别node语法</span></span><br><span class="line"><span class="keyword">const</span>  path= <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span>  htmlWebpackPlugin=<span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//这个文件只是js文件，通过node中的模块操作，向外暴露一个配置对象</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    <span class="comment">//入口文件</span></span><br><span class="line">    entry: path.join(__dirname,<span class="string">'./src/main.js'</span>),</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">    <span class="comment">//出口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname,<span class="string">'./dist'</span>),</span><br><span class="line">        filename: <span class="string">"bundle.js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//此处用到了html-webpack-plugin插件</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template:path.join(__dirname,<span class="string">"./src/index.html"</span>),</span><br><span class="line">            filename:<span class="string">'index.html'</span></span><br><span class="line">        &#125;)<span class="comment">//这个插件可以在内存中生成一个html页面的插件</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在此处需设置输入及输出的js文件，如上输入的js文件即main.js，输出的js文件是bundle.js</p>
+<h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><p>由于需要动态更新编写的页面，因此需安装<code>webpack-dev-server</code><br><code>npm i webpack-dev-server -D</code></p>
+<p>同时在<code>package.json</code>中设置启动</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --open --port 3000 --hot"</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>如此就可以在项目当前目录地下使用npm run dev使得项目运行起来</p>
+<h4 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h4><ul>
+<li>配置页面内存映射</li>
+</ul>
+<p>由于bindle.js可以生成在内存中，如果需要把页面也生成到内存中则需要安装<code>html-webpack-plugin</code>插件<br>命令是</p>
+<p><code>npm i html-webpack-plugin</code><br>如果需要<code>webpack.json</code>中引用css文件则需要安装第三方loader</p>
+<ul>
+<li><p>第一步需安装以下包</p>
+<p><code>style-loader  css-loader</code></p>
+</li>
+<li><p>第二步修改配置文件</p>
+</li>
+</ul>
+<p>同时需要在webpack.config.js文件中添加如下配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">rules: [</span><br><span class="line">    &#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;</span><br><span class="line">]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步在 主js文件中添加对自行编写css的引用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./css/index.css'</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/webpack第一步/" data-id="cjttvyfen0004aobnwqewy2zl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/02/webpack第二步/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          webpak入门2
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis001：mybatis基本框架/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis002：dao抽取手动/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis004：SqlMapConfig配置文件/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis006：mapper输出映射/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/29/mybatis/mybatis007：sql片段/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
