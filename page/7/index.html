@@ -62,9 +62,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-mybatis/mybatis010：多对多查询" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mybatis/mybatis008：一对一查询" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/15/mybatis/mybatis010：多对多查询/" class="article-date">
+    <a href="/2018/06/15/mybatis/mybatis008：一对一查询/" class="article-date">
   <time datetime="2018-06-15T12:10:14.000Z" itemprop="datePublished">2018-06-15</time>
 </a>
     
@@ -80,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/15/mybatis/mybatis010：多对多查询/">mybatis010多对多查询</a>
+      <a class="article-title" href="/2018/06/15/mybatis/mybatis008：一对一查询/">mybatis08一对一查询</a>
     </h1>
   
 
@@ -88,26 +88,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="mybatis多对多查询"><a href="#mybatis多对多查询" class="headerlink" title="mybatis多对多查询"></a>mybatis多对多查询</h1><p>一、应用场景</p>
-<p>查询所有用户及其购买的商品</p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><blockquote>
-<p>​    修改user，让其持有orders的集合list</p>
-</blockquote>
-<p>第二步</p>
+        <h1 id="mybatis一对一查询"><a href="#mybatis一对一查询" class="headerlink" title="mybatis一对一查询"></a>mybatis一对一查询</h1><p>业务场景：</p>
+<p>由order查询用户信息，即为一对一查询方式</p>
+<p>有两种实现方式</p>
+<p><strong>resultType</strong>：使用resultType实现较为简单，如果pojo中没有包括查询出来的列名，需要增加列名对应的属性，即可完成映射。</p>
+<p>如果没有查询结果的特殊要求建议使用resultType。</p>
+<p><strong>resultMap</strong>：需要单独定义resultMap，实现有点麻烦，如果对查询结果有特殊的要求，使用resultMap可以完成将关联查询映射pojo的属性中。</p>
+<p>resultMap可以实现延迟加载，resultType无法实现延迟加载。</p>
+<h2 id="resultType方式"><a href="#resultType方式" class="headerlink" title="resultType方式"></a>resultType方式</h2><p>一、mapperxml配置信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--由订单导用户查询，一对一---&gt;</span></span><br><span class="line"></span><br><span class="line">​	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOrderUser"</span> <span class="attr">resultType</span>=<span class="string">"OrderUserCustom"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​	select orders.*,user.username,user.address,user.sex from orders,user where orders.user_id = user.id</span><br><span class="line"></span><br><span class="line">​	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>二、返回对象类型（即为order的扩展类）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.james.po;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderUserCustom</span> <span class="keyword">extends</span> <span class="title">Order</span> </span>&#123;</span><br><span class="line"><span class="comment">//以下属性均为为了order查询user的扩展属性</span></span><br><span class="line">	String userName;</span><br><span class="line"></span><br><span class="line">	Date birthday ;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">char</span> sex;</span><br><span class="line"></span><br><span class="line">	String address;</span><br><span class="line"></span><br><span class="line">getter setter略。。。。。。。。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="resultMap方式"><a href="#resultMap方式" class="headerlink" title="resultMap方式"></a>resultMap方式</h2><p>resultMap方式第一步需要在order类中增加User类属性</p>
+<p>这样做的优势是对象关系明确，没有手工扩展order类中的user属性</p>
 <blockquote>
-<p>​    修改orders让其持有orderdetail集合</p>
+<p>​    association：用于映射关联查询单个对象的信息 </p>
 </blockquote>
-<p>第三步</p>
-<blockquote>
-<p>​    修改orderdetail，让其持有item对象</p>
-</blockquote>
-<p>Mapper.xml配置文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 多对多查询 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.User"</span> <span class="attr">id</span>=<span class="string">"selectUserAllItemResultMap"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"userName"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"ordersList"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orders"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"orderdetails"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orderdetail"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"orderdetail_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"itemsId"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_num"</span> <span class="attr">property</span>=<span class="string">"itemsNum"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"orders_id"</span> <span class="attr">property</span>=<span class="string">"ordersId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"items"</span>  <span class="attr">javaType</span>=<span class="string">"com.james.po.Items"</span>&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_name"</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_detail"</span> <span class="attr">property</span>=<span class="string">"detail"</span>/&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_price"</span> <span class="attr">property</span>=<span class="string">"price"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">collection</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 多对多查询，查询所有用户购买的所有商品 --&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectUserAllItem"</span> <span class="attr">resultMap</span>=<span class="string">"selectUserAllItemResultMap"</span>&gt;</span></span><br><span class="line">		SELECT </span><br><span class="line">		orders.*,</span><br><span class="line">		USER.username,</span><br><span class="line">		USER.sex,</span><br><span class="line">		USER.address,</span><br><span class="line">		orderdetail.id orderdetail_id,</span><br><span class="line">		orderdetail.items_id,</span><br><span class="line">		orderdetail.items_num,</span><br><span class="line">		orderdetail.orders_id,</span><br><span class="line">		items.name items_name,</span><br><span class="line">		items.detail items_detail,</span><br><span class="line">		items.price items_price</span><br><span class="line">		FROM</span><br><span class="line">		orders,USER,orderdetail,items</span><br><span class="line">		WHERE orders.user_id = user.id AND orderdetail.orders_id=orders.id AND orderdetail.items_id = items.id</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一、mapperxml配置信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--由订单查用户，即为一对一形式，为resultMap方式--&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"OrderUserCustom"</span> <span class="attr">id</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"user_id"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span>  <span class="attr">javaType</span>=<span class="string">"com.james.po.User"</span> &gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"userName"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">association</span>&gt;</span> </span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectOrderUserResultMap"</span> <span class="attr">resultMap</span>=<span class="string">"OrderUserResultMap"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	select orders.*,user.username,user.address,user.sex from orders,user where orders.user_id = user.id</span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>二、返回对象类型（直接在order类中加入user的属性）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Order</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> id;        </span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> user_id;   </span><br><span class="line"></span><br><span class="line">String number;    </span><br><span class="line"></span><br><span class="line">Date createtime;</span><br><span class="line"></span><br><span class="line">String note;</span><br><span class="line"></span><br><span class="line">User user;</span><br><span class="line"></span><br><span class="line">getter setter略。。。。。。。。</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/15/mybatis/mybatis010：多对多查询/" data-id="cjttum1cx000e6sbn57y8myrn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/15/mybatis/mybatis008：一对一查询/" data-id="cjttum1cr000c6sbnevs99ckn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,9 +190,9 @@
 
 
   
-    <article id="post-mybatis/mybatis004：SqlMapConfig配置文件" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mybatis/mybatis010：多对多查询" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/15/mybatis/mybatis004：SqlMapConfig配置文件/" class="article-date">
+    <a href="/2018/06/15/mybatis/mybatis010：多对多查询/" class="article-date">
   <time datetime="2018-06-15T12:10:14.000Z" itemprop="datePublished">2018-06-15</time>
 </a>
     
@@ -203,7 +208,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/15/mybatis/mybatis004：SqlMapConfig配置文件/">mybatis04SqlMapConfig配置文件</a>
+      <a class="article-title" href="/2018/06/15/mybatis/mybatis010：多对多查询/">mybatis010多对多查询</a>
     </h1>
   
 
@@ -211,332 +216,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="mybatis004SqlMapConfig配置文件"><a href="#mybatis004SqlMapConfig配置文件" class="headerlink" title="mybatis004SqlMapConfig配置文件"></a>mybatis004SqlMapConfig配置文件</h1><p>mybatis的全局配置文件SqlMapConfig.xml，配置类型如下：</p>
-<table>
-<thead>
-<tr>
-<th>配置类型</th>
-<th>配置类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>properties</td>
-<td>属性</td>
-</tr>
-<tr>
-<td>properties</td>
-<td>属性</td>
-</tr>
-<tr>
-<td>settings</td>
-<td>全局配置参数</td>
-</tr>
-<tr>
-<td>typeAliases</td>
-<td>类型别名</td>
-</tr>
-<tr>
-<td>typeHandlers</td>
-<td>类型处理器</td>
-</tr>
-<tr>
-<td>objectFactory</td>
-<td>对象工厂</td>
-</tr>
-<tr>
-<td>plugins</td>
-<td>插件</td>
-</tr>
-<tr>
-<td>environments</td>
-<td>环境集合属性对象</td>
-</tr>
-<tr>
-<td>environment</td>
-<td>环境子属性对象</td>
-</tr>
-<tr>
-<td>transactionManager</td>
-<td>事务管理</td>
-</tr>
-<tr>
-<td>dataSource</td>
-<td>数据源</td>
-</tr>
-<tr>
-<td>mappers</td>
-<td>映射器</td>
-</tr>
-</tbody>
-</table>
-<p>配置文件示范</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">"http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"db.properties"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 和spring整合后废除该部分配置内容 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driver&#125;"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"sqlmap/User.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">"mapper.UserMapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span> </span><br><span class="line">	<span class="comment">&lt;!-- 批量加载 </span></span><br><span class="line"><span class="comment">	&lt;package name="com.james.mapper" /&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>详解</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"db.properties"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="一、properties特性"><a href="#一、properties特性" class="headerlink" title="一、properties特性"></a>一、properties特性</h3><ul>
-<li>在properties中的配置信息会被先行读取</li>
-<li>u 然后会读取properties 元素中resource或 url 加载的属性，它会覆盖已读取的同名属性。 </li>
-<li>u 最后读取parameterType传递的属性，它会覆盖已读取的同名属性。</li>
-</ul>
+        <h1 id="mybatis多对多查询"><a href="#mybatis多对多查询" class="headerlink" title="mybatis多对多查询"></a>mybatis多对多查询</h1><p>一、应用场景</p>
+<p>查询所有用户及其购买的商品</p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><blockquote>
+<p>​    修改user，让其持有orders的集合list</p>
+</blockquote>
+<p>第二步</p>
 <blockquote>
-<p>不要在properties元素体内添加任何属性值，只将属性值定义在properties文件中。在properties文件中定义属性名要有一定的特殊性，如：XXXXX.XXXXX.XXXX</p>
+<p>​    修改orders让其持有orderdetail集合</p>
 </blockquote>
-<h4 id="二、settings全局参数配置"><a href="#二、settings全局参数配置" class="headerlink" title="二、settings全局参数配置"></a>二、settings全局参数配置</h4><p>mybatis框架在运行时可以调整一些运行参数。比如：开启二级缓存、开启延迟加载。。</p>
-<p> 全局参数将会影响mybatis的运行行为。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Setting(设置)</th>
-<th>Description（描述）</th>
-<th>Valid Values(验证值组)</th>
-<th>Default(默认值)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">cacheEnabled</td>
-<td>在全局范围内启用或禁用缓存配置任何映射器在此配置下。</td>
-<td>true \</td>
-<td>false</td>
-<td>TRUE</td>
-</tr>
-<tr>
-<td style="text-align:left">lazyLoadingEnabled</td>
-<td>在全局范围内启用或禁用延迟加载。禁用时，所有协会将热加载。</td>
-<td>true \</td>
-<td>false</td>
-<td>TRUE</td>
-</tr>
-<tr>
-<td style="text-align:left">aggressiveLazyLoading</td>
-<td>启用时，有延迟加载属性的对象将被完全加载后调用懒惰的任何属性。否则，每一个属性是按需加载。</td>
-<td>true \</td>
-<td>false</td>
-<td>TRUE</td>
-</tr>
-<tr>
-<td style="text-align:left">multipleResultSetsEnabled</td>
-<td>允许或不允许从一个单独的语句（需要兼容的驱动程序）要返回多个结果集。</td>
-<td>true \</td>
-<td>false</td>
-<td>TRUE</td>
-</tr>
-<tr>
-<td style="text-align:left">useColumnLabel</td>
-<td>使用列标签，而不是列名。在这方面，不同的驱动有不同的行为。参考驱动文档或测试两种方法来决定你的驱动程序的行为如何。</td>
-<td>true \</td>
-<td>false</td>
-<td>TRUE</td>
-</tr>
-<tr>
-<td style="text-align:left">useGeneratedKeys</td>
-<td>允许JDBC支持生成的密钥。兼容的驱动程序是必需的。此设置强制生成的键被使用，如果设置为true，一些驱动会不兼容性，但仍然可以工作。</td>
-<td>true \</td>
-<td>false</td>
-<td>FALSE</td>
-</tr>
-<tr>
-<td style="text-align:left">autoMappingBehavior</td>
-<td>指定MyBatis的应如何自动映射列到字段/属性。NONE自动映射。 PARTIAL只会自动映射结果没有嵌套结果映射定义里面。 FULL会自动映射的结果映射任何复杂的（包含嵌套或其他）。</td>
-<td>NONE, PARTIAL, FULL</td>
-<td>PARTIAL</td>
-</tr>
-<tr>
-<td style="text-align:left">defaultExecutorType</td>
-<td>配置默认执行人。SIMPLE执行人确实没有什么特别的。 REUSE执行器重用准备好的语句。 BATCH执行器重用语句和批处理更新。</td>
-<td>SIMPLE REUSE BATCH</td>
-<td>SIMPLE</td>
-</tr>
-<tr>
-<td style="text-align:left">defaultStatementTimeout</td>
-<td>设置驱动程序等待一个数据库响应的秒数。</td>
-<td>Any positive integer</td>
-<td>Not Set (null)</td>
-</tr>
-<tr>
-<td style="text-align:left">safeRowBoundsEnabled</td>
-<td>允许使用嵌套的语句RowBounds。</td>
-<td>true \</td>
-<td>false</td>
-<td>FALSE</td>
-</tr>
-<tr>
-<td style="text-align:left">mapUnderscoreToCamelCase</td>
-<td>从经典的数据库列名A_COLUMN启用自动映射到骆驼标识的经典的Java属性名aColumn。</td>
-<td>true \</td>
-<td>false</td>
-<td>FALSE</td>
-</tr>
-<tr>
-<td style="text-align:left">localCacheScope</td>
-<td>MyBatis的使用本地缓存，以防止循环引用，并加快反复嵌套查询。默认情况下（SESSION）会话期间执行的所有查询缓存。如果localCacheScope=STATMENT本地会话将被用于语句的执行，只是没有将数据共享之间的两个不同的调用相同的SqlSession。</td>
-<td>SESSION \</td>
-<td>STATEMENT</td>
-<td>SESSION</td>
-</tr>
-<tr>
-<td style="text-align:left">dbcTypeForNull</td>
-<td>指定为空值时，没有特定的JDBC类型的参数的JDBC类型。有些驱动需要指定列的JDBC类型，但其他像NULL，VARCHAR或OTHER的工作与通用值。</td>
-<td>JdbcType enumeration. Most common are: NULL, VARCHAR and OTHER</td>
-<td>OTHER</td>
-</tr>
-<tr>
-<td style="text-align:left">lazyLoadTriggerMethods</td>
-<td>指定触发延迟加载的对象的方法。</td>
-<td>A method name list separated by commas</td>
-<td>equals,clone,hashCode,toString</td>
-</tr>
-<tr>
-<td style="text-align:left">defaultScriptingLanguage</td>
-<td>指定所使用的语言默认为动态SQL生成。</td>
-<td>A type alias or fully qualified class name.</td>
-<td>org.apache.ibatis.scripting.xmltags.XMLDynamicLanguageDriver</td>
-</tr>
-<tr>
-<td style="text-align:left">callSettersOnNulls</td>
-<td>指定如果setter方法或地图的put方法时，将调用检索到的值是null。它是有用的，当你依靠Map.keySet（）或null初始化。注意原语（如整型，布尔等）不会被设置为null。</td>
-<td>true \</td>
-<td>false</td>
-<td>FALSE</td>
-</tr>
-<tr>
-<td style="text-align:left">logPrefix</td>
-<td>指定的前缀字串，MyBatis将会增加记录器的名称。</td>
-<td>Any String</td>
-<td>Not set</td>
-</tr>
-<tr>
-<td style="text-align:left">logImpl</td>
-<td>指定MyBatis的日志实现使用。如果此设置是不存在的记录的实施将自动查找。</td>
-<td>SLF4J \</td>
-<td>LOG4J \</td>
-<td>LOG4J2 \</td>
-<td>JDK_LOGGING \</td>
-<td>COMMONS_LOGGING \</td>
-<td>STDOUT_LOGGING \</td>
-<td>NO_LOGGING</td>
-<td>Not set</td>
-</tr>
-<tr>
-<td style="text-align:left">proxyFactory</td>
-<td>指定代理工具，MyBatis将会使用创建懒加载能力的对象。</td>
-<td>CGLIB \</td>
-<td>JAVASSIST</td>
-</tr>
-</tbody>
-</table>
-<h4 id="三、typeAliases（别名）重点"><a href="#三、typeAliases（别名）重点" class="headerlink" title="三、typeAliases（别名）重点"></a>三、typeAliases（别名）重点</h4><p>在mapper.xml中，定义很多的statement，statement需要parameterType指定输入参数的类型、需要resultType指定输出结果的映射类型。</p>
-<p> 如果在指定类型时输入类型全路径，不方便进行开发，可以针对parameterType或resultType指定的类型定义一些别名，在mapper.xml中通过别名定义，方便开发。</p>
-<table>
-<thead>
-<tr>
-<th>别名</th>
-<th>映射的类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>_byte</td>
-<td>byte</td>
-</tr>
-<tr>
-<td>_long</td>
-<td>long</td>
-</tr>
-<tr>
-<td>_short</td>
-<td>short</td>
-</tr>
-<tr>
-<td>_int</td>
-<td>int</td>
-</tr>
-<tr>
-<td>_integer</td>
-<td>int</td>
-</tr>
-<tr>
-<td>_double</td>
-<td>double</td>
-</tr>
-<tr>
-<td>_float</td>
-<td>float</td>
-</tr>
-<tr>
-<td>_boolean</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>string</td>
-<td>String</td>
-</tr>
-<tr>
-<td>byte</td>
-<td>Byte</td>
-</tr>
-<tr>
-<td>long</td>
-<td>Long</td>
-</tr>
-<tr>
-<td>short</td>
-<td>Short</td>
-</tr>
-<tr>
-<td>int</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>integer</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>double</td>
-<td>Double</td>
-</tr>
-<tr>
-<td>float</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>date</td>
-<td>Date</td>
-</tr>
-<tr>
-<td>decimal</td>
-<td>BigDecimal</td>
-</tr>
-<tr>
-<td>bigdecimal</td>
-<td>BigDecimal</td>
-</tr>
-</tbody>
-</table>
-<p>自定义别名示例如下</p>
-<p>如在sqlmapconfig中定义了别名User</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"db.properties"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">typeAlias</span> <span class="attr">type</span>=<span class="string">"com.james.po.User"</span> <span class="attr">alias</span>=<span class="string">"User"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 和spring整合后废除该部分配置内容 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">略。。。。。。。。。</span><br><span class="line">	<span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"sqlmap/User.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">"mapper.UserMapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span> </span><br><span class="line">	<span class="comment">&lt;!-- 批量加载 </span></span><br><span class="line"><span class="comment">	&lt;package name="com.james.mapper" /&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>就可以在mapper.xml中进行引用</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"mapper.UserMapper"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserById"</span>  <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"User"</span>&gt;</span></span><br><span class="line">	SELECT * FROM user   where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">略。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>同时最常用的应该是批量定义别名，类名及别名</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.james.po"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="四、mappers（映射配置）"><a href="#四、mappers（映射配置）" class="headerlink" title="四、mappers（映射配置）"></a>四、mappers（映射配置）</h4><h5 id="4-1-通过resource加载单个映射文件"><a href="#4-1-通过resource加载单个映射文件" class="headerlink" title="4.1 通过resource加载单个映射文件"></a>4.1 <strong>通过resource加载单个映射文件</strong></h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"sqlmap/User.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>4.2 <strong>通过mapper接口加载单个mapper</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">"mapper.UserMapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="4-3-批量加载mapper-推荐使用"><a href="#4-3-批量加载mapper-推荐使用" class="headerlink" title="4.3 批量加载mapper(推荐使用)"></a>4.3 <strong>批量加载mapper(推荐使用)</strong></h5><blockquote>
-<p>​    要求：映射mapper xml与mapper类名字必须一致</p>
+<p>第三步</p>
+<blockquote>
+<p>​    修改orderdetail，让其持有item对象</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.james.mapper"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Mapper.xml配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 多对多查询 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.james.po.User"</span> <span class="attr">id</span>=<span class="string">"selectUserAllItemResultMap"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username"</span> <span class="attr">property</span>=<span class="string">"userName"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"sex"</span> <span class="attr">property</span>=<span class="string">"sex"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"address"</span> <span class="attr">property</span>=<span class="string">"address"</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"ordersList"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orders"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"orderdetails"</span> <span class="attr">ofType</span>=<span class="string">"com.james.po.Orderdetail"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"orderdetail_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"itemsId"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_num"</span> <span class="attr">property</span>=<span class="string">"itemsNum"</span>/&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"orders_id"</span> <span class="attr">property</span>=<span class="string">"ordersId"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"items"</span>  <span class="attr">javaType</span>=<span class="string">"com.james.po.Items"</span>&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"items_id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_name"</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_detail"</span> <span class="attr">property</span>=<span class="string">"detail"</span>/&gt;</span></span><br><span class="line">		  	 		<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"items_price"</span> <span class="attr">property</span>=<span class="string">"price"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">collection</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">collection</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 多对多查询，查询所有用户购买的所有商品 --&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectUserAllItem"</span> <span class="attr">resultMap</span>=<span class="string">"selectUserAllItemResultMap"</span>&gt;</span></span><br><span class="line">		SELECT </span><br><span class="line">		orders.*,</span><br><span class="line">		USER.username,</span><br><span class="line">		USER.sex,</span><br><span class="line">		USER.address,</span><br><span class="line">		orderdetail.id orderdetail_id,</span><br><span class="line">		orderdetail.items_id,</span><br><span class="line">		orderdetail.items_num,</span><br><span class="line">		orderdetail.orders_id,</span><br><span class="line">		items.name items_name,</span><br><span class="line">		items.detail items_detail,</span><br><span class="line">		items.price items_price</span><br><span class="line">		FROM</span><br><span class="line">		orders,USER,orderdetail,items</span><br><span class="line">		WHERE orders.user_id = user.id AND orderdetail.orders_id=orders.id AND orderdetail.items_id = items.id</span><br><span class="line">	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/15/mybatis/mybatis004：SqlMapConfig配置文件/" data-id="cjttum1f500286sbnhmoknxny" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/15/mybatis/mybatis010：多对多查询/" data-id="cjttum1cx000e6sbn57y8myrn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -911,7 +610,7 @@
           </li>
         
           <li>
-            <a href="/2019/03/29/python/python011面向对象/">(no title)</a>
+            <a href="/2019/03/29/springmvc/springmybatis自动生成代码查询/">(no title)</a>
           </li>
         
           <li>
