@@ -62,14 +62,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-python/python004比较(即关系)运算符" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nodejs/nodejs-001文件处理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/20/python/python004比较(即关系)运算符/" class="article-date">
+    <a href="/2018/06/20/nodejs/nodejs-001文件处理/" class="article-date">
   <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
   </div>
 
   </div>
@@ -80,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/python/python004比较(即关系)运算符/">python004比较运算符</a>
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-001文件处理/">nodejs001文件处理</a>
     </h1>
   
 
@@ -88,88 +88,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="运算符号"><a href="#运算符号" class="headerlink" title="运算符号"></a>运算符号</h1><table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>Python 表达式</th>
-<th>结果</th>
-<th>描述</th>
-<th>支持的数据类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+</td>
-<td>[1, 2] + [3, 4]</td>
-<td>[1, 2, 3, 4]</td>
-<td>合并</td>
-<td>字符串、列表、元组</td>
-</tr>
-<tr>
-<td>*</td>
-<td>‘Hi!’ * 4</td>
-<td>[‘Hi!’, ‘Hi!’, ‘Hi!’, ‘Hi!’]</td>
-<td>复制</td>
-<td>字符串、列表、元组</td>
-</tr>
-<tr>
-<td>in</td>
-<td>3 in (1, 2, 3)</td>
-<td>True</td>
-<td>元素是否存在</td>
-<td>字符串、列表、元组、字典</td>
-</tr>
-<tr>
-<td>not in</td>
-<td>4 not in (1, 2, 3)</td>
-<td>True</td>
-<td>元素是否不存在</td>
-<td>字符串、列表、元组、字典</td>
-</tr>
-</tbody>
-</table>
-<h1 id="python内置函数"><a href="#python内置函数" class="headerlink" title="python内置函数"></a>python内置函数</h1><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>cmp(item1, item2)</td>
-<td>比较两个值</td>
-</tr>
-<tr>
-<td>2</td>
-<td>len(item)</td>
-<td>计算容器中元素个数</td>
-</tr>
-<tr>
-<td>3</td>
-<td>max(item)</td>
-<td>返回容器中元素最大值</td>
-</tr>
-<tr>
-<td>4</td>
-<td>min(item)</td>
-<td>返回容器中元素最小值</td>
-</tr>
-<tr>
-<td>5</td>
-<td>del(item)</td>
-<td>删除变量</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="nodejs-文件操作"><a href="#nodejs-文件操作" class="headerlink" title="nodejs 文件操作"></a>nodejs 文件操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* @Author: Marte</span></span><br><span class="line"><span class="comment">* @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">* @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">* @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/python/python004比较(即关系)运算符/" data-id="cjttw2eqc0007mwbn6oo586uq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-001文件处理/" data-id="cjttw2ep30000mwbn4lpmo9i3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -273,6 +197,48 @@
 
 
   
+    <article id="post-nodejs/nodejs-002file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/nodejs/nodejs-002file/" class="article-date">
+  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/20/nodejs/nodejs-002file/">nodejs002file操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="nodejs001"><a href="#nodejs001" class="headerlink" title="nodejs001"></a>nodejs001</h1><p>Nodejs文件写入及读取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">- @Author: Marte</span></span><br><span class="line"><span class="comment">- @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">- @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">- @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="comment">//必须引入文件操作组件</span></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test 写文件操作</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//读文件操作</span></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-002file/" data-id="cjty36ypf0000h3bnonioo38e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-nodejs/nodejs-003http" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/20/nodejs/nodejs-003http/" class="article-date">
@@ -308,48 +274,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-003http/" data-id="cjty36yq40001h3bno2s6p7wk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nodejs/nodejs-002file" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/20/nodejs/nodejs-002file/" class="article-date">
-  <time datetime="2018-06-20T14:28:10.000Z" itemprop="datePublished">2018-06-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/nodejs/nodejs-002file/">nodejs002file操作</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="nodejs001"><a href="#nodejs001" class="headerlink" title="nodejs001"></a>nodejs001</h1><p>Nodejs文件写入及读取</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">- @Author: Marte</span></span><br><span class="line"><span class="comment">- @Date:   2018-06-24 16:36:54</span></span><br><span class="line"><span class="comment">- @Last Modified by:   Marte</span></span><br><span class="line"><span class="comment">- @Last Modified time: 2018-06-24 17:22:14</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="comment">//必须引入文件操作组件</span></span><br><span class="line"><span class="keyword">var</span> fs =<span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> msg=<span class="string">"helloworld  test"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var fileName=__dirname + '\' + 'hello.txt';</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>  fileName = path.join(__dirname,<span class="string">'hello.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// file write test 写文件操作</span></span><br><span class="line">fs.writeFile(fileName,msg,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(error)&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">"write fail"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"write success"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//读文件操作</span></span><br><span class="line">fs.readFile(fileName,<span class="string">'utf8'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,data</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> error;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">console</span>.log(data.toString(<span class="string">"utf8"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/nodejs/nodejs-002file/" data-id="cjty36ypf0000h3bnonioo38e" class="article-share-link">Share</a>
       
       
     </footer>
